@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        drawable="@drawable/ic_baseline_home_24"
+        text="@string/home" />
+
+    <tab
+        drawable="@drawable/ic_baseline_flight_24"
+        text="@string/flights" />
+
+    <tab
+        drawable="@drawable/ic_baseline_location_on_24"
+        text="@string/maps" />
+
+    <tab
+        drawable="@drawable/ic_baseline_directions_transit_24"
+        text="@string/transportation" />
+
+    <tab
+        drawable="@drawable/ic_baseline_menu_24"
+        text="@string/more" />
+
+</tabs>
