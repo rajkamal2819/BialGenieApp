@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transit"
+    app:startDestination="@id/transportationFragment">
+
+    <fragment
+        android:id="@+id/transportationFragment"
+        android:name="com.Hackathon.bialgenieapp.Fragments.Transit.TransportationFragment"
+        android:label="fragment_transportation"
+        tools:layout="@layout/fragment_transportation" >
+        <action
+            android:id="@+id/action_transportationFragment_to_transit_Bus"
+            app:destination="@id/transit_Bus"
+            />
+        <action
+            android:id="@+id/action_transportationFragment_to_transit_Parking"
+            app:destination="@id/transit_Parking" />
+        <action
+            android:id="@+id/action_transportationFragment_to_transit_Train"
+            app:destination="@id/transit_Train" />
+        <action
+            android:id="@+id/action_transportationFragment_to_transit_Cab"
+            app:destination="@id/transit_Cab" />
+    </fragment>
+    <fragment
+        android:id="@+id/transit_Bus"
+        android:name="com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Bus"
+        android:label="fragment_transit__bus"
+        tools:layout="@layout/fragment_transit__bus" >
+        <action
+            android:id="@+id/action_transit_Bus_to_transportationFragment"
+            app:destination="@id/transportationFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/transit_Bus"/>
+    </fragment>
+    <fragment
+        android:id="@+id/transit_Parking"
+        android:name="com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Parking"
+        android:label="fragment_transit__parking"
+        tools:layout="@layout/fragment_transit__parking" >
+        <action
+            android:id="@+id/action_transit_Parking_to_transportationFragment"
+            app:destination="@id/transportationFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/transit_Parking"/>
+    </fragment>
+    <fragment
+        android:id="@+id/transit_Train"
+        android:name="com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Train"
+        android:label="fragment_transit__train"
+        tools:layout="@layout/fragment_transit__train" >
+        <action
+            android:id="@+id/action_transit_Train_to_transportationFragment"
+            app:destination="@id/transportationFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/transit_Train"/>
+    </fragment>
+    <fragment
+        android:id="@+id/transit_Cab"
+        android:name="com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab"
+        android:label="fragment_transit__cab"
+        tools:layout="@layout/fragment_transit__cab" >
+        <action
+            android:id="@+id/action_transit_Cab_to_transportationFragment"
+            app:destination="@id/transportationFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/transit_Cab"/>
+    </fragment>
+</navigation>

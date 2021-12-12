@@ -1,20 +1,17 @@
 package com.Hackathon.bialgenieapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 
 import com.Hackathon.bialgenieapp.Fragments.FlightsFragment;
 import com.Hackathon.bialgenieapp.Fragments.HomeFragment;
 import com.Hackathon.bialgenieapp.Fragments.MapsFragment;
 import com.Hackathon.bialgenieapp.Fragments.MoreFragment;
-import com.Hackathon.bialgenieapp.Fragments.TransportationFragment;
+import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Home;
+import com.Hackathon.bialgenieapp.Fragments.Transit.TransportationFragment;
 import com.Hackathon.bialgenieapp.databinding.ActivityMainBinding;
-import com.google.android.material.navigation.NavigationBarView;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 
 
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.main_content, new MapsFragment());
                         break;
                     case 3:
-                        transaction.replace(R.id.main_content, new TransportationFragment());
+                        transaction.replace(R.id.main_content, new Transit_Home());
                         break;
 
                     case 4:
