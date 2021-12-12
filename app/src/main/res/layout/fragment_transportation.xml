@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.TransportationFragment">
+    tools:context=".Fragments.Transit.TransportationFragment">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -172,7 +172,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Parking"
+                android:id="@+id/travel_parking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
