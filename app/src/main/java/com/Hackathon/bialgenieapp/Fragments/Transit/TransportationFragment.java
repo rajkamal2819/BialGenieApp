@@ -43,12 +43,12 @@ public class TransportationFragment extends Fragment {
         // Inflate the layout for this fragment
         bus.setOnClickListener(new View.OnClickListener() {
                                            public final void onClick(View it) {
-                                               Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Cab);
+                                               Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Bus);
                                            }
                                        });
         cab.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
-                Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Bus);
+                Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Cab);
             }
         });
         train.setOnClickListener(new View.OnClickListener() {
