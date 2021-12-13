@@ -9,10 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.Hackathon.bialgenieapp.Adapters.FragmentFlightAdapter;
 import com.Hackathon.bialgenieapp.Adapters.FragmentTransitCabAdapter;
 import com.Hackathon.bialgenieapp.R;
-import com.Hackathon.bialgenieapp.databinding.FragmentFlightsBinding;
 import com.Hackathon.bialgenieapp.databinding.FragmentTransitCabBinding;
 import com.google.android.material.tabs.TabLayout;
 
