@@ -31,7 +31,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/tabLayout_cab"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.iammert.library.readablebottombar.ReadableBottomBar
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpagerCab"
+            app:rbb_activeItemType="text"
+            app:rbb_indicatorColor="@color/skyBlue"
+            app:rbb_tabs="@xml/tabs" />
+    </androidx.viewpager.widget.ViewPager>
 
 
 </RelativeLayout>

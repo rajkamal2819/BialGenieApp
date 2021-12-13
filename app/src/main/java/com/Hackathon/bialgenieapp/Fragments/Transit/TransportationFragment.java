@@ -1,5 +1,6 @@
 package com.Hackathon.bialgenieapp.Fragments.Transit;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.Hackathon.bialgenieapp.MainActivity;
 import com.Hackathon.bialgenieapp.R;
 
 
@@ -43,22 +45,27 @@ public class TransportationFragment extends Fragment {
         // Inflate the layout for this fragment
         bus.setOnClickListener(new View.OnClickListener() {
                                            public final void onClick(View it) {
-                                               Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Bus);
+                                             Intent i = new Intent(getActivity(),Transit_Bus.class);
+                                             startActivity(i);
+
                                            }
                                        });
         cab.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
-                Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Cab);
+                Intent i = new Intent(getActivity(),Transit_Cab.class);
+                startActivity(i);
             }
         });
         train.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
-                Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Train);
+                Intent i = new Intent(getActivity(),Transit_Train.class);
+                startActivity(i);
             }
         });
         parking.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
-                Navigation.findNavController(v).navigate(R.id.action_transportationFragment_to_transit_Parking);
+                Intent i = new Intent(getActivity(),Transit_Parking.class);
+                startActivity(i);
             }
         });
 return v;

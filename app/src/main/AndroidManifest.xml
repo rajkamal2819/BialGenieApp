@@ -27,6 +27,33 @@
             android:screenOrientation="portrait"
             android:theme="@style/mainPage"
             android:exported="true"/>
+
+        <activity
+            android:name=".Fragments.Transit.Transit_Bus"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Fragments.Transit.Transit_Cab"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Fragments.Transit.Transit_Parking"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Fragments.Transit.Transit_Train"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
+            android:exported="true"/>
     </application>
+
+
+
 
 </manifest>
