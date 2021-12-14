@@ -6,22 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.FlightsFragment">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:background="@color/light_navyBlue"
-        android:fontFamily="sans-serif-medium"
         android:gravity="center"
-        android:text="Flights"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:orientation="horizontal"
+        android:paddingLeft="20dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_baseline_search_24"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="Search &amp; Track Flights"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout2"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@id/textView"
+        android:layout_below="@id/linearLayout4"
         android:background="@color/light_navyBlue"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/white" />

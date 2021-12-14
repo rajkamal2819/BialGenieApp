@@ -6,12 +6,14 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.Hackathon.bialgenieapp.Adapters.FlightItemAdapter;
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
 import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
 import com.Hackathon.bialgenieapp.R;
@@ -63,7 +65,7 @@ public class FlightDeparture extends Fragment {
         return binding.getRoot();
     }
 
-    protected void updateUi(ArrayList<ArDepModel> booksInfos) {
+    protected void updateUi(ArrayList<ArDepModel> flightsInfo) {
 
         // bookList = booksInfos;
 
@@ -71,8 +73,11 @@ public class FlightDeparture extends Fragment {
         binding.recyclerView.setAdapter(sliderAdapter);
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));*/
 
-      //  binding.textView3.setText(booksInfos.get(0).getAirportArrivalInformation().getAirportName()+"");
-         binding.textView3.setText(booksInfos.get(0).getAirlines()+"");
+        FlightItemAdapter flightAdapter = new FlightItemAdapter(flightsInfo,binding.recyclerViewDeparture,getContext(),2);
+        binding.recyclerViewDeparture.setAdapter(flightAdapter);
+        binding.recyclerViewDeparture.setLayoutManager(new LinearLayoutManager(getContext()));
+        flightAdapter.notifyDataSetChanged();
+
 
     }
 
@@ -89,6 +94,7 @@ public class FlightDeparture extends Fragment {
         protected void onPostExecute(ArrayList<ArDepModel> event) {
 
             //  binding.progressSpineer.setVisibility(View.GONE);
+            binding.progressBar1.setVisibility(View.GONE);
 
             if (event == null) {
                 //  binding.emptyNoBook.setText("No Books Found");

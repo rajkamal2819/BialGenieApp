@@ -1,40 +1,31 @@
-package com.Hackathon.bialgenieapp.Fragments;
+package com.Hackathon.bialgenieapp;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.DatePicker;
 
-import com.Hackathon.bialgenieapp.R;
-import com.Hackathon.bialgenieapp.databinding.FragmentFlightSearchBinding;
+import com.Hackathon.bialgenieapp.databinding.ActivityFlightSearchBinding;
 
 import java.util.Calendar;
 
+public class FlightSearchActivity extends AppCompatActivity {
 
-public class FlightSearch extends Fragment {
-
-    public FlightSearch() {
-        // Required empty public constructor
-    }
-
-    FragmentFlightSearchBinding binding;
+    ActivityFlightSearchBinding binding;
     DatePickerDialog.OnDateSetListener onDateSetListener;
     private String flightDate = "";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentFlightSearchBinding.inflate(getLayoutInflater());
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityFlightSearchBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(calendar.YEAR);
@@ -46,7 +37,7 @@ public class FlightSearch extends Fragment {
             @Override
             public void onClick(View v) {
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getApplicationContext(),
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,onDateSetListener,year,month,day);
 
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -65,8 +56,5 @@ public class FlightSearch extends Fragment {
             }
         };
 
-
-        return binding.getRoot();
     }
-
 }

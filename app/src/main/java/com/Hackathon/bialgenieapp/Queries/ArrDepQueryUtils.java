@@ -160,7 +160,7 @@ public class ArrDepQueryUtils {
                     JSONObject cur = airports.getJSONObject(i);
                     ArDepModel.airportInformation airMod = new ArDepModel.airportInformation();
                     airMod.setAirportName(cur.getString("name"));
-                    airMod.setCityName("city");
+                    airMod.setCityName(cur.getString("city"));
                     airMod.setLatitude(cur.getDouble("latitude"));
                     airMod.setLongitude(cur.getDouble("longitude"));
                     airMod.setElevationFeet(cur.getInt("elevationFeet"));

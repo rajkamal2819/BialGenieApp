@@ -7,12 +7,14 @@ import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.Hackathon.bialgenieapp.Adapters.FlightItemAdapter;
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
 import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
 import com.Hackathon.bialgenieapp.R;
@@ -34,7 +36,7 @@ public class FlightsArrival extends Fragment {
 
     private String Sample_Json_query = "";
     String jsonFirst = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/arr/";
-    String jsonEnd = "?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
+    String jsonEnd = "?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=20";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -56,13 +58,13 @@ public class FlightsArrival extends Fragment {
         Sample_Json_query = jsonFirst + jsonEnd;
 
 
-        DepartureAsyncTask task = new DepartureAsyncTask();
+        ArrivalAsyncTask task = new ArrivalAsyncTask();
         task.execute();
 
         return binding.getRoot();
     }
 
-    protected void updateUi(ArrayList<ArDepModel> booksInfos) {
+    protected void updateUi(ArrayList<ArDepModel> flightInfo) {
 
         // bookList = booksInfos;
 
@@ -70,11 +72,16 @@ public class FlightsArrival extends Fragment {
         binding.recyclerView.setAdapter(sliderAdapter);
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));*/
 
+        FlightItemAdapter flightAdapter = new FlightItemAdapter(flightInfo,binding.recyclerViewArriving,getContext(),1);
+        binding.recyclerViewArriving.setAdapter(flightAdapter);
+        binding.recyclerViewArriving.setLayoutManager(new LinearLayoutManager(getContext()));
+        flightAdapter.notifyDataSetChanged();
+
         //  binding.textView3.setText(booksInfos.get(0).getAirportArrivalInformation().getAirportName()+"");
 
     }
 
-    private class DepartureAsyncTask extends AsyncTask<URL, Void, ArrayList<ArDepModel>> {
+    private class ArrivalAsyncTask extends AsyncTask<URL, Void, ArrayList<ArDepModel>> {
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         protected ArrayList<ArDepModel> doInBackground(URL... urls) {
@@ -86,7 +93,8 @@ public class FlightsArrival extends Fragment {
         @Override
         protected void onPostExecute(ArrayList<ArDepModel> event) {
 
-            //  binding.progressSpineer.setVisibility(View.GONE);
+            binding.progressBar1.setVisibility(View.GONE);
+
 
             if (event == null) {
                 //  binding.emptyNoBook.setText("No Books Found");

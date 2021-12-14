@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.Hackathon.bialgenieapp.Fragments.FlightsArrival;
-import com.Hackathon.bialgenieapp.Fragments.FlightSearch;
 import com.Hackathon.bialgenieapp.Fragments.FlightDeparture;
 
 public class FragmentFlightAdapter extends FragmentPagerAdapter {
@@ -26,14 +25,13 @@ public class FragmentFlightAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0: return new FlightsArrival();
             case 1: return new FlightDeparture();
-            case 2: return new FlightSearch();
             default: return new FlightDeparture();
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Nullable
@@ -46,9 +44,6 @@ public class FragmentFlightAdapter extends FragmentPagerAdapter {
         }
         else if(position==1){
             title = "Departures";
-        }
-        else if(position==2){
-            title = "SEARCH";
         }
 
         return title;

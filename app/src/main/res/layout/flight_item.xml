@@ -6,7 +6,7 @@
     app:cardCornerRadius="6dp"
     app:cardBackgroundColor="#ADD8E6"
     android:layout_margin="8dp"
-    android:layout_height="200dp">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,16 +34,6 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-               <!-- <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:gravity="center"
-                    android:text="6E8529"
-                    android:textColor="@color/navy_blue"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />-->
-
                 <TextView
                     android:id="@+id/airlinesName"
                     android:layout_width="match_parent"
@@ -59,19 +49,19 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/linearLayout3"
             android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/departingTime"
+                    android:id="@+id/time1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
@@ -79,33 +69,33 @@
                     android:text="HH:MM" />
 
                 <TextView
-                    android:id="@+id/departingAirportCode"
+                    android:id="@+id/airportCode1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="BOM"
-                    android:textSize="50sp" />
+                    android:textSize="45sp" />
 
                 <TextView
-                    android:id="@+id/departingCityName"
+                    android:id="@+id/cityName1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:text="Mumbai"
-                    android:textSize="18sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
 
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/landImage"
@@ -124,47 +114,48 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginBottom="10dp"
                     android:text="6E8529"
-                    android:textColor="@color/navy_blue"
+                    android:textColor="@color/skyBlue"
                     android:textSize="26sp"
                     android:textStyle="bold" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/arrivingTime"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:layout_weight="1"
-               android:orientation="vertical">
-
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:text="HH:MM"
-                   android:gravity="center"
-                   android:layout_margin="4dp"/>
-
-               <TextView
-                   android:id="@+id/arrivingAirportCode"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_weight="1"
-                   android:textSize="50sp"
-                   android:layout_marginLeft="4dp"
-                   android:layout_marginRight="4dp"
-                   android:text="LCY"
-                   android:gravity="center"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/arrivingCityName"
+                    android:id="@+id/time2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="London"
-                    android:textSize="18sp"
                     android:layout_margin="4dp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:text="HH:MM" />
 
-           </LinearLayout>
+                <TextView
+                    android:id="@+id/airportCode2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:gravity="center"
+                    android:text="LCY"
+                    android:textSize="45sp" />
+
+                <TextView
+                    android:id="@+id/cityName2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:text="London"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
