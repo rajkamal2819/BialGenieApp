@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.Hackathon.bialgenieapp.Fragments.FlightSearch;
-import com.Hackathon.bialgenieapp.Fragments.FlightTrack;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
 

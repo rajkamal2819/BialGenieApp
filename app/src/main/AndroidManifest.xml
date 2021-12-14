@@ -12,48 +12,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
+            android:name=".FlightResultActivity"
+            android:exported="true" />
+        <activity
             android:name=".Authentication"
-            android:theme="@style/logInPage"
-            android:exported="true" >
+            android:exported="true"
+            android:theme="@style/logInPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage"
-            android:exported="true"/>
-
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Bus"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage"
-            android:exported="true"/>
-
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Cab"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage"
-            android:exported="true"/>
-
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Parking"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage"
-            android:exported="true"/>
-
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Train"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage"
-            android:exported="true"/>
+            android:theme="@style/mainPage" />
     </application>
-
-
-
 
 </manifest>

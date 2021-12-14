@@ -12,10 +12,10 @@ import com.Hackathon.bialgenieapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FlightTrack#newInstance} factory method to
+ * Use the {@link FlightDeparture#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FlightTrack extends Fragment {
+public class FlightDeparture extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FlightTrack extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FlightTrack() {
+    public FlightDeparture() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class FlightTrack extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FlightTrack.
+     * @return A new instance of fragment FlightDeparture.
      */
     // TODO: Rename and change types and number of parameters
-    public static FlightTrack newInstance(String param1, String param2) {
-        FlightTrack fragment = new FlightTrack();
+    public static FlightDeparture newInstance(String param1, String param2) {
+        FlightDeparture fragment = new FlightDeparture();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class FlightTrack extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_flight_track, container, false);
+        return inflater.inflate(R.layout.fragment_flight_departure, container, false);
     }
 }
