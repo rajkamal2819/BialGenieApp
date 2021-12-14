@@ -1,66 +1,82 @@
 package com.Hackathon.bialgenieapp.Fragments;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.Hackathon.bialgenieapp.Models.ArDepModel;
+import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
 import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.databinding.FragmentFlighsArrivalBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FlightsArrival#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.net.URL;
+import java.util.ArrayList;
+
+
 public class FlightsArrival extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public FlightsArrival() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FlightsArrival.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FlightsArrival newInstance(String param1, String param2) {
-        FlightsArrival fragment = new FlightsArrival();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FragmentFlighsArrivalBinding binding;
+    private String Sample_Json_query = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/arr/2021/12/14/15?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_flighs_arrival, container, false);
+        binding = FragmentFlighsArrivalBinding.inflate(getLayoutInflater());
+
+        CourseAsyncTask task = new CourseAsyncTask();
+        task.execute();
+
+        return binding.getRoot();
     }
+
+    protected void updateUi(ArrayList<ArDepModel> booksInfos) {
+
+       // bookList = booksInfos;
+
+        /*CoursesItemAdapter sliderAdapter = new CoursesItemAdapter(booksInfos, binding.recyclerView, getApplicationContext(), R.layout.courses_item_specific, 2);
+        binding.recyclerView.setAdapter(sliderAdapter);
+        binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));*/
+
+        binding.textView3.setText(booksInfos.get(0).getArrivalAirport()+"");
+
+    }
+
+    private class CourseAsyncTask extends AsyncTask<URL, Void, ArrayList<ArDepModel>> {
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected ArrayList<ArDepModel> doInBackground(URL... urls) {
+            ArrayList<ArDepModel> event = ArrDepQueryUtils.fetchFlightsData(Sample_Json_query);            //also we can use  urls[0]
+            Log.i("CategoryCoursesActivity", Sample_Json_query);
+            return event;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<ArDepModel> event) {
+
+          //  binding.progressSpineer.setVisibility(View.GONE);
+
+            if (event == null) {
+                //  binding.emptyNoBook.setText("No Books Found");
+                return;
+            }
+
+            updateUi(event);
+
+        }
+
+    }
+
 }

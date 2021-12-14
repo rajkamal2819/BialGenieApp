@@ -13,9 +13,18 @@ public class ArDepModel {
     private String serviceClasses;
     private Integer departureGateDelayMinutes;
     private Integer arrivalGateDelayMinutes;
+    private String departureTerminal;
+    private String departureGate;
+
+    public Integer getFlightDurationMinutes() {
+        return flightDurationMinutes;
+    }
+
+    public void setFlightDurationMinutes(Integer flightDurationMinutes) {
+        this.flightDurationMinutes = flightDurationMinutes;
+    }
+
     private Integer flightDurationMinutes;
-    private Integer departureTerminal;
-    private Integer departureGate;
 
     public Long getFlightId() {
         return flightId;
@@ -105,27 +114,19 @@ public class ArDepModel {
         this.arrivalGateDelayMinutes = arrivalGateDelayMinutes;
     }
 
-    public Integer getFlightDurationMinutes() {
-        return flightDurationMinutes;
-    }
-
-    public void setFlightDurationMinutes(Integer flightDurationMinutes) {
-        this.flightDurationMinutes = flightDurationMinutes;
-    }
-
-    public Integer getDepartureTerminal() {
+    public String getDepartureTerminal() {
         return departureTerminal;
     }
 
-    public void setDepartureTerminal(Integer departureTerminal) {
+    public void setDepartureTerminal(String departureTerminal) {
         this.departureTerminal = departureTerminal;
     }
 
-    public Integer getDepartureGate() {
+    public String getDepartureGate() {
         return departureGate;
     }
 
-    public void setDepartureGate(Integer departureGate) {
+    public void setDepartureGate(String departureGate) {
         this.departureGate = departureGate;
     }
 }

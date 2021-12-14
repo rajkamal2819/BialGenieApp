@@ -7,6 +7,8 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.Hackathon.bialgenieapp.Models.ArDepModel;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +28,7 @@ public class ArrDepQueryUtils {
     private static String LOG_TAG = ArrDepQueryUtils.class.getSimpleName();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static ArrayList<ArrDepQueryUtils> fetchCoursesData(String requestUrl) {
+    public static ArrayList<ArDepModel> fetchFlightsData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -39,7 +41,7 @@ public class ArrDepQueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create an {@link Event} object
-        ArrayList<ArrDepQueryUtils> apDepInfo = extractFeatureFromJson(jsonResponse);
+        ArrayList<ArDepModel> apDepInfo = extractFeatureFromJson(jsonResponse);
 
         // Return the {@link Event}
         return apDepInfo;
@@ -70,15 +72,15 @@ public class ArrDepQueryUtils {
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
 
-            String clientId = "3d44123a";
-            String clientSecret = "ce3c12a840540d7528f086a02ccd3f2a";
+           // String clientId = "3d44123a";
+           // String clientSecret = "ce3c12a840540d7528f086a02ccd3f2a";
 
-            byte[] loginBytes = (clientId+":"+clientSecret).getBytes();
+           /* byte[] loginBytes = (clientId+":"+clientSecret).getBytes();
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("Basic ")
                     .append(Base64.encodeToString(loginBytes,Base64.NO_WRAP));
 
-            urlConnection.setRequestProperty("Authorization",stringBuilder.toString());
+            urlConnection.setRequestProperty("Authorization",stringBuilder.toString());*/
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setDoInput(true);
@@ -124,13 +126,13 @@ public class ArrDepQueryUtils {
             }
         }
         Log.i(LOG_TAG, "Reading from Stream");
-        //  Log.d(LOG_TAG,output.toString());
+       //   Log.d(LOG_TAG,output.toString());
         return output.toString();
     }
 
-    private static ArrayList<ArrDepQueryUtils> extractFeatureFromJson(String coursesJsonResponse) {
+    private static ArrayList<ArDepModel> extractFeatureFromJson(String coursesJsonResponse) {
         // If the JSON string is empty or null, then return early.
-        ArrayList<ArrDepQueryUtils> arDepList = new ArrayList<>();
+        ArrayList<ArDepModel> arDepList = new ArrayList<>();
         if (TextUtils.isEmpty(coursesJsonResponse)) {
             return arDepList;
         }
@@ -138,12 +140,97 @@ public class ArrDepQueryUtils {
         try {
 
             JSONObject mainObj = new JSONObject(coursesJsonResponse);
+            JSONArray flightStatuses = mainObj.getJSONArray("flightStatuses");
 
+            for (int i = 0;i<flightStatuses.length();i++){
+
+                JSONObject currentFlight = flightStatuses.getJSONObject(i);
+                ArDepModel model = new ArDepModel();
+
+                if(currentFlight.has("flightId")){
+                    model.setFlightId(currentFlight.getLong("flightId"));
+                }
+
+                if(currentFlight.has("carrierFsCode")){
+                    model.setCarrierCode(currentFlight.getString("carrierFsCode"));
+                }
+
+                if(currentFlight.has("flightNumber")){
+                    model.setFlightNumber(currentFlight.getString("flightNumber"));
+                }
+
+                if(currentFlight.has("departureAirportFsCode")){
+                    model.setDepartureAirport(currentFlight.getString("departureAirportFsCode"));
+                }
+
+                if(currentFlight.has("arrivalAirportFsCode")){
+                    model.setArrivalAirport(currentFlight.getString("arrivalAirportFsCode"));
+                }
+
+                if(currentFlight.has("departureDate")){
+
+                    JSONObject departureDates = currentFlight.getJSONObject("departureDate");
+                    if(departureDates.has("dateLocal")){
+                        model.setDepartureLocalDate(departureDates.getString("dateLocal"));
+                    }
+                }
+
+                if(currentFlight.has("arrivalDate")){
+
+                    JSONObject arrivalDate = currentFlight.getJSONObject("arrivalDate");
+                    if(arrivalDate.has("dateLocal")){
+                        model.setArrivalLocalDate(arrivalDate.getString("dateLocal"));
+                    }
+                }
+
+                if(currentFlight.has("schedule")){
+
+                    JSONObject schedules = currentFlight.getJSONObject("schedule");
+                    if(schedules.has("flightType")){
+                        model.setFlightType(schedules.getString("flightType"));
+                    }
+                    if(schedules.has("serviceClasses")){
+                        model.setServiceClasses(schedules.getString("serviceClasses"));
+                    }
+                }
+
+                if(currentFlight.has("delays")){
+
+                    JSONObject delays = currentFlight.getJSONObject("delays");
+                    if(delays.has("departureGateDelayMinutes")){
+                        model.setDepartureGateDelayMinutes(delays.getInt("departureGateDelayMinutes"));
+                    }
+                    if(delays.has("arrivalGateDelayMinutes")){
+                        model.setArrivalGateDelayMinutes(delays.getInt("arrivalGateDelayMinutes"));
+                    }
+                }
+
+                if(currentFlight.has("flightDurations")){
+                    JSONObject duration = currentFlight.getJSONObject("flightDurations");
+                    if(duration.has("scheduledBlockMinutes")){
+                        model.setFlightDurationMinutes(duration.getInt("scheduledBlockMinutes"));
+                    }
+                }
+
+                if(currentFlight.has("airportResources")){
+
+                    JSONObject airportResources = currentFlight.getJSONObject("airportResources");
+                    if(airportResources.has("departureTerminal")){
+                        model.setDepartureTerminal(airportResources.getString("departureTerminal"));
+                    }
+                    if(airportResources.has("departureGate")){
+                        model.setDepartureGate(airportResources.getString("departureGate"));
+                    }
+                }
+
+                arDepList.add(model);
+
+            }
 
 
             return arDepList;
         } catch (JSONException e) {
-            Log.i(LOG_TAG, "Problem parsing the earthquake JSON results", e);
+            Log.i(LOG_TAG, "Problem parsing the JSON results", e);
         }
         return arDepList;
 
