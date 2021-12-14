@@ -22,6 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ArrDepQueryUtils {
 
@@ -99,6 +100,7 @@ public class ArrDepQueryUtils {
             }
         } catch (IOException e) {
             Log.i(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.i(LOG_TAG,e.getMessage());
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -126,7 +128,7 @@ public class ArrDepQueryUtils {
             }
         }
         Log.i(LOG_TAG, "Reading from Stream");
-       //   Log.d(LOG_TAG,output.toString());
+          Log.d(LOG_TAG,output.toString());
         return output.toString();
     }
 
@@ -140,6 +142,35 @@ public class ArrDepQueryUtils {
         try {
 
             JSONObject mainObj = new JSONObject(coursesJsonResponse);
+            HashMap<String,String> airlinesNames = new HashMap<>();
+            HashMap<String, ArDepModel.airportInformation> airportsInfo = new HashMap<>();
+            JSONObject appendix = mainObj.getJSONObject("appendix");
+
+            if(appendix.has("airlines")){
+                JSONArray airlines = appendix.getJSONArray("airlines");
+                for (int i =0; i<airlines.length();i++){
+                    JSONObject cur = airlines.getJSONObject(i);
+                    airlinesNames.put(cur.getString("iata"),cur.getString("name"));
+                }
+            }
+
+            if(appendix.has("airports")){
+                JSONArray airports = appendix.getJSONArray("airports");
+                for (int i = 0;i<airports.length();i++){
+                    JSONObject cur = airports.getJSONObject(i);
+                    ArDepModel.airportInformation airMod = new ArDepModel.airportInformation();
+                    airMod.setAirportName(cur.getString("name"));
+                    airMod.setCityName("city");
+                    airMod.setLatitude(cur.getDouble("latitude"));
+                    airMod.setLongitude(cur.getDouble("longitude"));
+                    airMod.setElevationFeet(cur.getInt("elevationFeet"));
+                    airMod.setWeatherUrl(cur.getString("weatherUrl"));
+                    airMod.setCountryName(cur.getString("countryName"));
+                    airportsInfo.put(cur.getString("iata"),airMod);
+                }
+            }
+
+
             JSONArray flightStatuses = mainObj.getJSONArray("flightStatuses");
 
             for (int i = 0;i<flightStatuses.length();i++){
@@ -153,6 +184,7 @@ public class ArrDepQueryUtils {
 
                 if(currentFlight.has("carrierFsCode")){
                     model.setCarrierCode(currentFlight.getString("carrierFsCode"));
+                    model.setAirlines(airlinesNames.get(currentFlight.getString("carrierFsCode")));
                 }
 
                 if(currentFlight.has("flightNumber")){
@@ -161,10 +193,13 @@ public class ArrDepQueryUtils {
 
                 if(currentFlight.has("departureAirportFsCode")){
                     model.setDepartureAirport(currentFlight.getString("departureAirportFsCode"));
+                    //   model.setCityDepName(airportsNames.get(model.getDepartureAirport()).get());
+                    model.setAirportDepInformation(airportsInfo.get(model.getDepartureAirport()));
                 }
 
                 if(currentFlight.has("arrivalAirportFsCode")){
                     model.setArrivalAirport(currentFlight.getString("arrivalAirportFsCode"));
+                    model.setAirportArrivalInformation(airportsInfo.get(model.getArrivalAirport()));
                 }
 
                 if(currentFlight.has("departureDate")){
