@@ -19,6 +19,8 @@ import com.Hackathon.bialgenieapp.databinding.FragmentFlighsArrivalBinding;
 import com.Hackathon.bialgenieapp.databinding.FragmentFlightDepartureBinding;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class FlightDeparture extends Fragment {
@@ -28,13 +30,32 @@ public class FlightDeparture extends Fragment {
     }
 
     FragmentFlightDepartureBinding binding;
-    private String Sample_Json_query = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/arr/2021/12/14/15?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
+  //  private String Sample_Json_query = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/arr/2021/12/14/15?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
 
+    private String Sample_Json_query = "";
+    String jsonFirst = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/dep/";
+    String jsonEnd = "?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentFlightDepartureBinding.inflate(getLayoutInflater());
+
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String date = dtf.format(now);
+
+        String year = date.substring(0,4);
+        String month = date.substring(5,7);
+        String day = date.substring(8,10);
+        String hours = date.substring(11,13);
+
+        String dateCur = year + "/" + month +"/" + day + "/" + hours;
+        jsonFirst += dateCur;
+        Sample_Json_query = jsonFirst + jsonEnd;
+
 
         DepartureAsyncTask task = new DepartureAsyncTask();
         task.execute();

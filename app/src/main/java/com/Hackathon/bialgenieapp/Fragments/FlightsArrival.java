@@ -19,6 +19,8 @@ import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.FragmentFlighsArrivalBinding;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -30,14 +32,71 @@ public class FlightsArrival extends Fragment {
 
     FragmentFlighsArrivalBinding binding;
 
+    private String Sample_Json_query = "";
+    String jsonFirst = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/arr/";
+    String jsonEnd = "?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentFlighsArrivalBinding.inflate(getLayoutInflater());
 
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String date = dtf.format(now);
+
+        String year = date.substring(0, 4);
+        String month = date.substring(5, 7);
+        String day = date.substring(8, 10);
+        String hours = date.substring(11, 13);
+
+        String dateCur = year + "/" + month + "/" + day + "/" + hours;
+        jsonFirst += dateCur;
+        Sample_Json_query = jsonFirst + jsonEnd;
+
+
+        DepartureAsyncTask task = new DepartureAsyncTask();
+        task.execute();
 
         return binding.getRoot();
     }
 
+    protected void updateUi(ArrayList<ArDepModel> booksInfos) {
 
-}
+        // bookList = booksInfos;
+
+        /*CoursesItemAdapter sliderAdapter = new CoursesItemAdapter(booksInfos, binding.recyclerView, getApplicationContext(), R.layout.courses_item_specific, 2);
+        binding.recyclerView.setAdapter(sliderAdapter);
+        binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));*/
+
+        //  binding.textView3.setText(booksInfos.get(0).getAirportArrivalInformation().getAirportName()+"");
+
+    }
+
+    private class DepartureAsyncTask extends AsyncTask<URL, Void, ArrayList<ArDepModel>> {
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected ArrayList<ArDepModel> doInBackground(URL... urls) {
+            ArrayList<ArDepModel> event = ArrDepQueryUtils.fetchFlightsData(Sample_Json_query);            //also we can use  urls[0]
+            Log.i("CategoryCoursesActivity", Sample_Json_query);
+            return event;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<ArDepModel> event) {
+
+            //  binding.progressSpineer.setVisibility(View.GONE);
+
+            if (event == null) {
+                //  binding.emptyNoBook.setText("No Books Found");
+                return;
+            }
+
+            updateUi(event);
+
+        }
+
+    }
+
+ }
