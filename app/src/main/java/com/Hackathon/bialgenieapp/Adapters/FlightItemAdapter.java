@@ -26,7 +26,7 @@ public class FlightItemAdapter extends RecyclerView.Adapter<FlightItemAdapter.Fl
     private List<ArDepModel> list;
     private RecyclerView recyclerView;
     private Context context;
-   // private int layoutId;
+    // private int layoutId;
     static private int uniqueL;
 
     public FlightItemAdapter(List<ArDepModel> list, RecyclerView recyclerView, Context context, int uniqueL) {
@@ -52,10 +52,10 @@ public class FlightItemAdapter extends RecyclerView.Adapter<FlightItemAdapter.Fl
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, FlightsDetailsActivity.class);
-                i.putExtra("currentFlight",list.get(holder.getAdapterPosition()));
-                i.putExtra("uniqueL",uniqueL);
-                i.putExtra("arAirportInfo",list.get(holder.getAdapterPosition()).getAirportArrivalInformation());
-                i.putExtra("depAirportInfo",list.get(holder.getAdapterPosition()).getAirportDepInformation());
+                i.putExtra("currentFlight", list.get(holder.getAdapterPosition()));
+                i.putExtra("uniqueL", uniqueL);
+                i.putExtra("arAirportInfo", list.get(holder.getAdapterPosition()).getAirportArrivalInformation());
+                i.putExtra("depAirportInfo", list.get(holder.getAdapterPosition()).getAirportDepInformation());
                 context.startActivity(new Intent(i));
             }
         });
@@ -103,29 +103,31 @@ public class FlightItemAdapter extends RecyclerView.Adapter<FlightItemAdapter.Fl
             // when arrival CITY 2 = BLR else city 1 since for drawable image
 
             String dateArrival = itemModel.getArrivalLocalDate();
-            String dateStr = dateArrival.substring(0,10);
-            String timeStr = dateArrival.substring(11,16);
+            String dateStr = dateArrival.substring(0, 10);
+            String timeStr = dateArrival.substring(11, 16);
 
             date.setText(dateStr);
             time2.setText(timeStr);
 
             String dateDeparture = itemModel.getDepartureLocalDate();
-            String timeDep = dateDeparture.substring(11,16);
+            String timeDep = dateDeparture.substring(11, 16);
 
             time1.setText(timeDep);
             cityCode2.setText(itemModel.getArrivalAirport());
             cityCode1.setText(itemModel.getDepartureAirport());
 
             airlines.setText(itemModel.getAirlines());
-            flightNumber.setText(itemModel.getCarrierCode()+itemModel.getFlightNumber());
+            flightNumber.setText(itemModel.getCarrierCode() + itemModel.getFlightNumber());
 
-            cityName2.setText(itemModel.getAirportArrivalInformation().getCityName());
-            cityName1.setText(itemModel.getAirportDepInformation().getCityName());
+            if (itemModel.getAirportArrivalInformation()!=null&&itemModel.getAirportArrivalInformation().getCityName() != null)
+                cityName2.setText(itemModel.getAirportArrivalInformation().getCityName());
+            if (itemModel.getAirportDepInformation()!=null&&itemModel.getAirportDepInformation().getCityName() != null)
+                cityName1.setText(itemModel.getAirportDepInformation().getCityName());
 
             //  Log.i("FlightItemAdapter",itemModel.getDepartureLocalDate());
             //  Log.i("FlightItemAdapter",itemModel.getArrivalLocalDate());
 
-            if(uniqueL == 1){         // ARRIVAL --> this is for the Arrival fragment
+            if (uniqueL == 1) {         // ARRIVAL --> this is for the Arrival fragment
                 imageView.setImageResource(R.drawable.ic_baseline_flight_land_24);
             } else if (uniqueL == 2) {
                 imageView.setImageResource(R.drawable.ic_baseline_flight_takeoff_24);
