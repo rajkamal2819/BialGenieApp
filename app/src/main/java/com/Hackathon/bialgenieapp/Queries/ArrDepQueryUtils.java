@@ -256,6 +256,13 @@ public class ArrDepQueryUtils {
                     if(airportResources.has("departureGate")){
                         model.setDepartureGate(airportResources.getString("departureGate"));
                     }
+                    if(airportResources.has("arrivalGate")){
+                        model.setArrivalGate(airportResources.getString("arrivalGate"));
+                    }
+                    if(airportResources.has("arrivalTerminal")){
+                        model.setArrivalTerminal(airportResources.getString("arrivalTerminal"));
+                    }
+
                 }
 
                 arDepList.add(model);

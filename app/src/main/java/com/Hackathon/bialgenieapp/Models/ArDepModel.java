@@ -15,9 +15,29 @@ public class ArDepModel {
     private Integer arrivalGateDelayMinutes;
     private String departureTerminal;
     private String departureGate;
+    private String arrivalGate;
+    private String arrivalTerminal;
     private String airlines;
     private airportInformation airportDepInformation;
     private airportInformation airportArrivalInformation;
+
+    public String getArrivalGate() {
+        return arrivalGate;
+    }
+
+    public void setArrivalGate(String arrivalGate) {
+        this.arrivalGate = arrivalGate;
+    }
+
+    public String getArrivalTerminal() {
+        return arrivalTerminal;
+    }
+
+    public void setArrivalTerminal(String arrivalTerminal) {
+        this.arrivalTerminal = arrivalTerminal;
+    }
+
+    private Integer flightDurationMinutes;
 
     public String getAirlines() {
         return airlines;
@@ -52,6 +72,8 @@ public class ArDepModel {
         String localTime;
         String weatherUrl;
         Double longitude;
+        Double latitude;
+        Integer elevationFeet;
 
         public String getCountryName() {
             return countryName;
@@ -101,9 +123,6 @@ public class ArDepModel {
             this.elevationFeet = elevationFeet;
         }
 
-        Double latitude;
-        Integer elevationFeet;
-
         public String getCityCode() {
             return cityCode;
         }
@@ -136,9 +155,7 @@ public class ArDepModel {
     public void setFlightDurationMinutes(Integer flightDurationMinutes) {
         this.flightDurationMinutes = flightDurationMinutes;
     }
-
-    private Integer flightDurationMinutes;
-
+    
     public Long getFlightId() {
         return flightId;
     }

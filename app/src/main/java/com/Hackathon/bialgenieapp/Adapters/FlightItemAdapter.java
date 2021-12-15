@@ -1,12 +1,15 @@
 package com.Hackathon.bialgenieapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.Hackathon.bialgenieapp.FlightsDetailsActivity;
 import com.Hackathon.bialgenieapp.R;
 
 import androidx.annotation.NonNull;
@@ -44,6 +47,15 @@ public class FlightItemAdapter extends RecyclerView.Adapter<FlightItemAdapter.Fl
     public void onBindViewHolder(@NonNull FlightHolder holder, int position) {
 
         holder.setDetails(list.get(position));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, FlightsDetailsActivity.class);
+
+                context.startActivity(new Intent(i));
+            }
+        });
 
         // Log.i("Slider item: ",""+list.size());
        /* Courses currCourse = list.get(position);
