@@ -52,32 +52,13 @@ public class FlightItemAdapter extends RecyclerView.Adapter<FlightItemAdapter.Fl
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, FlightsDetailsActivity.class);
-
+                i.putExtra("currentFlight",list.get(holder.getAdapterPosition()));
+                i.putExtra("uniqueL",uniqueL);
+                i.putExtra("arAirportInfo",list.get(holder.getAdapterPosition()).getAirportArrivalInformation());
+                i.putExtra("depAirportInfo",list.get(holder.getAdapterPosition()).getAirportDepInformation());
                 context.startActivity(new Intent(i));
             }
         });
-
-        // Log.i("Slider item: ",""+list.size());
-       /* Courses currCourse = list.get(position);
-        holder.setImageView(list.get(position));
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-@Override
-public void onClick(View v) {
-        Intent i = new Intent(context, CourseDetailsActivity.class);
-        i.putExtra("tittle", currCourse.getTittle());
-        //   i.putExtra("instructor", currCourse.getInstructorsList());
-        i.putExtra("instructorImage",currCourse.getInstructorsList().get(0).getPhoto());
-        i.putExtra("instructorName",currCourse.getInstructorsList().get(0).getName());
-        i.putExtra("id", currCourse.getId());
-        i.putExtra("url", currCourse.getUrl());
-        i.putExtra("isPaid", currCourse.isPaid());
-        i.putExtra("price", currCourse.getPrice());
-        i.putExtra("courseThumbnail", currCourse.getCourseThumbnail());
-        i.putExtra("description", currCourse.getDescription());
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(i);
-        }
-        });*/
 
     }
 
@@ -118,66 +99,36 @@ public void onClick(View v) {
         void setDetails
                 (ArDepModel itemModel) {
 
+            // CITY 2 for the main airport BLR
+            // when arrival CITY 2 = BLR else city 1 since for drawable image
+
+            String dateArrival = itemModel.getArrivalLocalDate();
+            String dateStr = dateArrival.substring(0,10);
+            String timeStr = dateArrival.substring(11,16);
+
+            date.setText(dateStr);
+            time2.setText(timeStr);
+
+            String dateDeparture = itemModel.getDepartureLocalDate();
+            String timeDep = dateDeparture.substring(11,16);
+
+            time1.setText(timeDep);
+            cityCode2.setText(itemModel.getArrivalAirport());
+            cityCode1.setText(itemModel.getDepartureAirport());
+
+            airlines.setText(itemModel.getAirlines());
+            flightNumber.setText(itemModel.getCarrierCode()+itemModel.getFlightNumber());
+
+            cityName2.setText(itemModel.getAirportArrivalInformation().getCityName());
+            cityName1.setText(itemModel.getAirportDepInformation().getCityName());
+
+            //  Log.i("FlightItemAdapter",itemModel.getDepartureLocalDate());
+            //  Log.i("FlightItemAdapter",itemModel.getArrivalLocalDate());
+
             if(uniqueL == 1){         // ARRIVAL --> this is for the Arrival fragment
-
-                // CITY 2 for the main airport BLR
-                // when arrival CITY 2 = BLR else city 1 since for drawable image
-
-                String dateArrival = itemModel.getArrivalLocalDate();
-                String dateStr = dateArrival.substring(0,10);
-                String timeStr = dateArrival.substring(11,16);
-
-                //if arrival on blr then city 1 is BLR or else
-
-                date.setText(dateStr);
-                time2.setText(timeStr);
-
                 imageView.setImageResource(R.drawable.ic_baseline_flight_land_24);
-
-                String dateDeparture = itemModel.getDepartureLocalDate();
-                String timeDep = dateDeparture.substring(11,16);
-
-                time1.setText(timeDep);
-                cityCode2.setText(itemModel.getArrivalAirport());
-                cityCode1.setText(itemModel.getDepartureAirport());
-
-                airlines.setText(itemModel.getAirlines());
-                flightNumber.setText(itemModel.getCarrierCode()+itemModel.getFlightNumber());
-
-                cityName2.setText(itemModel.getAirportArrivalInformation().getCityName());
-                cityName1.setText(itemModel.getAirportDepInformation().getCityName());
-
-             //  Log.i("FlightItemAdapter",itemModel.getDepartureLocalDate());
-             //  Log.i("FlightItemAdapter",itemModel.getArrivalLocalDate());
-
-
             } else if (uniqueL == 2) {
-
-                String dateArrival = itemModel.getArrivalLocalDate();
-                String dateStr = dateArrival.substring(0,10);
-                String timeStr = dateArrival.substring(11,16);
-
-                //if arrival on blr then city 1 is BLR or else
-
-                date.setText(dateStr);
-                time2.setText(timeStr);
-
                 imageView.setImageResource(R.drawable.ic_baseline_flight_takeoff_24);
-
-                String dateDeparture = itemModel.getDepartureLocalDate();
-                String timeDep = dateDeparture.substring(11,16);
-
-                time1.setText(timeDep);
-                cityCode2.setText(itemModel.getArrivalAirport());
-                cityCode1.setText(itemModel.getDepartureAirport());
-
-                airlines.setText(itemModel.getAirlines());
-                flightNumber.setText(itemModel.getCarrierCode()+itemModel.getFlightNumber());
-
-                cityName2.setText(itemModel.getAirportArrivalInformation().getCityName());
-                cityName1.setText(itemModel.getAirportDepInformation().getCityName());
-              //  Log.i("FlightItemAdapter",itemModel.getAirportArrivalInformation().getCityName());
-
             }
 
         }

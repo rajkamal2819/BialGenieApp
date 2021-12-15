@@ -241,7 +241,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linearLayout4"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="Arrival Details"
             android:textColor="@color/skyBlue"
@@ -249,12 +249,14 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/airportName"
+            android:id="@+id/arAirportName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:layout_margin="8dp"
             android:text="Kempegowada International Airport Bengaluru"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -264,7 +266,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/airportName"
+            android:layout_below="@id/arAirportName"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -312,7 +314,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time"
+                        android:text="City Time"
                         android:textSize="18sp" />
 
                     <TextView
@@ -333,7 +335,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/airportName"
+                android:layout_below="@id/arAirportName"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
@@ -403,8 +405,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:layout_margin="8dp"
             android:text="Kempegowada International Airport Bengaluru"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -461,7 +465,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time"
+                        android:text="City Time"
                         android:textSize="18sp" />
 
                     <TextView
@@ -482,7 +486,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/airportName"
+                android:layout_below="@id/arAirportName"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
@@ -531,7 +535,6 @@
             android:elevation="30dp"
             android:padding="5dp"
             android:text="Navigate to Airport" />
-
 
     </RelativeLayout>
 
