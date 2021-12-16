@@ -19,6 +19,9 @@
             android:theme="@style/mainPage"
             android:exported="true" />
         <activity
+            android:name=".Fragments.Transit.Transit_Cab_Uber_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Authentication"
             android:exported="true"
             android:theme="@style/logInPage">

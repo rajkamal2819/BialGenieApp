@@ -23,6 +23,7 @@ public class Transit_Train extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_transit__train);
 
+
     }
 
 }
