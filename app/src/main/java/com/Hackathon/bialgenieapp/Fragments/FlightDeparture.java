@@ -36,7 +36,7 @@ public class FlightDeparture extends Fragment {
 
     private String Sample_Json_query = "";
     String jsonFirst = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/dep/";
-    String jsonEnd = "?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
+    String jsonEnd = "?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=20";
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override

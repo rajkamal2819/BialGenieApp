@@ -1,6 +1,9 @@
 package com.Hackathon.bialgenieapp.Models;
 
-public class ArDepModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ArDepModel implements Parcelable {
 
     private Long flightId;
     private String carrierCode;
@@ -15,9 +18,33 @@ public class ArDepModel {
     private Integer arrivalGateDelayMinutes;
     private String departureTerminal;
     private String departureGate;
+    private String arrivalGate;
+    private String arrivalTerminal;
     private String airlines;
     private airportInformation airportDepInformation;
     private airportInformation airportArrivalInformation;
+
+    public ArDepModel() {
+
+    }
+
+    public String getArrivalGate() {
+        return arrivalGate;
+    }
+
+    public void setArrivalGate(String arrivalGate) {
+        this.arrivalGate = arrivalGate;
+    }
+
+    public String getArrivalTerminal() {
+        return arrivalTerminal;
+    }
+
+    public void setArrivalTerminal(String arrivalTerminal) {
+        this.arrivalTerminal = arrivalTerminal;
+    }
+
+    private Integer flightDurationMinutes;
 
     public String getAirlines() {
         return airlines;
@@ -43,7 +70,7 @@ public class ArDepModel {
         this.airportArrivalInformation = airportArrivalInformation;
     }
 
-    public static class airportInformation {
+    public static class airportInformation implements Parcelable{
 
         String cityCode;
         String cityName;
@@ -52,6 +79,48 @@ public class ArDepModel {
         String localTime;
         String weatherUrl;
         Double longitude;
+        Double latitude;
+        Integer elevationFeet;
+
+        public airportInformation(Parcel in) {
+            cityCode = in.readString();
+            cityName = in.readString();
+            airportName = in.readString();
+            countryName = in.readString();
+            localTime = in.readString();
+            weatherUrl = in.readString();
+            if (in.readByte() == 0) {
+                longitude = null;
+            } else {
+                longitude = in.readDouble();
+            }
+            if (in.readByte() == 0) {
+                latitude = null;
+            } else {
+                latitude = in.readDouble();
+            }
+            if (in.readByte() == 0) {
+                elevationFeet = null;
+            } else {
+                elevationFeet = in.readInt();
+            }
+        }
+
+        public static final Creator<airportInformation> CREATOR = new Creator<airportInformation>() {
+            @Override
+            public airportInformation createFromParcel(Parcel in) {
+                return new airportInformation(in);
+            }
+
+            @Override
+            public airportInformation[] newArray(int size) {
+                return new airportInformation[size];
+            }
+        };
+
+        public airportInformation() {
+
+        }
 
         public String getCountryName() {
             return countryName;
@@ -101,9 +170,6 @@ public class ArDepModel {
             this.elevationFeet = elevationFeet;
         }
 
-        Double latitude;
-        Integer elevationFeet;
-
         public String getCityCode() {
             return cityCode;
         }
@@ -127,6 +193,39 @@ public class ArDepModel {
         public void setAirportName(String airportName) {
             this.airportName = airportName;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(cityCode);
+            dest.writeString(cityName);
+            dest.writeString(airportName);
+            dest.writeString(countryName);
+            dest.writeString(localTime);
+            dest.writeString(weatherUrl);
+            if (longitude == null) {
+                dest.writeByte((byte) 0);
+            } else {
+                dest.writeByte((byte) 1);
+                dest.writeDouble(longitude);
+            }
+            if (latitude == null) {
+                dest.writeByte((byte) 0);
+            } else {
+                dest.writeByte((byte) 1);
+                dest.writeDouble(latitude);
+            }
+            if (elevationFeet == null) {
+                dest.writeByte((byte) 0);
+            } else {
+                dest.writeByte((byte) 1);
+                dest.writeInt(elevationFeet);
+            }
+        }
     }
 
     public Integer getFlightDurationMinutes() {
@@ -136,9 +235,7 @@ public class ArDepModel {
     public void setFlightDurationMinutes(Integer flightDurationMinutes) {
         this.flightDurationMinutes = flightDurationMinutes;
     }
-
-    private Integer flightDurationMinutes;
-
+    
     public Long getFlightId() {
         return flightId;
     }
@@ -242,4 +339,101 @@ public class ArDepModel {
     public void setDepartureGate(String departureGate) {
         this.departureGate = departureGate;
     }
+
+     /** Parcel Implementation **/
+
+     public ArDepModel(Parcel in) {
+        if (in.readByte() == 0) {
+            flightId = null;
+        } else {
+            flightId = in.readLong();
+        }
+        carrierCode = in.readString();
+        flightNumber = in.readString();
+        departureAirport = in.readString();
+        arrivalAirport = in.readString();
+        departureLocalDate = in.readString();
+        arrivalLocalDate = in.readString();
+        flightType = in.readString();
+        serviceClasses = in.readString();
+        if (in.readByte() == 0) {
+            departureGateDelayMinutes = null;
+        } else {
+            departureGateDelayMinutes = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            arrivalGateDelayMinutes = null;
+        } else {
+            arrivalGateDelayMinutes = in.readInt();
+        }
+        departureTerminal = in.readString();
+        departureGate = in.readString();
+        arrivalGate = in.readString();
+        arrivalTerminal = in.readString();
+        airlines = in.readString();
+        if (in.readByte() == 0) {
+            flightDurationMinutes = null;
+        } else {
+            flightDurationMinutes = in.readInt();
+        }
+    }
+
+    public static final Creator<ArDepModel> CREATOR = new Creator<ArDepModel>() {
+        @Override
+        public ArDepModel createFromParcel(Parcel in) {
+            return new ArDepModel(in);
+        }
+
+        @Override
+        public ArDepModel[] newArray(int size) {
+            return new ArDepModel[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (flightId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(flightId);
+        }
+        dest.writeString(carrierCode);
+        dest.writeString(flightNumber);
+        dest.writeString(departureAirport);
+        dest.writeString(arrivalAirport);
+        dest.writeString(departureLocalDate);
+        dest.writeString(arrivalLocalDate);
+        dest.writeString(flightType);
+        dest.writeString(serviceClasses);
+        if (departureGateDelayMinutes == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(departureGateDelayMinutes);
+        }
+        if (arrivalGateDelayMinutes == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(arrivalGateDelayMinutes);
+        }
+        dest.writeString(departureTerminal);
+        dest.writeString(departureGate);
+        dest.writeString(arrivalGate);
+        dest.writeString(arrivalTerminal);
+        dest.writeString(airlines);
+        if (flightDurationMinutes == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(flightDurationMinutes);
+        }
+    }
+
 }

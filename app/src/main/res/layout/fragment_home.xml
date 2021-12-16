@@ -19,13 +19,29 @@
             android:tintMode="src_over"/>
 
         <ImageView
+            android:id="@+id/imgColor"
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:alpha="0.4"
-            android:id="@+id/imgColor"
             android:scaleType="centerCrop"
             android:src="@color/skyBlue"
             android:tintMode="src_over" />
+
+        <TextView
+            android:id="@+id/flightSearch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edittext_rounded"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_baseline_flight_takeoff_24"
+            android:drawablePadding="10dp"
+            android:textSize="18sp"
+            android:hint="Search Your Flight"
+            android:padding="10dp" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -218,7 +234,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:text="Explore Airport"
+                        android:text=" Explore Airport "
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
