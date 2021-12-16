@@ -5,12 +5,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import com.Hackathon.bialgenieapp.Fragments.FlightsFragment;
+import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsFragment;
 import com.Hackathon.bialgenieapp.Fragments.HomeFragment;
 import com.Hackathon.bialgenieapp.Fragments.MapsFragment;
 import com.Hackathon.bialgenieapp.Fragments.MoreFragment;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Home;
-import com.Hackathon.bialgenieapp.Fragments.Transit.TransportationFragment;
 import com.Hackathon.bialgenieapp.databinding.ActivityMainBinding;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 

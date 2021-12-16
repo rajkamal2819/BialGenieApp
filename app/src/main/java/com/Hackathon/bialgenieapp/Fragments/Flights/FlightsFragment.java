@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp.Fragments;
+package com.Hackathon.bialgenieapp.Fragments.Flights;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.Hackathon.bialgenieapp.Adapters.FragmentFlightAdapter;
+import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
 import com.Hackathon.bialgenieapp.FlightSearchActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentFlightsBinding;
 import com.google.android.material.tabs.TabLayout;
@@ -34,7 +34,7 @@ public class FlightsFragment extends Fragment {
         viewPager = binding.viewpagerFlights;
         tabLayout = binding.tabLayout2;
 
-        viewPager.setAdapter(new FragmentFlightAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(new FragmentAdapter(getChildFragmentManager(),1));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 

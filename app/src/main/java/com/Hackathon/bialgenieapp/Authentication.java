@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.Hackathon.bialgenieapp.Adapters.FragmentAuthAdapter;
+import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -27,7 +27,7 @@ public class Authentication extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpagerAuth);
         tabLayout = findViewById(R.id.tabLayout);
 
-        viewPager.setAdapter(new FragmentAuthAdapter(getSupportFragmentManager()));
+        viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(),3));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
