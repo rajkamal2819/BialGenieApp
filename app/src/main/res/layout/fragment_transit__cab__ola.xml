@@ -10,5 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/ridebutton"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/img"
+        android:layout_marginTop="58dp"
+        android:text="Ride With Uber"
+        android:textAlignment="center" />
 
 </FrameLayout>

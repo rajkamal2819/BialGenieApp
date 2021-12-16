@@ -8,5 +8,6 @@
     <string name="transportation">Transit</string>
     <string name="more">More</string>
     <string name="maps">Maps</string>
-
+    <string name="para1">Uber seamlessly connects riders to drivers in over 500 cities across the world. Uber is now present at Kempegowda International Airport Bengaluru. Whether its an early morning or late night flight, you can count on us for a ride to get you to your destination.</string>
+    <string name="hyperlink"><a href="https://www.uber.com/ae/en/ride/">https://www.uber.com/ae/en/ride/</a></string>
 </resources>
