@@ -56,6 +56,7 @@ public class FlightItemAdapter extends RecyclerView.Adapter<FlightItemAdapter.Fl
                 i.putExtra("uniqueL", uniqueL);
                 i.putExtra("arAirportInfo", list.get(holder.getAdapterPosition()).getAirportArrivalInformation());
                 i.putExtra("depAirportInfo", list.get(holder.getAdapterPosition()).getAirportDepInformation());
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(new Intent(i));
             }
         });

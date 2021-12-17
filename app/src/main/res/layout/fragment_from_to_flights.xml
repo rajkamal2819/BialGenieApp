@@ -80,13 +80,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/cardView1"
+            android:id="@+id/search"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/button_shape"
-            android:textColor="@color/white"
-            android:text="Search Flights"
             android:backgroundTint="@color/light_navyBlue"
-            android:layout_margin="16dp"
             android:padding="4dp"
-            android:layout_centerHorizontal="true"/>
+            android:text="Search Flights"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 

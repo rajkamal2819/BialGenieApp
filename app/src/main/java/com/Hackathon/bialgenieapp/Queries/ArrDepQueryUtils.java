@@ -132,16 +132,16 @@ public class ArrDepQueryUtils {
         return output.toString();
     }
 
-    private static ArrayList<ArDepModel> extractFeatureFromJson(String coursesJsonResponse) {
+    private static ArrayList<ArDepModel> extractFeatureFromJson(String jsonResponse) {
         // If the JSON string is empty or null, then return early.
         ArrayList<ArDepModel> arDepList = new ArrayList<>();
-        if (TextUtils.isEmpty(coursesJsonResponse)) {
+        if (TextUtils.isEmpty(jsonResponse)) {
             return arDepList;
         }
 
         try {
 
-            JSONObject mainObj = new JSONObject(coursesJsonResponse);
+            JSONObject mainObj = new JSONObject(jsonResponse);
             HashMap<String,String> airlinesNames = new HashMap<>();
             HashMap<String, ArDepModel.airportInformation> airportsInfo = new HashMap<>();
             JSONObject appendix = mainObj.getJSONObject("appendix");

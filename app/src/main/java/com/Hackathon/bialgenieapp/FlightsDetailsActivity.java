@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
 import com.Hackathon.bialgenieapp.databinding.ActivityFlightsDetailsBinding;
@@ -61,6 +62,13 @@ public class FlightsDetailsActivity extends AppCompatActivity {
         binding.depGate.setText(model.getDepartureGate());
         binding.arrivalTerminal.setText(model.getArrivalTerminal());
         binding.depTerminal.setText(model.getDepartureTerminal());
+
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         /*String timeDepAirport = depInfo.getLocalTime();

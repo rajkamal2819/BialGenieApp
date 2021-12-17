@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FlightSearchActivity">
+    tools:context=".FromToFlightResults">
 
     <LinearLayout
         android:id="@+id/l1"
@@ -39,6 +39,5 @@
         android:layout_height="match_parent"
         android:layout_below="@id/tabLayout2"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 
 </RelativeLayout>

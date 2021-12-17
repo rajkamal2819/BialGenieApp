@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.Hackathon.bialgenieapp.Fragments.Flights.DirectFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsArrival;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightDeparture;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
+import com.Hackathon.bialgenieapp.Fragments.Flights.InDirectFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
 import com.Hackathon.bialgenieapp.Fragments.LogInFragment;
 import com.Hackathon.bialgenieapp.Fragments.SignUpFragment;
@@ -54,11 +56,17 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 case 1: return new LogInFragment();
                 default: return new SignUpFragment();
             }
-        } else{
+        } else if(uniqueL == 4){
             switch (position){
                 case 0: return new Transit_Cab_Uber();
                 case 1: return new Transit_Cab_Ola();
                 default: return new Transit_Cab_Ola();
+            }
+        } else{
+            switch (position){
+                case 0: return new InDirectFlights();
+                case 1: return new DirectFlights();
+                default: return new InDirectFlights();
             }
         }
 
@@ -96,12 +104,19 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             else if(position==1){
                 title = "Log In";
             }
-        } else{
+        } else if(uniqueL == 4){
             if(position==0){
                 title = "Uber";
             }
             else if(position==1){
                 title = "Ola";
+            }
+        } else{
+            if(position==0){
+                title = "In Direct";
+            }
+            else if(position==1){
+                title = "Direct";
             }
         }
 

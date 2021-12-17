@@ -30,7 +30,7 @@
         <TextView
             android:id="@+id/flightSearch"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="44dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="160dp"
@@ -39,9 +39,9 @@
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_baseline_flight_takeoff_24"
             android:drawablePadding="10dp"
-            android:textSize="18sp"
             android:hint="Search Your Flight"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"

@@ -6,20 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
-import com.Hackathon.bialgenieapp.databinding.ActivityFlightSearchBinding;
+import com.Hackathon.bialgenieapp.databinding.ActivityFromToFlightResultsBinding;
 import com.google.android.material.tabs.TabLayout;
 
-public class FlightSearchActivity extends AppCompatActivity {
+public class FromToFlightResults extends AppCompatActivity {
 
-    ActivityFlightSearchBinding binding;
+    ActivityFromToFlightResultsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityFlightSearchBinding.inflate(getLayoutInflater());
+        binding = ActivityFromToFlightResultsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.viewpagerFlights.setAdapter(new FragmentAdapter(getSupportFragmentManager(),2));
+        binding.viewpagerFlights.setAdapter(new FragmentAdapter(getSupportFragmentManager(),5));
         binding.tabLayout2.setupWithViewPager(binding.viewpagerFlights);
         binding.tabLayout2.setTabGravity(TabLayout.GRAVITY_FILL);
 
@@ -29,6 +29,8 @@ public class FlightSearchActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
 
     }
 }

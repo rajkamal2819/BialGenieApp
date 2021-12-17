@@ -15,9 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
-            android:name=".FlightSearchActivity"
+            android:name=".FromToFlightResults"
             android:theme="@style/mainPage"
             android:exported="true" />
+        <activity
+            android:name=".FlightsDetailsActivity"
+            android:theme="@style/mainPage"
+            android:exported="true" />
+        <activity
+            android:name=".FlightSearchActivity"
+            android:exported="true"
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Authentication"
             android:exported="true"
