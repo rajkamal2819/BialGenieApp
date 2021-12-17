@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
@@ -18,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -75,7 +77,7 @@ public class FSQueryUtils {
             urlConnection = (HttpURLConnection) url.openConnection();
 
             // String clientId = "3d44123a";
-             String accessToken = "8wuwu93ymc2f2f7ugn96kgnt";
+            String accessToken = "jbatrtjwqbyxwn5w4kusyq7k";
 
            /* byte[] loginBytes = (accessToken).getBytes();
             StringBuilder stringBuilder = new StringBuilder();
@@ -85,7 +87,7 @@ public class FSQueryUtils {
             urlConnection.setRequestProperty("Authorization",stringBuilder.toString());*/
 
             urlConnection.setRequestProperty("Accept", "application/json");
-            urlConnection.setRequestProperty("Authorization", "Bearer pzkpkchh2xvffuqcaw2vanmd");
+            urlConnection.setRequestProperty("Authorization", "Bearer jbatrtjwqbyxwn5w4kusyq7k");
 
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
@@ -146,7 +148,143 @@ public class FSQueryUtils {
 
         try {
 
-              JSONObject mainObj = new JSONObject(jsonResponse);
+            JSONObject mainObj = new JSONObject(jsonResponse);
+            JSONObject scheduleResource = mainObj.getJSONObject("ScheduleResource");
+            JSONArray schedules = scheduleResource.getJSONArray("Schedule");
+
+            for (int i = 0; i < schedules.length(); i++) {
+
+                FSModel model = new FSModel();
+                JSONObject cur = schedules.getJSONObject(i);
+                if (cur.has("TotalJourney")) {
+                    JSONObject TotalJourney = cur.getJSONObject("TotalJourney");
+                    if (TotalJourney.has("Duration")) {
+                        model.setTotalJourneyDuration(TotalJourney.getString("Duration"));
+                    }
+                }
+
+                JSONArray Flight = cur.optJSONArray("Flight");
+                ArrayList<FSModel.FlightSpots> flightSpots = new ArrayList<>();
+                if (Flight != null) {
+                    for (int j = 0; j < Flight.length(); j++) {
+
+                        JSONObject curSpots = Flight.getJSONObject(j);
+                        FSModel.FlightSpots spots = new FSModel.FlightSpots();
+
+                        if (curSpots.has("Departure")) {
+                            JSONObject Departure = curSpots.getJSONObject("Departure");
+                            if (Departure.has("AirportCode")) {
+                                spots.setDepartureAirport(Departure.getString("AirportCode"));
+                            }
+                            if (Departure.has("ScheduledTimeLocal")) {
+                                JSONObject scheduleTime = Departure.getJSONObject("ScheduledTimeLocal");
+                                if (scheduleTime.has("DateTime")) {
+                                    spots.setDepartureTime(scheduleTime.getString("DateTime"));
+                                }
+                            }
+                            if (Departure.has("Terminal")) {
+                                JSONObject Terminal = Departure.getJSONObject("Terminal");
+                                if (Terminal.has("Name")) {
+                                    spots.setDepartureTerminal(Terminal.getString("Name"));
+                                }
+                            }
+                        }
+
+                        if (curSpots.has("Arrival")) {
+                            JSONObject Arrival = curSpots.getJSONObject("Arrival");
+                            if (Arrival.has("AirportCode")) {
+                                spots.setArrivalAirport(Arrival.getString("AirportCode"));
+                            }
+                            if (Arrival.has("ScheduledTimeLocal")) {
+                                JSONObject scheduleTime = Arrival.getJSONObject("ScheduledTimeLocal");
+                                if (scheduleTime.has("DateTime")) {
+                                    spots.setArrivalTime(scheduleTime.getString("DateTime"));
+                                }
+                            }
+                            if (Arrival.has("Terminal")) {
+                                JSONObject Terminal = Arrival.getJSONObject("Terminal");
+                                if (Terminal.has("Name")) {
+                                    spots.setArrivalTerminal(Terminal.getString("Name"));
+                                }
+                            }
+                        }
+
+                        if (curSpots.has("MarketingCarrier")) {
+                            JSONObject MarketingCarrier = curSpots.getJSONObject("MarketingCarrier");
+                            if (MarketingCarrier.has("AirlineID")) {
+                                spots.setAirlines(MarketingCarrier.getString("AirlineID"));
+                            }
+                            if (MarketingCarrier.has("FlightNumber")) {
+                                spots.setAirlineNumber(MarketingCarrier.getString("FlightNumber"));
+                            }
+                        }
+
+                        flightSpots.add(spots);
+
+                    }
+                } else{
+                    JSONObject singleFlight = cur.getJSONObject("Flight");
+
+                    FSModel.FlightSpots spots = new FSModel.FlightSpots();
+
+                    if (singleFlight.has("Departure")) {
+                        JSONObject Departure = singleFlight.getJSONObject("Departure");
+                        if (Departure.has("AirportCode")) {
+                            spots.setDepartureAirport(Departure.getString("AirportCode"));
+                        }
+                        if (Departure.has("ScheduledTimeLocal")) {
+                            JSONObject scheduleTime = Departure.getJSONObject("ScheduledTimeLocal");
+                            if (scheduleTime.has("DateTime")) {
+                                spots.setDepartureTime(scheduleTime.getString("DateTime"));
+                            }
+                        }
+                        if (Departure.has("Terminal")) {
+                            JSONObject Terminal = Departure.getJSONObject("Terminal");
+                            if (Terminal.has("Name")) {
+                                spots.setDepartureTerminal(Terminal.getString("Name"));
+                            }
+                        }
+                    }
+
+                    if (singleFlight.has("Arrival")) {
+                        JSONObject Arrival = singleFlight.getJSONObject("Arrival");
+                        if (Arrival.has("AirportCode")) {
+                            spots.setArrivalAirport(Arrival.getString("AirportCode"));
+                        }
+                        if (Arrival.has("ScheduledTimeLocal")) {
+                            JSONObject scheduleTime = Arrival.getJSONObject("ScheduledTimeLocal");
+                            if (scheduleTime.has("DateTime")) {
+                                spots.setArrivalTime(scheduleTime.getString("DateTime"));
+                            }
+                        }
+                        if (Arrival.has("Terminal")) {
+                            JSONObject Terminal = Arrival.getJSONObject("Terminal");
+                            if (Terminal.has("Name")) {
+                                spots.setArrivalTerminal(Terminal.getString("Name"));
+                            }
+                        }
+                    }
+
+                    if (singleFlight.has("MarketingCarrier")) {
+                        JSONObject MarketingCarrier = singleFlight.getJSONObject("MarketingCarrier");
+                        if (MarketingCarrier.has("AirlineID")) {
+                            spots.setAirlines(MarketingCarrier.getString("AirlineID"));
+                        }
+                        if (MarketingCarrier.has("FlightNumber")) {
+                            spots.setAirlineNumber(MarketingCarrier.getString("FlightNumber"));
+                        }
+                    }
+
+                    flightSpots.add(spots);
+                }
+
+
+                model.setFlightSpotsList(flightSpots);
+                if (!fsList.contains(model)) {
+                    fsList.add(model);
+                }
+
+            }
 
             return fsList;
         } catch (JSONException e) {
@@ -155,4 +293,4 @@ public class FSQueryUtils {
         return fsList;
 
     }
- }
+}

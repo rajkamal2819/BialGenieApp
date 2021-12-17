@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.Hackathon.bialgenieapp.Fragments.Flights.AllFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.DirectFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsArrival;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightDeparture;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
-import com.Hackathon.bialgenieapp.Fragments.Flights.InDirectFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
 import com.Hackathon.bialgenieapp.Fragments.LogInFragment;
 import com.Hackathon.bialgenieapp.Fragments.SignUpFragment;
@@ -64,9 +64,9 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             }
         } else{
             switch (position){
-                case 0: return new InDirectFlights();
+                case 0: return new AllFlights();
                 case 1: return new DirectFlights();
-                default: return new InDirectFlights();
+                default: return new AllFlights();
             }
         }
 
@@ -113,7 +113,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             }
         } else{
             if(position==0){
-                title = "In Direct";
+                title = "All Flights";
             }
             else if(position==1){
                 title = "Direct";

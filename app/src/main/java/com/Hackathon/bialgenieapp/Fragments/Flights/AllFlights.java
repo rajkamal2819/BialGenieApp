@@ -12,37 +12,38 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.Hackathon.bialgenieapp.Adapters.FlightSearchAdapter;
 import com.Hackathon.bialgenieapp.Models.FSModel;
 import com.Hackathon.bialgenieapp.Queries.FSQueryUtils;
 import com.Hackathon.bialgenieapp.R;
-import com.Hackathon.bialgenieapp.databinding.FragmentDirectFlightsBinding;
+import com.Hackathon.bialgenieapp.databinding.FragmentAllFlightsBinding;
 
 import java.net.URL;
 import java.util.ArrayList;
 
 
-public class DirectFlights extends Fragment {
+public class AllFlights extends Fragment {
 
-
-    public DirectFlights() {
+    public AllFlights() {
         // Required empty public constructor
     }
 
-    FragmentDirectFlightsBinding binding;
+    FragmentAllFlightsBinding binding;
     private String JsonResponseLink = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentDirectFlightsBinding.inflate(getLayoutInflater());
+        binding = FragmentAllFlightsBinding.inflate(getLayoutInflater());
 
         JsonResponseLink = getActivity().getIntent().getStringExtra("link");
-        JsonResponseLink += "?directFlights=1";
-        Log.i("DirectFlights",JsonResponseLink);
+        JsonResponseLink += "?directFlights=0";
+        JsonResponseLink += "&limit=20";
+        Log.i("AllFlights", JsonResponseLink);
 
-        DirectAsyncTask task = new DirectAsyncTask();
+        AllFlightAsyncTask task = new AllFlightAsyncTask();
         task.execute();
 
         return binding.getRoot();
@@ -55,21 +56,19 @@ public class DirectFlights extends Fragment {
         if (flightInfo.size() == 0){
             binding.emptyTextView.setVisibility(View.VISIBLE);
         }
-        FlightSearchAdapter flightAdapter = new FlightSearchAdapter(flightInfo,binding.recyclerViewArriving,getContext());
+        FlightSearchAdapter flightAdapter = new FlightSearchAdapter(flightInfo, binding.recyclerViewArriving, getContext());
         binding.recyclerViewArriving.setAdapter(flightAdapter);
         binding.recyclerViewArriving.setLayoutManager(new LinearLayoutManager(getContext()));
         flightAdapter.notifyDataSetChanged();
 
 
-
     }
 
-    private class DirectAsyncTask extends AsyncTask<URL, Void, ArrayList<FSModel>> {
+    private class AllFlightAsyncTask extends AsyncTask<URL, Void, ArrayList<FSModel>> {
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         protected ArrayList<FSModel> doInBackground(URL... urls) {
             ArrayList<FSModel> event = FSQueryUtils.fetchFlightsData(JsonResponseLink);            //also we can use  urls[0]
-            Log.i("CategoryCoursesActivity", JsonResponseLink);
             return event;
         }
 
@@ -80,7 +79,7 @@ public class DirectFlights extends Fragment {
 
 
             if (event == null) {
-                Log.i("DirectFlight","No Flights");
+                Log.i("AllFlights", "NULL EVENT");
                 binding.emptyTextView.setVisibility(View.VISIBLE);
                 return;
             }

@@ -67,10 +67,9 @@ public class FlightDeparture extends Fragment {
 
         // bookList = booksInfos;
 
-        /*CoursesItemAdapter sliderAdapter = new CoursesItemAdapter(booksInfos, binding.recyclerView, getApplicationContext(), R.layout.courses_item_specific, 2);
-        binding.recyclerView.setAdapter(sliderAdapter);
-        binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));*/
-
+        if (flightsInfo.size() == 0){
+            binding.emptyTextView.setVisibility(View.VISIBLE);
+        }
         FlightItemAdapter flightAdapter = new FlightItemAdapter(flightsInfo,binding.recyclerViewDeparture,getContext(),2);
         binding.recyclerViewDeparture.setAdapter(flightAdapter);
         binding.recyclerViewDeparture.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -95,7 +94,8 @@ public class FlightDeparture extends Fragment {
             binding.progressBar1.setVisibility(View.GONE);
 
             if (event == null) {
-                //  binding.emptyNoBook.setText("No Books Found");
+                binding.emptyTextView.setVisibility(View.VISIBLE);
+                binding.emptyTextView.setText("No Books Found");
                 return;
             }
 

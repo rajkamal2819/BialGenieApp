@@ -24,7 +24,7 @@ public class FSModel {                    //  flight search model
 
     private ArrayList<FlightSpots> flightSpotsList;
 
-    public class FlightSpots{              // flight spots
+    public static class FlightSpots{              // flight spots
         private String departureAirport;
         private String departureTime;
         private String arrivalAirport;
