@@ -2,9 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="30dp"
+    app:cardElevation="45dp"
     app:cardCornerRadius="6dp"
-    app:cardBackgroundColor="#ADD8E6"
+    app:cardBackgroundColor="#FFFFF7"
     android:layout_margin="8dp"
     android:layout_height="wrap_content">
 
@@ -19,7 +19,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/flightNumberSS"
+                android:id="@+id/flightNumberDD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -47,7 +47,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/time1SS"
+                    android:id="@+id/time1DD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
@@ -56,14 +56,14 @@
                     android:text="HH:MM" />
 
                 <TextView
-                    android:id="@+id/airportCode1SS"
+                    android:id="@+id/airportCode1DD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
                     android:gravity="center"
                     android:text="City1"
-                    android:textSize="45sp" />
+                    android:textSize="30sp" />
 
 
             </LinearLayout>
@@ -75,19 +75,19 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/dateSS"
+                    android:id="@+id/dateDD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:text="YYYY-MM-DD"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="16dp" />
 
                 <ImageView
-                    android:id="@+id/landImageSS"
+                    android:id="@+id/landImageDD"
                     android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_height="45dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_baseline_flight_takeoff_24" />
 
@@ -101,7 +101,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/time2SS"
+                    android:id="@+id/time2DD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
@@ -110,14 +110,14 @@
                     android:text="HH:MM" />
 
                 <TextView
-                    android:id="@+id/airportCode2SS"
+                    android:id="@+id/airportCode2DD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
                     android:gravity="center"
                     android:text="City2"
-                    android:textSize="45sp" />
+                    android:textSize="30sp" />
 
             </LinearLayout>
 

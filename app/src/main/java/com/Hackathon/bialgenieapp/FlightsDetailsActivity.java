@@ -1,13 +1,25 @@
 package com.Hackathon.bialgenieapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import com.Hackathon.bialgenieapp.Adapters.FlightSearchAdapter;
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
+import com.Hackathon.bialgenieapp.Models.FSModel;
+import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
+import com.Hackathon.bialgenieapp.Queries.FSQueryUtils;
 import com.Hackathon.bialgenieapp.databinding.ActivityFlightsDetailsBinding;
+
+import java.net.URL;
+import java.util.ArrayList;
 
 public class FlightsDetailsActivity extends AppCompatActivity {
 
@@ -18,6 +30,7 @@ public class FlightsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityFlightsDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         ArDepModel model = getIntent().getParcelableExtra("currentFlight");
         ArDepModel.airportInformation arrInfo = getIntent().getParcelableExtra("arAirportInfo");
@@ -70,29 +83,13 @@ public class FlightsDetailsActivity extends AppCompatActivity {
             }
         });
 
-
-        /*String timeDepAirport = depInfo.getLocalTime();
-        String t2 = timeDepAirport.substring(11,16);
-       // binding.depAirportTime.setText(t2);
-        Log.i("FlightDetailsActivity","time : "+t2);*/
-
-
         if (uniqueL == 1) {
             binding.landImage.setImageResource(R.drawable.ic_baseline_flight_land_24);
         } else if (uniqueL == 2) {
             binding.landImage.setImageResource(R.drawable.ic_baseline_flight_takeoff_24);
         }
 
-
-
-        /*String dateArrival = model.getArrivalLocalDate();
-        String dateStr = dateArrival.substring(0,10);
-        String timeStr = dateArrival.substring(11,16);
-
-        String dateArrival = model.getArrivalLocalDate();
-        String dateStr = dateArrival.substring(0,10);
-        String timeStr = dateArrival.substring(11,16);*/
-
-
     }
+
 }
+

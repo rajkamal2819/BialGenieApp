@@ -15,13 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
-            android:name=".FromToFlightResults"
-            android:theme="@style/mainPage"
+            android:name=".FlightDetailsActivity2"
+            android:theme="@style/mainPage2"
             android:exported="true" />
         <activity
+            android:name=".FlightSearchDetails"
+            android:exported="true"
+            android:theme="@style/mainPage2" />
+        <activity
+            android:name=".FromToFlightResults"
+            android:exported="true"
+            android:theme="@style/mainPage" />
+        <activity
             android:name=".FlightsDetailsActivity"
-            android:theme="@style/mainPage"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/mainPage2" />
         <activity
             android:name=".FlightSearchActivity"
             android:exported="true"

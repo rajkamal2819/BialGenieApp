@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:fillViewport="true"
     android:layout_height="match_parent"
-    tools:context=".FlightsDetailsActivity">
+    tools:context=".FlightDetailsActivity2">
+
 
     <RelativeLayout
         android:id="@+id/mainRelativeLayout"
@@ -393,7 +394,7 @@
             android:padding="5dp"
             android:text="Navigate to Airport" />
 
-       <!-- skffjsdk-->
+        <!-- skffjsdk-->
 
         <TextView
             android:id="@+id/textView1"
@@ -545,10 +546,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/progressBar1"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_centerInParent="true"/>
 
     </RelativeLayout>
-
 
 </ScrollView>

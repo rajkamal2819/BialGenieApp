@@ -69,7 +69,6 @@ public class DirectFlights extends Fragment {
         @Override
         protected ArrayList<FSModel> doInBackground(URL... urls) {
             ArrayList<FSModel> event = FSQueryUtils.fetchFlightsData(JsonResponseLink);            //also we can use  urls[0]
-            Log.i("CategoryCoursesActivity", JsonResponseLink);
             return event;
         }
 

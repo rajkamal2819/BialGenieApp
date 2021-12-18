@@ -86,8 +86,8 @@ public class FromToFlights extends Fragment {
 
                 if(!TextUtils.isEmpty(binding.search.getText())) {
                     jsonStart = temp;
-                    jsonStart += binding.fromEdittext.getText().toString() + "/";
-                    jsonStart += binding.dstEdittext.getText().toString() + "/";
+                    jsonStart += binding.fromEdittext.getText().toString().trim() + "/";
+                    jsonStart += binding.dstEdittext.getText().toString().trim() + "/";
                     jsonStart += flightDate;
 
                     Intent i = new Intent(getContext(), FromToFlightResults.class);

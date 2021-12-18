@@ -144,131 +144,134 @@ public class ArrDepQueryUtils {
             JSONObject mainObj = new JSONObject(jsonResponse);
             HashMap<String,String> airlinesNames = new HashMap<>();
             HashMap<String, ArDepModel.airportInformation> airportsInfo = new HashMap<>();
-            JSONObject appendix = mainObj.getJSONObject("appendix");
+            if(mainObj.has("appendix")) {
+                JSONObject appendix = mainObj.getJSONObject("appendix");
 
-            if(appendix.has("airlines")){
-                JSONArray airlines = appendix.getJSONArray("airlines");
-                for (int i =0; i<airlines.length();i++){
-                    JSONObject cur = airlines.getJSONObject(i);
-                    airlinesNames.put(cur.getString("iata"),cur.getString("name"));
-                }
-            }
-
-            if(appendix.has("airports")){
-                JSONArray airports = appendix.getJSONArray("airports");
-                for (int i = 0;i<airports.length();i++){
-                    JSONObject cur = airports.getJSONObject(i);
-                    ArDepModel.airportInformation airMod = new ArDepModel.airportInformation();
-                    airMod.setAirportName(cur.getString("name"));
-                    airMod.setCityName(cur.getString("city"));
-                    airMod.setLatitude(cur.getDouble("latitude"));
-                    airMod.setLongitude(cur.getDouble("longitude"));
-                    airMod.setElevationFeet(cur.getInt("elevationFeet"));
-                    airMod.setWeatherUrl(cur.getString("weatherUrl"));
-                    airMod.setCountryName(cur.getString("countryName"));
-                    airportsInfo.put(cur.getString("iata"),airMod);
-                }
-            }
-
-
-            JSONArray flightStatuses = mainObj.getJSONArray("flightStatuses");
-
-            for (int i = 0;i<flightStatuses.length();i++){
-
-                JSONObject currentFlight = flightStatuses.getJSONObject(i);
-                ArDepModel model = new ArDepModel();
-
-                if(currentFlight.has("flightId")){
-                    model.setFlightId(currentFlight.getLong("flightId"));
-                }
-
-                if(currentFlight.has("carrierFsCode")){
-                    model.setCarrierCode(currentFlight.getString("carrierFsCode"));
-                    model.setAirlines(airlinesNames.get(currentFlight.getString("carrierFsCode")));
-                }
-
-                if(currentFlight.has("flightNumber")){
-                    model.setFlightNumber(currentFlight.getString("flightNumber"));
-                }
-
-                if(currentFlight.has("departureAirportFsCode")){
-                    model.setDepartureAirport(currentFlight.getString("departureAirportFsCode"));
-                    //   model.setCityDepName(airportsNames.get(model.getDepartureAirport()).get());
-                    model.setAirportDepInformation(airportsInfo.get(model.getDepartureAirport()));
-                }
-
-                if(currentFlight.has("arrivalAirportFsCode")){
-                    model.setArrivalAirport(currentFlight.getString("arrivalAirportFsCode"));
-                    model.setAirportArrivalInformation(airportsInfo.get(model.getArrivalAirport()));
-                }
-
-                if(currentFlight.has("departureDate")){
-
-                    JSONObject departureDates = currentFlight.getJSONObject("departureDate");
-                    if(departureDates.has("dateLocal")){
-                        model.setDepartureLocalDate(departureDates.getString("dateLocal"));
+                if (appendix.has("airlines")) {
+                    JSONArray airlines = appendix.getJSONArray("airlines");
+                    for (int i = 0; i < airlines.length(); i++) {
+                        JSONObject cur = airlines.getJSONObject(i);
+                        airlinesNames.put(cur.getString("iata"), cur.getString("name"));
                     }
                 }
 
-                if(currentFlight.has("arrivalDate")){
-
-                    JSONObject arrivalDate = currentFlight.getJSONObject("arrivalDate");
-                    if(arrivalDate.has("dateLocal")){
-                        model.setArrivalLocalDate(arrivalDate.getString("dateLocal"));
+                if (appendix.has("airports")) {
+                    JSONArray airports = appendix.getJSONArray("airports");
+                    for (int i = 0; i < airports.length(); i++) {
+                        JSONObject cur = airports.getJSONObject(i);
+                        ArDepModel.airportInformation airMod = new ArDepModel.airportInformation();
+                        airMod.setAirportName(cur.getString("name"));
+                        airMod.setCityName(cur.getString("city"));
+                        airMod.setLatitude(cur.getDouble("latitude"));
+                        airMod.setLongitude(cur.getDouble("longitude"));
+                        airMod.setElevationFeet(cur.getInt("elevationFeet"));
+                        airMod.setWeatherUrl(cur.getString("weatherUrl"));
+                        airMod.setCountryName(cur.getString("countryName"));
+                        airportsInfo.put(cur.getString("iata"), airMod);
                     }
                 }
-
-                if(currentFlight.has("schedule")){
-
-                    JSONObject schedules = currentFlight.getJSONObject("schedule");
-                    if(schedules.has("flightType")){
-                        model.setFlightType(schedules.getString("flightType"));
-                    }
-                    if(schedules.has("serviceClasses")){
-                        model.setServiceClasses(schedules.getString("serviceClasses"));
-                    }
-                }
-
-                if(currentFlight.has("delays")){
-
-                    JSONObject delays = currentFlight.getJSONObject("delays");
-                    if(delays.has("departureGateDelayMinutes")){
-                        model.setDepartureGateDelayMinutes(delays.getInt("departureGateDelayMinutes"));
-                    }
-                    if(delays.has("arrivalGateDelayMinutes")){
-                        model.setArrivalGateDelayMinutes(delays.getInt("arrivalGateDelayMinutes"));
-                    }
-                }
-
-                if(currentFlight.has("flightDurations")){
-                    JSONObject duration = currentFlight.getJSONObject("flightDurations");
-                    if(duration.has("scheduledBlockMinutes")){
-                        model.setFlightDurationMinutes(duration.getInt("scheduledBlockMinutes"));
-                    }
-                }
-
-                if(currentFlight.has("airportResources")){
-
-                    JSONObject airportResources = currentFlight.getJSONObject("airportResources");
-                    if(airportResources.has("departureTerminal")){
-                        model.setDepartureTerminal(airportResources.getString("departureTerminal"));
-                    }
-                    if(airportResources.has("departureGate")){
-                        model.setDepartureGate(airportResources.getString("departureGate"));
-                    }
-                    if(airportResources.has("arrivalGate")){
-                        model.setArrivalGate(airportResources.getString("arrivalGate"));
-                    }
-                    if(airportResources.has("arrivalTerminal")){
-                        model.setArrivalTerminal(airportResources.getString("arrivalTerminal"));
-                    }
-
-                }
-
-                arDepList.add(model);
 
             }
 
+            if(mainObj.has("flightStatuses")) {
+                JSONArray flightStatuses = mainObj.getJSONArray("flightStatuses");
+
+                for (int i = 0; i < flightStatuses.length(); i++) {
+
+                    JSONObject currentFlight = flightStatuses.getJSONObject(i);
+                    ArDepModel model = new ArDepModel();
+
+                    if (currentFlight.has("flightId")) {
+                        model.setFlightId(currentFlight.getLong("flightId"));
+                    }
+
+                    if (currentFlight.has("carrierFsCode")) {
+                        model.setCarrierCode(currentFlight.getString("carrierFsCode"));
+                        model.setAirlines(airlinesNames.get(currentFlight.getString("carrierFsCode")));
+                    }
+
+                    if (currentFlight.has("flightNumber")) {
+                        model.setFlightNumber(currentFlight.getString("flightNumber"));
+                    }
+
+                    if (currentFlight.has("departureAirportFsCode")) {
+                        model.setDepartureAirport(currentFlight.getString("departureAirportFsCode"));
+                        //   model.setCityDepName(airportsNames.get(model.getDepartureAirport()).get());
+                        model.setAirportDepInformation(airportsInfo.get(model.getDepartureAirport()));
+                    }
+
+                    if (currentFlight.has("arrivalAirportFsCode")) {
+                        model.setArrivalAirport(currentFlight.getString("arrivalAirportFsCode"));
+                        model.setAirportArrivalInformation(airportsInfo.get(model.getArrivalAirport()));
+                    }
+
+                    if (currentFlight.has("departureDate")) {
+
+                        JSONObject departureDates = currentFlight.getJSONObject("departureDate");
+                        if (departureDates.has("dateLocal")) {
+                            model.setDepartureLocalDate(departureDates.getString("dateLocal"));
+                        }
+                    }
+
+                    if (currentFlight.has("arrivalDate")) {
+
+                        JSONObject arrivalDate = currentFlight.getJSONObject("arrivalDate");
+                        if (arrivalDate.has("dateLocal")) {
+                            model.setArrivalLocalDate(arrivalDate.getString("dateLocal"));
+                        }
+                    }
+
+                    if (currentFlight.has("schedule")) {
+
+                        JSONObject schedules = currentFlight.getJSONObject("schedule");
+                        if (schedules.has("flightType")) {
+                            model.setFlightType(schedules.getString("flightType"));
+                        }
+                        if (schedules.has("serviceClasses")) {
+                            model.setServiceClasses(schedules.getString("serviceClasses"));
+                        }
+                    }
+
+                    if (currentFlight.has("delays")) {
+
+                        JSONObject delays = currentFlight.getJSONObject("delays");
+                        if (delays.has("departureGateDelayMinutes")) {
+                            model.setDepartureGateDelayMinutes(delays.getInt("departureGateDelayMinutes"));
+                        }
+                        if (delays.has("arrivalGateDelayMinutes")) {
+                            model.setArrivalGateDelayMinutes(delays.getInt("arrivalGateDelayMinutes"));
+                        }
+                    }
+
+                    if (currentFlight.has("flightDurations")) {
+                        JSONObject duration = currentFlight.getJSONObject("flightDurations");
+                        if (duration.has("scheduledBlockMinutes")) {
+                            model.setFlightDurationMinutes(duration.getInt("scheduledBlockMinutes"));
+                        }
+                    }
+
+                    if (currentFlight.has("airportResources")) {
+
+                        JSONObject airportResources = currentFlight.getJSONObject("airportResources");
+                        if (airportResources.has("departureTerminal")) {
+                            model.setDepartureTerminal(airportResources.getString("departureTerminal"));
+                        }
+                        if (airportResources.has("departureGate")) {
+                            model.setDepartureGate(airportResources.getString("departureGate"));
+                        }
+                        if (airportResources.has("arrivalGate")) {
+                            model.setArrivalGate(airportResources.getString("arrivalGate"));
+                        }
+                        if (airportResources.has("arrivalTerminal")) {
+                            model.setArrivalTerminal(airportResources.getString("arrivalTerminal"));
+                        }
+
+                    }
+
+                    arDepList.add(model);
+
+                }
+            }
 
             return arDepList;
         } catch (JSONException e) {

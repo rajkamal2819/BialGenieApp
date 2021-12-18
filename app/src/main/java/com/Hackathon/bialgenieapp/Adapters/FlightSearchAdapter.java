@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.Hackathon.bialgenieapp.FlightSearchActivity;
+import com.Hackathon.bialgenieapp.FlightSearchDetails;
 import com.Hackathon.bialgenieapp.FlightsDetailsActivity;
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
 import com.Hackathon.bialgenieapp.Models.FSModel;
@@ -43,6 +44,20 @@ public class FlightSearchAdapter extends RecyclerView.Adapter<FlightSearchAdapte
     public void onBindViewHolder(@NonNull FlightSearchAdapter.FlightHolder2 holder, int position) {
         Log.i("FlightSearchAdapter",list.get(position).toString());
          holder.setDetails(list.get(position));
+
+         //"https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/JL/754
+        // /dep/2021/12/18?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=false"
+
+          holder.itemView.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  Intent i = new Intent(context,FlightSearchDetails.class);
+                  i.putExtra("curModel",list.get(holder.getAdapterPosition()));
+                  i.putExtra("identifyCode",1);
+                  i.putExtra("curModelList",list.get(holder.getAdapterPosition()).getFlightSpotsList());
+                  context.startActivity(i);
+              }
+          });
 
     }
 
@@ -79,17 +94,17 @@ public class FlightSearchAdapter extends RecyclerView.Adapter<FlightSearchAdapte
                FSModel.FlightSpots spots1 = itemModel.getFlightSpotsList().get(0);
                FSModel.FlightSpots spots2 = itemModel.getFlightSpotsList().get(itemModel.getFlightSpotsList().size()-1);
 
-               String dateArrival = spots1.getDepartureTime();
-               String dateAr = dateArrival.substring(0,10);
+               String dateDep = spots1.getDepartureTime();
+               String dateDp = dateDep.substring(0,10);
+               String timeDp = dateDep.substring(11,16);
+
+               String dateArrival = spots2.getArrivalTime();
+             //  String dateDep = dateDeparture.substring(0,10);
                String timeAr = dateArrival.substring(11,16);
 
-               String dateDeparture = spots2.getArrivalTime();
-             //  String dateDep = dateDeparture.substring(0,10);
-               String timeDep = dateDeparture.substring(11,16);
-
-               date.setText(dateAr);
-               time1.setText(timeAr);
-               time2.setText(timeDep);
+               date.setText(dateDp);
+               time1.setText(timeDp);
+               time2.setText(timeAr);
 
                cityCode1.setText(spots1.getDepartureAirport());
                cityCode2.setText(spots2.getArrivalAirport());

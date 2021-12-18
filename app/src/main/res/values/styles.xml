@@ -6,6 +6,11 @@
         <item name="colorPrimaryDark">@color/skyBlue</item>
     </style>
 
+    <style name="mainPage2" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="colorPrimaryDark">@color/grey</item>
+    </style>
+
     <style name="logInPage" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/skyBlue</item>
     </style>
