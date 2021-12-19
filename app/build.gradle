@@ -46,5 +46,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.github.iammert:ReadableBottomBar:0.2'
+    implementation "com.azure.android:azure-maps-control:1.0.0"
 
 }

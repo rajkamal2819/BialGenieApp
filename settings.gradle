@@ -4,6 +4,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
+        maven { url "https://atlas.microsoft.com/sdk/android" }
+        jcenter()
     }
 }
 rootProject.name = "BialGenieApp"
