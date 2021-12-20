@@ -76,6 +76,9 @@ public class FlightsDetailsActivity extends AppCompatActivity {
         binding.arrivalTerminal.setText(model.getArrivalTerminal());
         binding.depTerminal.setText(model.getDepartureTerminal());
 
+        Log.i("FlightDetailsActivity","Longitude: "+arrInfo.getLongitude());
+        Log.i("FlightDetailsActivity","Longitude: "+arrInfo.getLatitude());
+
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
