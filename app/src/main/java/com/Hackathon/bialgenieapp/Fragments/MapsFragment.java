@@ -7,37 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.FragmentMapsBinding;
 import com.azure.android.maps.control.AzureMaps;
 import com.azure.android.maps.control.MapControl;
-import com.azure.android.maps.control.MapMath;
-import com.azure.android.maps.control.Popup;
-import com.azure.android.maps.control.controls.ZoomControl;
-import com.azure.android.maps.control.data.Position;
-import com.azure.android.maps.control.events.OnFeatureClick;
-import com.azure.android.maps.control.layer.BubbleLayer;
-import com.azure.android.maps.control.layer.SymbolLayer;
-import com.azure.android.maps.control.options.AnchorType;
-import com.azure.android.maps.control.options.AnimationOptions;
-import com.azure.android.maps.control.options.AnimationType;
-import com.azure.android.maps.control.options.CameraBoundsOptions;
 import com.azure.android.maps.control.options.CameraOptions;
-import com.azure.android.maps.control.options.Expression;
 import com.azure.android.maps.control.options.MapStyle;
-import com.azure.android.maps.control.options.Option;
 import com.azure.android.maps.control.options.StyleOptions;
-import com.azure.android.maps.control.options.SymbolLayerOptions;
-import com.azure.android.maps.control.options.ZoomControlOptions;
-import com.azure.android.maps.control.source.DataSource;
-import com.google.gson.JsonObject;
-import com.mapbox.geojson.BoundingBox;
-import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
-
-import java.nio.file.Paths;
 
 public class MapsFragment extends Fragment {
 
@@ -46,7 +23,7 @@ public class MapsFragment extends Fragment {
     }
 
     static {
-        AzureMaps.setSubscriptionKey("MdLK3QHfMemzQNSPizHYBLrt0L0q0cLc2fGnfzMSE4U");
+        AzureMaps.setSubscriptionKey("97YsFp1Xl5NCA41HpbHGz3w04Raw3O-PSQSLHxqA4v4");
        // AzureMaps.setDomain("atlas.azure.us");
         AzureMaps.setView("Auto");
 
@@ -96,7 +73,7 @@ public class MapsFragment extends Fragment {
                     CameraBoundsOptions.maxZoom(14)
             );*/
 
-            map.setCamera(CameraOptions.center(Point.fromLngLat(77.710228, 13.200771)),
+            map.setCamera(CameraOptions.center(Point.fromLngLat(77.7081072,13.1990036)),
 
                     //The zoom level. Typically a value between 0 and 22.
                     CameraOptions.zoom(15),
@@ -113,20 +90,20 @@ public class MapsFragment extends Fragment {
                     //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
                     CameraOptions.maxZoom(20));
 
-            map.setCamera(
+            /*map.setCamera(
                     CameraOptions.center(Point.fromLngLat(77.710228, 13.200771)),
                     CameraOptions.zoom(16),
                     AnimationOptions.animationType(AnimationType.FLY),
                     AnimationOptions.animationDuration(3000)
-            );
+            );*/
 
             //Create a data source and add it to the map.
-           /* DataSource source = new DataSource();
+            /*DataSource source = new DataSource();
             map.sources.add(source);
 
-            Feature feature = Feature.fromGeometry(Point.fromLngLat(0, 0));
+            Feature feature = Feature.fromGeometry(Point.fromLngLat(77.7081072,13.1990036));
 
-            feature.addStringProperty("title", "Hello World!");
+            feature.addStringProperty("title", "Duty Free");
 
             source.add(feature);
 
