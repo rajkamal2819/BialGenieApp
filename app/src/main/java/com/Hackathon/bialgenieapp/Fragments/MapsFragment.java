@@ -1,20 +1,31 @@
 package com.Hackathon.bialgenieapp.Fragments;
 
+import static com.azure.android.maps.control.options.SymbolLayerOptions.iconImage;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.Hackathon.bialgenieapp.databinding.FragmentMapsBinding;
 import com.azure.android.maps.control.AzureMaps;
 import com.azure.android.maps.control.MapControl;
+import com.azure.android.maps.control.layer.SymbolLayer;
 import com.azure.android.maps.control.options.CameraOptions;
+import com.azure.android.maps.control.options.Expression;
 import com.azure.android.maps.control.options.MapStyle;
 import com.azure.android.maps.control.options.StyleOptions;
+import com.azure.android.maps.control.options.SymbolLayerOptions;
+import com.azure.android.maps.control.source.DataSource;
+import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
+
+import java.util.ArrayList;
 
 public class MapsFragment extends Fragment {
 
@@ -24,7 +35,7 @@ public class MapsFragment extends Fragment {
 
     static {
         AzureMaps.setSubscriptionKey("97YsFp1Xl5NCA41HpbHGz3w04Raw3O-PSQSLHxqA4v4");
-       // AzureMaps.setDomain("atlas.azure.us");
+        // AzureMaps.setDomain("atlas.azure.us");
         AzureMaps.setView("Auto");
 
         //Alternatively use Azure Active Directory authenticate.
@@ -34,6 +45,7 @@ public class MapsFragment extends Fragment {
 
     FragmentMapsBinding binding;
     MapControl mapControl;
+    int count = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,101 +53,281 @@ public class MapsFragment extends Fragment {
         binding = FragmentMapsBinding.inflate(getLayoutInflater());
 
         mapControl = binding.mapcontrol;
-
         mapControl.onCreate(savedInstanceState);
 
         //Wait until the map resources are ready.
         mapControl.onReady(map -> {
 
             //   map.setCamera(CameraOptions.center(Point.fromLngLat(77.710228, 13.200771)), CameraOptions.zoom(15));
-              map.setStyle(StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS));
+            //  map.setStyle(StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS));
 
-           /* map.setCamera(
-                    //The area to focus the map on.
-                    CameraBoundsOptions.bounds(BoundingBox.fromLngLats(
-                            //West
-                            77.710228,
-
-                            //South
-                            13.200771,
-
-                            //East
-                            77.710228,
-
-                            //North
-                            13.200771
-                    )),
-
-                    //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
-                    CameraBoundsOptions.padding(20),
-
-                    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
-                    CameraBoundsOptions.maxZoom(14)
-            );*/
-
-            map.setCamera(CameraOptions.center(Point.fromLngLat(77.7081072,13.1990036)),
-
-                    //The zoom level. Typically a value between 0 and 22.
+            map.setCamera(CameraOptions.center(Point.fromLngLat(77.710228, 13.200771)),
                     CameraOptions.zoom(15),
-
-                    //The amount of tilt in degrees the map where 0 is looking straight down.
                     CameraOptions.pitch(45),
-
-                    //Direction the top of the map is pointing in degrees. 0 = North, 90 = East, 180 = South, 270 = West
-                   // CameraOptions.pitch(90),
-
-                    //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
                     CameraOptions.minZoom(10),
-
-                    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
                     CameraOptions.maxZoom(20));
-
-            /*map.setCamera(
-                    CameraOptions.center(Point.fromLngLat(77.710228, 13.200771)),
-                    CameraOptions.zoom(16),
-                    AnimationOptions.animationType(AnimationType.FLY),
-                    AnimationOptions.animationDuration(3000)
-            );*/
-
-            //Create a data source and add it to the map.
-            /*DataSource source = new DataSource();
-            map.sources.add(source);
-
-            Feature feature = Feature.fromGeometry(Point.fromLngLat(77.7081072,13.1990036));
-
-            feature.addStringProperty("title", "Duty Free");
-
-            source.add(feature);
-
-            SymbolLayer layer = new SymbolLayer(source,
-                    SymbolLayerOptions.textField(Expression.get("title"))
-            );
-
-            map.layers.add(layer);*/
-
-            //Load a custom icon image into the image sprite of the map.
-           /* map.images.add("my-custom-icon", R.drawable.food_img);
 
             DataSource source = new DataSource();
             map.sources.add(source);
 
-            Feature feature = Feature.fromGeometry(Point.fromLngLat(77.710228, 13.200771));
-
-            feature.addNumberProperty("temperature", 64);
-
+            Feature feature = Feature.fromGeometry(Point.fromLngLat(77.7087188,13.1988221));
             source.add(feature);
 
-            SymbolLayer layer = new SymbolLayer(source,
-                    SymbolLayerOptions.iconImage("my-custom-icon"),
-                    SymbolLayerOptions.iconSize(0.1f),
+            SymbolLayer layer0 = new SymbolLayer(source, iconImage("marker-yellow"),SymbolLayerOptions.textField("KIAL Parking 3"));
 
-                    //Get the title property of the feature and display it on the map.
-                    SymbolLayerOptions.textField(Expression.concat(Expression.toString(Expression.get("temperature")), Expression.literal("°F"))),
-                    SymbolLayerOptions.textOffset(new Float[]{0f, -1.5f})
-            );
 
-            map.layers.add(layer);*/
+            DataSource source1 = new DataSource();
+            map.sources.add(source1);
+            Feature feature1 = Feature.fromGeometry(Point.fromLngLat(77.7079768,13.1986348,461));
+            source1.add(feature1);
+            SymbolLayer layer1 = new SymbolLayer(source1,iconImage("marker-yellow"),SymbolLayerOptions.textField("Uber Parking"));
 
+            DataSource source2 = new DataSource();
+            map.sources.add(source2);
+            Feature feature2 = Feature.fromGeometry(Point.fromLngLat(77.7071251,13.1971207));
+            source2.add(feature2);
+            SymbolLayer layer2 = new SymbolLayer(source2,iconImage("marker-yellow"),SymbolLayerOptions.textField("OLA Parking"));
+
+            DataSource source3 = new DataSource();
+            map.sources.add(source3);
+            Feature feature3 = Feature.fromGeometry(Point.fromLngLat(77.7077248,13.1970668));
+            source3.add(feature3);
+            SymbolLayer layer3 = new SymbolLayer(source3,iconImage("marker-yellow"),SymbolLayerOptions.textField("KIAL Parking 4"));
+
+            DataSource source4 = new DataSource();
+            map.sources.add(source4);
+            Feature feature4 = Feature.fromGeometry(Point.fromLngLat(77.7076666,13.1979509));
+            source4.add(feature4);
+            SymbolLayer layer4 = new SymbolLayer(source4,iconImage("marker-yellow"),SymbolLayerOptions.textField("KIAL Parking 3"));
+
+            DataSource source5 = new DataSource();
+            map.sources.add(source5);
+            Feature feature5 = Feature.fromGeometry(Point.fromLngLat(77.6955975,13.192843));
+            source5.add(feature5);
+            SymbolLayer layer5 = new SymbolLayer(source5,iconImage("marker-yellow"),SymbolLayerOptions.textField("P-6 Parking"));
+
+            ArrayList<SymbolLayer> layerList = new ArrayList<>();
+            layerList.add(layer0);
+            layerList.add(layer1);
+            layerList.add(layer2);
+            layerList.add(layer3);
+            layerList.add(layer4);
+            layerList.add(layer5);
+
+            // LAYER 0 to 5 for Parking
+
+            /** RESTAURANTS **/
+
+            DataSource source6 = new DataSource();
+            map.sources.add(source6);
+            Feature feature6 = Feature.fromGeometry(Point.fromLngLat(77.7085711,13.1999847,1067));
+            source6.add(feature6);
+            SymbolLayer layer6 = new SymbolLayer(source6,SymbolLayerOptions.textField("Sakkare / Smoor"));
+            layerList.add(layer6);
+
+            DataSource source7 = new DataSource();
+            map.sources.add(source7);
+            Feature feature7 = Feature.fromGeometry(Point.fromLngLat(77.7105965,13.2009514,839));
+            source7.add(feature7);
+            SymbolLayer layer7 = new SymbolLayer(source7,SymbolLayerOptions.textField("La Tapenade Mediterranean Café"));
+            layerList.add(layer7);
+
+            DataSource source8 = new DataSource();
+            map.sources.add(source8);
+            Feature feature8 = Feature.fromGeometry(Point.fromLngLat(77.708881,13.1977371,1316));
+            source8.add(feature8);
+            SymbolLayer layer8 = new SymbolLayer(source8,SymbolLayerOptions.textField("GOPIZZA"));
+            layerList.add(layer8);
+
+            DataSource source9 = new DataSource();
+            map.sources.add(source9);
+            Feature feature9 = Feature.fromGeometry(Point.fromLngLat(77.7100426,13.1994581,658));
+            source9.add(feature9);
+            SymbolLayer layer9 = new SymbolLayer(source9,SymbolLayerOptions.textField("Noodle"));
+            layerList.add(layer9);
+
+            DataSource source10 = new DataSource();
+            map.sources.add(source10);
+            Feature feature10 = Feature.fromGeometry(Point.fromLngLat(77.709366,13.1970989,839));
+            source10.add(feature10);
+            SymbolLayer layer10 = new SymbolLayer(source10,SymbolLayerOptions.textField("Lounge Bar"));
+            layerList.add(layer10);
+
+            DataSource source11 = new DataSource();
+            map.sources.add(source11);
+            Feature feature11 = Feature.fromGeometry(Point.fromLngLat(77.7063947,13.199459,1031));
+            source11.add(feature11);
+            SymbolLayer layer11 = new SymbolLayer(source11,SymbolLayerOptions.textField("Tiffin Center"));
+            layerList.add(layer10);
+
+            DataSource source12 = new DataSource();
+            map.sources.add(source12);
+            Feature feature12 = Feature.fromGeometry(Point.fromLngLat(77.7083733,13.1998314,516));
+            source12.add(feature12);
+            SymbolLayer layer12 = new SymbolLayer(source12,SymbolLayerOptions.textField("Street Food by Punjab Grill"));
+            layerList.add(layer12);
+
+            DataSource source13 = new DataSource();
+            map.sources.add(source13);
+            Feature feature13 = Feature.fromGeometry(Point.fromLngLat(77.7051889,13.1992026,839));
+            source13.add(feature13);
+            SymbolLayer layer13 = new SymbolLayer(source13,SymbolLayerOptions.textField("Nandi Upachar @ KIAL"));
+            layerList.add(layer13);
+
+            DataSource source14 = new DataSource();
+            map.sources.add(source14);
+            Feature feature14 = Feature.fromGeometry(Point.fromLngLat(77.7044041,13.1986348,839));
+            source14.add(feature14);
+            SymbolLayer layer14 = new SymbolLayer(source14,SymbolLayerOptions.textField("Ooru Canteen"));
+            layerList.add(layer14);
+
+            // RESTAURANTS LAYERS 6 to  14
+
+            /** ATMs **/
+
+            DataSource source15 = new DataSource();
+            map.sources.add(source15);
+            Feature feature15 = Feature.fromGeometry(Point.fromLngLat(77.7063339,13.1991188,839));
+            source15.add(feature15);
+            SymbolLayer layer15 = new SymbolLayer(source15,SymbolLayerOptions.textField("SBI ATM"));
+            layerList.add(layer15);
+
+            DataSource source16 = new DataSource();
+            map.sources.add(source16);
+            Feature feature16 = Feature.fromGeometry(Point.fromLngLat(77.7072788,13.2002139,839));
+            source16.add(feature16);
+            SymbolLayer layer16 = new SymbolLayer(source16,SymbolLayerOptions.textField("Kotak Mahindra Bank ATM"));
+            layerList.add(layer16);
+
+            DataSource source17 = new DataSource();
+            map.sources.add(source17);
+            Feature feature17 = Feature.fromGeometry(Point.fromLngLat(77.705724,13.1978411,839));
+            source17.add(feature17);
+            SymbolLayer layer17 = new SymbolLayer(source17,SymbolLayerOptions.textField("ICICI BANK ATM"));
+            layerList.add(layer17);
+
+            DataSource source18 = new DataSource();
+            map.sources.add(source18);
+            Feature feature18 = Feature.fromGeometry(Point.fromLngLat(77.7047201,13.1986348,839));
+            source18.add(feature18);
+            SymbolLayer layer18 = new SymbolLayer(source18,SymbolLayerOptions.textField("Bank of Baroda ATM"));
+            layerList.add(layer18);
+
+            // ATMs LAYERS 15 to 18
+
+            /** MEDICAL **/
+
+            DataSource source19 = new DataSource();
+            map.sources.add(source19);
+            Feature feature19 = Feature.fromGeometry(Point.fromLngLat(77.7071985,13.198969,839));
+            source19.add(feature19);
+            SymbolLayer layer19 = new SymbolLayer(source19,iconImage("marker-red"),SymbolLayerOptions.textField("Aster Airport Medical Centre"));
+            layerList.add(layer19);
+
+            DataSource source20 = new DataSource();
+            map.sources.add(source20);
+            Feature feature20 = Feature.fromGeometry(Point.fromLngLat(77.7088481,13.2002695,210));
+            source20.add(feature20);
+            SymbolLayer layer20 = new SymbolLayer(source20,iconImage("marker-red"),SymbolLayerOptions.textField("Aster Pharmacy & Clinic"));
+            layerList.add(layer20);
+
+            // MEDICAL LAYER 19 to 20
+
+            /** shops **/
+
+            DataSource source21 = new DataSource();
+            map.sources.add(source21);
+            Feature feature21 = Feature.fromGeometry(Point.fromLngLat(77.708817,13.2002175,248));
+            source21.add(feature21);
+            SymbolLayer layer21 = new SymbolLayer(source21,SymbolLayerOptions.textField("Swarovski"));
+            layerList.add(layer21);
+
+            DataSource source22 = new DataSource();
+            map.sources.add(source22);
+            Feature feature22 = Feature.fromGeometry(Point.fromLngLat(77.708817,13.2002175,248));
+            source22.add(feature22);
+            SymbolLayer layer22 = new SymbolLayer(source22,SymbolLayerOptions.textField("Swarovski"));
+            layerList.add(layer22);
+
+
+            binding.restaurants.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                  map.layers.remove(layerList.toArray(new SymbolLayer[layerList.size()]));
+
+                    map.layers.add(layer6);
+                    map.layers.add(layer7);
+                    map.layers.add(layer8);
+                    map.layers.add(layer9);
+                    map.layers.add(layer10);
+                    map.layers.add(layer11);
+                    map.layers.add(layer12);
+                    map.layers.add(layer13);
+                    map.layers.add(layer14);
+
+                }
+            });
+
+            binding.parking.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    map.layers.remove(layerList.toArray(new SymbolLayer[layerList.size()]));
+
+                    map.layers.add(layer0);
+                    map.layers.add(layer1);
+                    map.layers.add(layer2);
+                    map.layers.add(layer3);
+                    map.layers.add(layer4);
+                    map.layers.add(layer5);
+
+                }
+            });
+
+            binding.atms.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    map.layers.remove(layerList.toArray(new SymbolLayer[layerList.size()]));
+
+                    map.layers.add(layer15);
+                    map.layers.add(layer16);
+                    map.layers.add(layer17);
+                    map.layers.add(layer18);
+
+                }
+            });
+
+            binding.medical.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    map.layers.remove(layerList.toArray(new SymbolLayer[layerList.size()]));
+
+                    map.layers.add(layer19);
+                    map.layers.add(layer20);
+
+                }
+            });
+
+            binding.preview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (count % 2 == 0) {
+                        map.setStyle(StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS));
+                        Toast.makeText(getContext(), "Loading Satellite View", Toast.LENGTH_SHORT).show();
+                    } else {
+                        map.setStyle(StyleOptions.style(MapStyle.ROAD));
+                        Toast.makeText(getContext(), "Loading Normal View", Toast.LENGTH_SHORT).show();
+                    }
+                    count++;
+
+                    Log.i("MapsFragment", "Count: " + count);
+
+                }
+            });
 
         });
 
