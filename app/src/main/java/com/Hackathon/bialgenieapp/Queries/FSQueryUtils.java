@@ -77,7 +77,7 @@ public class FSQueryUtils {
             urlConnection = (HttpURLConnection) url.openConnection();
 
             // String clientId = "3d44123a";
-            String accessToken = "jbatrtjwqbyxwn5w4kusyq7k";
+            // String accessToken = "55pxhuynzt8zmbj8pcuzd7j2";
 
            /* byte[] loginBytes = (accessToken).getBytes();
             StringBuilder stringBuilder = new StringBuilder();
@@ -87,7 +87,7 @@ public class FSQueryUtils {
             urlConnection.setRequestProperty("Authorization",stringBuilder.toString());*/
 
             urlConnection.setRequestProperty("Accept", "application/json");
-            urlConnection.setRequestProperty("Authorization", "Bearer jbatrtjwqbyxwn5w4kusyq7k");
+            urlConnection.setRequestProperty("Authorization", "Bearer 55pxhuynzt8zmbj8pcuzd7j2");
 
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
