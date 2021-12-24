@@ -300,4 +300,15 @@
         android:drawablePadding="5dp"
         android:text="Preview" />
 
+    <ImageButton
+        android:id="@+id/geoLocation"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/preview"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_baseline_my_location_24"
+        android:gravity="center" />
+
 </RelativeLayout>
