@@ -27,8 +27,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    viewBinding{
+    viewBinding {
         enabled = true
+    }
+
+    packagingOptions{
+        exclude("META-INF/jersey-module-version")
     }
 
 }
@@ -48,5 +52,10 @@ dependencies {
 
     implementation 'com.github.iammert:ReadableBottomBar:0.2'
     implementation "com.azure.android:azure-maps-control:1.0.0"
+
+    implementation 'com.microsoft.identity.client:msal:2.0.+'
+    implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
+
+
 
 }

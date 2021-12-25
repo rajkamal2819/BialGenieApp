@@ -12,8 +12,6 @@ import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsArrival;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightDeparture;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
-import com.Hackathon.bialgenieapp.Fragments.LogInFragment;
-import com.Hackathon.bialgenieapp.Fragments.SignUpFragment;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
 
@@ -50,13 +48,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                     return new FromToFlights();
             }
         }
-        else if(uniqueL == 3){
-            switch (position){
-                case 0: return new SignUpFragment();
-                case 1: return new LogInFragment();
-                default: return new SignUpFragment();
-            }
-        } else if(uniqueL == 4){
+        else if(uniqueL == 4){
             switch (position){
                 case 0: return new Transit_Cab_Uber();
                 case 1: return new Transit_Cab_Ola();
@@ -97,14 +89,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 title = "Flight Number";
             }
         }
-        else if(uniqueL == 3){
-            if(position==0){
-                title = "Sign Up";
-            }
-            else if(position==1){
-                title = "Log In";
-            }
-        } else if(uniqueL == 4){
+        else if(uniqueL == 4){
             if(position==0){
                 title = "Uber";
             }

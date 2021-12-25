@@ -302,13 +302,29 @@
 
     <ImageButton
         android:id="@+id/geoLocation"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_below="@id/preview"
         android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_baseline_my_location_24"
-        android:gravity="center" />
+        android:gravity="center"
+        android:padding="-8dp"
+        android:src="@drawable/ic_baseline_my_location_24" />
+
+    <ImageButton
+        android:id="@+id/searchLoc"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/geoLocation"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:padding="-8dp"
+        android:src="@drawable/ic_baseline_search_24" />
 
 </RelativeLayout>

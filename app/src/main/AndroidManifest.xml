@@ -17,26 +17,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
+        <activity
+            android:name=".ChatBotActivity"
+            android:theme="@style/mainPage"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.Hackathon.bialgenieapp"
+                    android:path="/0KSITcEtDY/E9LCroVuVetYhf20="
+                    android:scheme="msauth"
+                    tools:ignore="AppLinkUrlError" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".FlightDetailsActivity2"
-            android:theme="@style/mainPage2"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage2" />
         <activity
             android:name=".FlightSearchDetails"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
         <activity
             android:name=".FromToFlightResults"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
         <activity
             android:name=".FlightsDetailsActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
         <activity
             android:name=".FlightSearchActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
         <activity
             android:name=".Authentication"

@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable-v24/ic_baseline_lock_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable-v24/ic_baseline_person_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable-v24/layout_shape.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_add_alert_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_directions_transit_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_flight_land_24.xml" value="0.2703125" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/map_layout.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/tabs.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_authentication.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_chat_bot.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_flight_details2.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_flight_search.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_flight_search_details.xml" value="0.25416666666666665" />
