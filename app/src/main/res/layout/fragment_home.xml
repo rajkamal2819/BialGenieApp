@@ -18,17 +18,6 @@
         android:focusable="false">
 
         <ImageView
-            android:id="@+id/siren"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="500dp"
-            android:layout_marginLeft="100dp"
-            android:background="@color/skyBlue"
-            android:focusable="true"
-            android:src="@drawable/siren1"
-            android:tintMode="src_over" />
-
-        <ImageView
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:src="@drawable/bial_home_img"
