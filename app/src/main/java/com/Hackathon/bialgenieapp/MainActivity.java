@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsFragment;
 import com.Hackathon.bialgenieapp.Fragments.HomeFragment;
@@ -16,7 +17,7 @@ import com.iammert.library.readablebottombar.ReadableBottomBar;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    ImageView i;
     ActivityMainBinding binding;
 
     @Override
