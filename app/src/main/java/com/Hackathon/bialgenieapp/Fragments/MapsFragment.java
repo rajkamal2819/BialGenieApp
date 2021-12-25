@@ -40,6 +40,7 @@ import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.LineString;
 import com.mapbox.geojson.Point;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -137,7 +138,8 @@ public class MapsFragment extends Fragment {
 
             // LAYER 0 to 5 for Parking
 
-            /** RESTAURANTS **/
+
+
 
             DataSource source6 = new DataSource();
             map.sources.add(source6);
@@ -204,7 +206,7 @@ public class MapsFragment extends Fragment {
 
             // RESTAURANTS LAYERS 6 to  14
 
-            /** ATMs **/
+
 
             DataSource source15 = new DataSource();
             map.sources.add(source15);
@@ -236,7 +238,8 @@ public class MapsFragment extends Fragment {
 
             // ATMs LAYERS 15 to 18
 
-            /** MEDICAL **/
+
+
 
             DataSource source19 = new DataSource();
             map.sources.add(source19);
@@ -254,7 +257,8 @@ public class MapsFragment extends Fragment {
 
             // MEDICAL LAYER 19 to 20
 
-            /** shops **/
+
+
 
             DataSource source21 = new DataSource();
             map.sources.add(source21);
@@ -328,7 +332,8 @@ public class MapsFragment extends Fragment {
 
             // SHOPS LAYERS 21 to 30
 
-            /** LOUNGES **/
+
+
 
             DataSource source31 = new DataSource();
             map.sources.add(source31);

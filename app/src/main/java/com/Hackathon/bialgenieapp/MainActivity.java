@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsFragment;
 import com.Hackathon.bialgenieapp.Fragments.HomeFragment;
+/*import com.Hackathon.bialgenieapp.Fragments.MapsFragment;*/
 import com.Hackathon.bialgenieapp.Fragments.MapsFragment;
 import com.Hackathon.bialgenieapp.Fragments.MoreFragment;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Home;

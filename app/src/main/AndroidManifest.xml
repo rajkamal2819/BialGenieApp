@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -88,6 +90,11 @@
             android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Parking"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Fragments.Transit.Transit_Cab_Ola_Activity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
