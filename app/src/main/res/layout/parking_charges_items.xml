@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+
+    >
+
+
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    app:cardElevation="20dp"
+    android:layout_marginTop="20dp"
+    android:elevation="20dp"
+    android:backgroundTint="#C5DEF3"
+    app:cardCornerRadius="10dp"
+    >
+
+ <LinearLayout
+     android:id="@+id/linearLayout1"
+     android:layout_width="match_parent"
+     android:layout_height="50dp"
+     android:background="@color/light_navyBlue"
+     >
+
+     <com.google.android.material.textview.MaterialTextView
+         android:id="@+id/head_title_text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:fontFamily="@font/montserrat_bold"
+         android:text="P4: Parking charges"
+         android:textColor="@color/white"
+         android:textSize="20sp"
+         android:layout_marginLeft="10dp"
+         android:padding="10dp"
+         android:textStyle="bold" />
+
+ </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/duration_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Duration"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fare_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Fare"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/duration1_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="0 to 1 hrs"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/duration2_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration1_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Every Additional Hour"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/duration3_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration2_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="One day"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/duration4_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration3_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Every additional Day"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/duration5_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration4_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Loss of Ticket"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fare1_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fare_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="100"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fare2_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fare1_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="100"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fare3_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fare2_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="100"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fare4_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fare3_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="100"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/fare5_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fare4_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="100"
+            android:textColor="#5C5A5A"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+
+</LinearLayout>

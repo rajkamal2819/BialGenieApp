@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp"
+
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/train_name_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rajdhani Express"
+            android:fontFamily="@font/montserrat"
+            android:textSize="25sp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/from_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From"
+            android:fontFamily="@font/montserrat"
+            android:drawablePadding="20dp"
+            android:layout_below="@+id/train_name_item_text"
+            android:drawableStart="@drawable/arrival"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+
+            />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_1"
+                android:layout_toRightOf="@id/from_text_view"
+                android:layout_marginTop="95dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/station_name_departure"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Mumbai,CST"
+                android:textColor="#3A3A3A"
+                android:textSize="16sp"
+                android:layout_below="@id/from_text_view"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/station_name_arrival"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Kempegowda Airport Halt"
+                android:textColor="#3A3A3A"
+                android:textSize="16sp"
+                android:layout_below="@id/to_text_view"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/to_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To"
+            android:fontFamily="@font/montserrat"
+            android:drawablePadding="20dp"
+            android:layout_below="@+id/train_name_item_text"
+            android:drawableStart="@drawable/departure"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+            android:layout_alignParentEnd="true"
+
+            />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/days_timetable_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Days Scheduled:"
+                android:layout_below="@+id/station_name_departure"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="30dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserrat"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/monday"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="M"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:layout_below="@id/days_timetable_text"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/days_bg"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tuesday"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="T"
+                android:gravity="center"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:layout_below="@id/days_timetable_text"
+                android:layout_toRightOf="@+id/monday"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/days_bg"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/wednesday"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="W"
+                android:gravity="center"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                android:layout_toRightOf="@+id/tuesday"
+                    android:layout_below="@id/days_timetable_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/days_bg"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/thursday"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="TH"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                android:layout_toRightOf="@id/wednesday"
+                    android:layout_below="@id/days_timetable_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/days_bg"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/friday"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="F"
+                android:gravity="center"
+                    android:layout_toRightOf="@+id/thursday"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:layout_below="@id/days_timetable_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/days_bg"
+                    />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SA"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                android:layout_toRightOf="@id/friday"
+                    android:layout_below="@id/days_timetable_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/days_bg"
+                    />
+            <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sunday"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="S"
+                android:layout_toRightOf="@+id/saturday"
+                    android:textColor="@color/black"
+                android:gravity="center"
+                    android:padding="10dp"
+                    android:layout_below="@id/days_timetable_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/days_bg"
+                    />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/coaches_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coaches available(Classes):"
+                android:layout_below="@+id/monday"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:textSize="20sp"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/sleeping_coaches_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1A   2A   3A   II"
+                android:layout_below="@+id/coaches_title"
+                android:layout_marginTop="20dp"
+                android:textColor="#3A3A3A"
+                android:layout_marginLeft="30dp"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                />
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
