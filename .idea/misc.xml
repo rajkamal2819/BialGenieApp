@@ -9,7 +9,6 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable-v24/ic_baseline_lock_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable-v24/ic_baseline_person_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable-v24/layout_shape.xml" value="0.2703125" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_add_alert_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_directions_transit_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/ic_baseline_flight_land_24.xml" value="0.2703125" />
@@ -18,7 +17,6 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/map_layout.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/drawable/tabs.xml" value="0.2703125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_authentication.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_chat_bot.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_flight_details2.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_flight_search.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/layout/activity_flight_search_details.xml" value="0.25416666666666665" />
@@ -51,7 +49,11 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/menu/main_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/menu/tabs.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/BialGenieApp/app/src/main/res/xml/tabs.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/drawable-v24/button_shape.xml" value="0.2203125" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/drawable/buttonshape.xml" value="0.2203125" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/drawable/edittxtshape.xml" value="0.2203125" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_authentication.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_feedback_form.xml" value="0.16530797101449277" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_flights.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
@@ -59,6 +61,7 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_maps.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_more.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit__cab__ola.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transportation.xml" value="0.20416666666666666" />
       </map>
     </option>

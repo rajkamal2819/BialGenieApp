@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.Hackathon.bialgenieapp.Authentication;
 import com.Hackathon.bialgenieapp.ChatBotActivity;
+import com.Hackathon.bialgenieapp.FeedbackForm;
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.FragmentMoreBinding;
 import com.microsoft.identity.client.AuthenticationCallback;
@@ -48,6 +49,13 @@ public class MoreFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), ChatBotActivity.class));
+            }
+        });
+
+        binding.feedbackForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), FeedbackForm.class));
             }
         });
 
