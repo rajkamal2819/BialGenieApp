@@ -55,7 +55,6 @@ dependencies {
 
     implementation 'com.microsoft.identity.client:msal:2.0.+'
     implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
-    implementation 'com.google.android.material:material:1.4.0'
 
 
 

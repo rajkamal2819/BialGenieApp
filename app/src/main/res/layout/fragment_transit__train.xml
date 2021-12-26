@@ -1,14 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.Transit.Transit_Train">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/train_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Train Details"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:drawableStart="@drawable/ic_aba933836772944e120f2cb04641f500"
 
-</FrameLayout>
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/train_name_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/train_title"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/cf584aff36fb87c055a8a026bfcb859e"
+        android:layout_marginTop="50dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/train_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/train_title"
+        android:layout_marginLeft="80dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/train_name_text_enter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter Train Name"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="170dp"
+        android:layout_height="1dp"
+        android:background="#3A3A3A"
+        android:layout_below="@+id/train_name_image"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/or_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textSize="20sp"
+        android:layout_below="@+id/train_name_text"
+        android:layout_toRightOf="@id/view1"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="10dp"
+        />
+    <View
+        android:layout_width="170dp"
+        android:layout_height="1dp"
+        android:background="#3A3A3A"
+        android:layout_below="@+id/train_name_text"
+        android:layout_toRightOf="@+id/or_text"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        />
+
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/train_number_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/train_name_image"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/number_plate"
+        android:layout_marginTop="100dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/train_number_text"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="200dp"
+        android:layout_below="@+id/train_title"
+        android:layout_marginLeft="80dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/train_number_text_enter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter Train Number"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit_button"
+        android:layout_width="150dp"
+        app:cornerRadius="80dp"
+        android:theme="@style/Theme.BialGenieApp"
+        android:backgroundTint="@color/light_navyBlue"
+        android:textColor="@color/white"
+        android:layout_height="70dp"
+        android:text="submit"
+        android:layout_below="@id/train_number_text"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="130dp"
+        />
+
+
+
+</RelativeLayout>

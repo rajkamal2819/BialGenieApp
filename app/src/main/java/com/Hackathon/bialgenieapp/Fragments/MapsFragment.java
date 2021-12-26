@@ -355,8 +355,8 @@ public class MapsFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
 
-                  map.layers.remove(layerList.toArray(new SymbolLayer[layerList.size()]));
-                  map.setCamera(CameraOptions.zoom(17));
+                    map.layers.remove(layerList.toArray(new SymbolLayer[layerList.size()]));
+                    map.setCamera(CameraOptions.zoom(17));
 
                     map.layers.add(layer6);
                     map.layers.add(layer7);

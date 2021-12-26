@@ -69,11 +69,11 @@ public class TrackCharges extends Fragment implements AdapterView.OnItemSelected
         timeButton=view.findViewById(R.id.time_button);
         submitButton=view.findViewById(R.id.submit_button);
 
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),R.array.parking_type, android.R.layout.simple_spinner_item);
+        //ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),R.array.parking_type, android.R.layout.simple_spinner_item);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        spinner.setAdapter(adapter);
 
 //        datePicker=MaterialDatePicker.Builder.datePicker()
 //                        .setTitleText("Select Dates")

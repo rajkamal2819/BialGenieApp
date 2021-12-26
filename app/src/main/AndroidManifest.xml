@@ -48,6 +48,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
+        <activity android:name=".TrainInfo"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
+            />
         <activity
             android:name=".FlightSearchDetails"
             android:exported="true"

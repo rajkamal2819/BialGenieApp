@@ -1,20 +1,16 @@
-<<<<<<< HEAD
-
-=======
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()
-        maven { url 'https://www.jitpack.io' }
-        maven { url "https://atlas.microsoft.com/sdk/android" }
-        maven {
-            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
-        }
-        jcenter()
-    }
-}
->>>>>>> f07b4ed3cb57319f744d1ac352194efe98dd5301
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//        mavenLocal()
+//        maven { url 'https://www.jitpack.io' }
+//        maven { url "https://atlas.microsoft.com/sdk/android" }
+//        maven {
+//            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+//        }
+//        jcenter()
+//    }
+//}
 rootProject.name = "BialGenieApp"
 include ':app'
