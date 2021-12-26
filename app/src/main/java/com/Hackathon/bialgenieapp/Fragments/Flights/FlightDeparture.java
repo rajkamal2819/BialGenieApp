@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp.Fragments;
+package com.Hackathon.bialgenieapp.Fragments.Flights;
 
 import android.os.AsyncTask;
 import android.os.Build;
@@ -17,7 +17,6 @@ import com.Hackathon.bialgenieapp.Adapters.FlightItemAdapter;
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
 import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
 import com.Hackathon.bialgenieapp.R;
-import com.Hackathon.bialgenieapp.databinding.FragmentFlighsArrivalBinding;
 import com.Hackathon.bialgenieapp.databinding.FragmentFlightDepartureBinding;
 
 import java.net.URL;
@@ -32,7 +31,6 @@ public class FlightDeparture extends Fragment {
     }
 
     FragmentFlightDepartureBinding binding;
-  //  private String Sample_Json_query = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/arr/2021/12/14/15?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=true&numHours=5&maxFlights=5";
 
     private String Sample_Json_query = "";
     String jsonFirst = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/BLR/dep/";
@@ -69,10 +67,9 @@ public class FlightDeparture extends Fragment {
 
         // bookList = booksInfos;
 
-        /*CoursesItemAdapter sliderAdapter = new CoursesItemAdapter(booksInfos, binding.recyclerView, getApplicationContext(), R.layout.courses_item_specific, 2);
-        binding.recyclerView.setAdapter(sliderAdapter);
-        binding.recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));*/
-
+        if (flightsInfo.size() == 0){
+            binding.emptyTextView.setVisibility(View.VISIBLE);
+        }
         FlightItemAdapter flightAdapter = new FlightItemAdapter(flightsInfo,binding.recyclerViewDeparture,getContext(),2);
         binding.recyclerViewDeparture.setAdapter(flightAdapter);
         binding.recyclerViewDeparture.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -97,7 +94,8 @@ public class FlightDeparture extends Fragment {
             binding.progressBar1.setVisibility(View.GONE);
 
             if (event == null) {
-                //  binding.emptyNoBook.setText("No Books Found");
+                binding.emptyTextView.setVisibility(View.VISIBLE);
+                binding.emptyTextView.setText("No Books Found");
                 return;
             }
 

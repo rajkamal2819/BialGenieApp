@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.Hackathon.bialgenieapp">
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -15,9 +22,52 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
+            android:name=".FeedbackForm"
+            android:exported="false" />
+        <activity
+            android:name=".ChatBotActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.Hackathon.bialgenieapp"
+                    android:path="/0KSITcEtDY/E9LCroVuVetYhf20="
+                    android:scheme="msauth"
+                    tools:ignore="AppLinkUrlError" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FlightDetailsActivity2"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage2" />
+        <activity
+            android:name=".FlightSearchDetails"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage2" />
+        <activity
+            android:name=".FromToFlightResults"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".FlightsDetailsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage2" />
+        <activity
             android:name=".FlightSearchActivity"
-            android:theme="@style/mainPage"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Authentication"
             android:exported="true"
@@ -45,6 +95,11 @@
             android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Parking"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Fragments.Transit.Transit_Cab_Ola_Activity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />

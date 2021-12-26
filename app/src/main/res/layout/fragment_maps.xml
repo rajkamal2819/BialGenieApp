@@ -3,15 +3,328 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.MapsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <HorizontalScrollView
+        android:id="@+id/horizontalScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/skyBlue"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/restaurants"
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_height="50dp"
+                    android:id="@+id/view2"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="40dp"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/restaurant" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view2"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="Restaurants"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/atms"
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="40dp"
+                    android:id="@+id/view3"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/atm" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view3"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="ATMs"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/terminals"
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="40dp"
+                    android:id="@+id/view8"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_baseline_flight_24" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view8"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="Terminals"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lounges"
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="40dp"
+                    android:id="@+id/view4"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/lounge" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view4"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="Lounges"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/medical"
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="40dp"
+                    android:id="@+id/view5"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/hospital" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view5"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="Medical"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/parking"
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_height="50dp"
+                    android:id="@+id/view6"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="40dp"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/parking" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view6"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="Parking"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/shopping"
+                android:layout_width="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="70dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_height="50dp"
+                    android:id="@+id/view7"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="40dp"
+                    app:cardCornerRadius="40dp">
+
+                    <ImageView
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bag" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view7"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="Shopping"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <com.azure.android.maps.control.MapControl
+        android:id="@+id/mapcontrol"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/horizontalScroll" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/black"
-        android:text="MAPS\n\n1.IN Airport map\n2.FLIGHT tracking\n3.other maps"/>
+        android:layout_below="@id/horizontalScroll"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/ic_baseline_preview_24"
+        android:drawablePadding="5dp"
+        android:text="Preview" />
+
+    <ImageButton
+        android:id="@+id/geoLocation"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/preview"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="-8dp"
+        android:src="@drawable/ic_baseline_my_location_24" />
+
+    <ImageButton
+        android:id="@+id/searchLoc"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/geoLocation"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:padding="-8dp"
+        android:src="@drawable/ic_baseline_search_24" />
 
 </RelativeLayout>

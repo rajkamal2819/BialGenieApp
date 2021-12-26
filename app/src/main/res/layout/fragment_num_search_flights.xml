@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.Flights.NumSearchFlights">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/flightFsCode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_rounded"
+            android:drawableLeft="@drawable/ic_baseline_flight_takeoff_24"
+            android:drawablePadding="10dp"
+            android:hint="Airline Code *(eg: 6E)"
+            android:padding="4dp" />
+
+        <EditText
+            android:layout_below="@id/flightFsCode"
+            android:id="@+id/flightNumber"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_rounded"
+            android:drawableLeft="@drawable/ic_baseline_flight_takeoff_24"
+            android:drawablePadding="10dp"
+            android:hint="Flight Number *(eg: 7074)"
+            android:padding="4dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/flightNumber"
+            android:elevation="100dp"
+            android:layout_margin="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/dateFormat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Select Departure Date *"
+                android:inputType="date"
+                android:padding="5dp"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+                android:paddingLeft="5dp"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardView1"
+            android:id="@+id/search"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/light_navyBlue"
+            android:padding="4dp"
+            android:text="Search Flights"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,12 +1,25 @@
 package com.Hackathon.bialgenieapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
+import com.Hackathon.bialgenieapp.Adapters.FlightSearchAdapter;
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
+import com.Hackathon.bialgenieapp.Models.FSModel;
+import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
+import com.Hackathon.bialgenieapp.Queries.FSQueryUtils;
 import com.Hackathon.bialgenieapp.databinding.ActivityFlightsDetailsBinding;
+
+import java.net.URL;
+import java.util.ArrayList;
 
 public class FlightsDetailsActivity extends AppCompatActivity {
 
@@ -17,6 +30,7 @@ public class FlightsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityFlightsDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         ArDepModel model = getIntent().getParcelableExtra("currentFlight");
         ArDepModel.airportInformation arrInfo = getIntent().getParcelableExtra("arAirportInfo");
@@ -62,12 +76,15 @@ public class FlightsDetailsActivity extends AppCompatActivity {
         binding.arrivalTerminal.setText(model.getArrivalTerminal());
         binding.depTerminal.setText(model.getDepartureTerminal());
 
+        Log.i("FlightDetailsActivity","Longitude: "+arrInfo.getLongitude());
+        Log.i("FlightDetailsActivity","Longitude: "+arrInfo.getLatitude());
 
-        /*String timeDepAirport = depInfo.getLocalTime();
-        String t2 = timeDepAirport.substring(11,16);
-       // binding.depAirportTime.setText(t2);
-        Log.i("FlightDetailsActivity","time : "+t2);*/
-
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         if (uniqueL == 1) {
             binding.landImage.setImageResource(R.drawable.ic_baseline_flight_land_24);
@@ -75,16 +92,7 @@ public class FlightsDetailsActivity extends AppCompatActivity {
             binding.landImage.setImageResource(R.drawable.ic_baseline_flight_takeoff_24);
         }
 
-
-
-        /*String dateArrival = model.getArrivalLocalDate();
-        String dateStr = dateArrival.substring(0,10);
-        String timeStr = dateArrival.substring(11,16);
-
-        String dateArrival = model.getArrivalLocalDate();
-        String dateStr = dateArrival.substring(0,10);
-        String timeStr = dateArrival.substring(11,16);*/
-
-
     }
+
 }
+

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".Fragments.FlightDeparture">
+    tools:context=".Fragments.Flights.FlightDeparture">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
@@ -24,6 +24,15 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:id="@+id/progressBar1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:visibility="gone"
+            android:id="@+id/emptyTextView"
+            android:text = "No Flights"
+            android:layout_centerInParent="true"/>
 
     </RelativeLayout>
 
