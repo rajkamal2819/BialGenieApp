@@ -254,7 +254,7 @@ public class Authentication extends AppCompatActivity {
             callGraphApiSilentButton.setEnabled(true);*/
             binding.userInfo.setText(account.getUsername());
         } else {
-            binding.signIn.setEnabled(true);
+          //  binding.signIn.setEnabled(true);
            /* signOutButton.setEnabled(false);
             callGraphApiInteractiveButton.setEnabled(false);
             callGraphApiSilentButton.setEnabled(false); */

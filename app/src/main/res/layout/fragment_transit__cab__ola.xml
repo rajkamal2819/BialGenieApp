@@ -23,7 +23,7 @@
                     android:id="@+id/img"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:src="@drawable/ola1"/>
+                    android:src="@drawable/azure_maps_incident_orange_lane_closed"/>
                 <!-- TODO: Update blank fragment layout -->
 
                 <TextView
