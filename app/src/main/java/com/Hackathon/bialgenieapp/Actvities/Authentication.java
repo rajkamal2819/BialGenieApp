@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
+import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.ActivityAuthenticationBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -65,7 +65,7 @@ public class Authentication extends AppCompatActivity {
         googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 

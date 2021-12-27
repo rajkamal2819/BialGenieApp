@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities.FlightAcitivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

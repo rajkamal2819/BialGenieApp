@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities.FlightAcitivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
-import com.Hackathon.bialgenieapp.databinding.FragmentTransitCabBinding;
+import com.Hackathon.bialgenieapp.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class ExploreAirport extends AppCompatActivity {

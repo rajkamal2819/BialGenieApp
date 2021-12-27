@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +11,8 @@ import android.os.Bundle;
 
 import com.Hackathon.bialgenieapp.Adapters.TrainListAdapter;
 import com.Hackathon.bialgenieapp.Models.TrainData;
+import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.TrainAsyncTAsk;
 
 import java.util.List;
 

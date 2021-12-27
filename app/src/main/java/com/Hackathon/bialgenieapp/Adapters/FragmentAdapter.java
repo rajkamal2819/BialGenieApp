@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.Hackathon.bialgenieapp.ExploreAirport_About;
-import com.Hackathon.bialgenieapp.ExploreAirport_Photos;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport_About;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport_Photos;
 import com.Hackathon.bialgenieapp.Fragments.Flights.AllFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.DirectFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsArrival;

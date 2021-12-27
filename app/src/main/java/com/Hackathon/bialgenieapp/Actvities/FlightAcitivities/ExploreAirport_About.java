@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities.FlightAcitivities;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.Hackathon.bialgenieapp.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ExploreAirport_Photos#newInstance} factory method to
+ * Use the {@link ExploreAirport_About#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ExploreAirport_Photos extends Fragment {
+public class ExploreAirport_About extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class ExploreAirport_Photos extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ExploreAirport_Photos() {
+    public ExploreAirport_About() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class ExploreAirport_Photos extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ExploreAirport_Photos.
+     * @return A new instance of fragment ExploreAirport_About.
      */
     // TODO: Rename and change types and number of parameters
-    public static ExploreAirport_Photos newInstance(String param1, String param2) {
-        ExploreAirport_Photos fragment = new ExploreAirport_Photos();
+    public static ExploreAirport_About newInstance(String param1, String param2) {
+        ExploreAirport_About fragment = new ExploreAirport_About();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class ExploreAirport_Photos extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore_airport__photos, container, false);
+        return inflater.inflate(R.layout.fragment_explore_airport__about, container, false);
     }
 }

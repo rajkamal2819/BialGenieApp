@@ -3,12 +3,8 @@ package com.Hackathon.bialgenieapp.Fragments;
 import static android.content.ContentValues.TAG;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
@@ -24,12 +20,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.Hackathon.bialgenieapp.ExploreAirport;
-import com.Hackathon.bialgenieapp.FlightSearchActivity;
-import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentHomeBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;

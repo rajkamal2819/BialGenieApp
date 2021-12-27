@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,6 +12,7 @@ import com.Hackathon.bialgenieapp.Fragments.HomeFragment;
 import com.Hackathon.bialgenieapp.Fragments.MapsFragment;
 import com.Hackathon.bialgenieapp.Fragments.MoreFragment;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Home;
+import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.ActivityMainBinding;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 

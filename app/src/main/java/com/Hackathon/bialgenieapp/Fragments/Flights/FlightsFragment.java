@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
-import com.Hackathon.bialgenieapp.FlightSearchActivity;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentFlightsBinding;
 import com.google.android.material.tabs.TabLayout;
 

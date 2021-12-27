@@ -1,8 +1,10 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.Hackathon.bialgenieapp.R;
 
 public class ChatBotActivity extends AppCompatActivity {
 

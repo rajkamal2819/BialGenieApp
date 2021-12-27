@@ -2,14 +2,13 @@ package com.Hackathon.bialgenieapp.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.Hackathon.bialgenieapp.FlightsDetailsActivity;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightsDetailsActivity;
 import com.Hackathon.bialgenieapp.R;
 
 import androidx.annotation.NonNull;
@@ -17,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.Hackathon.bialgenieapp.Models.ArDepModel;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 public class FlightItemAdapter extends RecyclerView.Adapter<FlightItemAdapter.FlightHolder> {

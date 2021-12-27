@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".FlightSearchDetails">
+    tools:context=".Actvities.FlightAcitivities.FlightSearchDetails">
 
     <RelativeLayout
         android:layout_width="match_parent"
