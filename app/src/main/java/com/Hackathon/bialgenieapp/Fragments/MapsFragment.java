@@ -349,6 +349,13 @@ public class MapsFragment extends Fragment {
             SymbolLayer layer32 = new SymbolLayer(source32,iconImage("marker-black"),SymbolLayerOptions.textField("Regenta Inn Bangalore"));
             layerList.add(layer32);
 
+            DataSource source33 = new DataSource();
+            map.sources.add(source33);
+            Feature feature33 = Feature.fromGeometry(Point.fromLngLat(77.6340573,13.1924542,4848));
+            source33.add(feature32);
+            SymbolLayer layer33 = new SymbolLayer(source33,iconImage("marker-black"),SymbolLayerOptions.textField("Regenta Inn Bangalore"));
+            layerList.add(layer33);
+
 
 
             binding.restaurants.setOnClickListener(new View.OnClickListener() {
