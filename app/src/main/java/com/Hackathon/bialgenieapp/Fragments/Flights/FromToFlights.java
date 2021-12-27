@@ -80,11 +80,11 @@ public class FromToFlights extends Fragment {
             }
         };
 
-        binding.search.setOnClickListener(new View.OnClickListener() {
+        binding.searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!TextUtils.isEmpty(binding.search.getText())) {
+                if(!TextUtils.isEmpty(binding.dstEdittext.getText())&&!TextUtils.isEmpty(binding.fromEdittext.getText())) {
                     jsonStart = temp;
                     jsonStart += binding.fromEdittext.getText().toString().trim() + "/";
                     jsonStart += binding.dstEdittext.getText().toString().trim() + "/";

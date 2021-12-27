@@ -23,9 +23,11 @@
         android:theme="@style/Theme.BialGenieApp">
         <activity
             android:name=".ExploreAirport"
+            android:theme="@style/mainPage"
             android:exported="false" />
         <activity
             android:name=".FeedbackForm"
+            android:theme="@style/mainPage"
             android:exported="false" />
         <activity
             android:name=".ChatBotActivity"
