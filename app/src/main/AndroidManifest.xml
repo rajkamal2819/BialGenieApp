@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
+        <activity
+            android:name=".ExploreAirport"
+            android:exported="false" />
         <activity
             android:name=".FeedbackForm"
             android:exported="false" />
@@ -48,11 +51,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
-        <activity android:name=".TrainInfo"
+        <activity
+            android:name=".TrainInfo"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage"
-            />
+            android:theme="@style/mainPage" />
         <activity
             android:name=".FlightSearchDetails"
             android:exported="true"

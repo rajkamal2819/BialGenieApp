@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.Hackathon.bialgenieapp.ExploreAirport;
 import com.Hackathon.bialgenieapp.FlightSearchActivity;
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.FragmentHomeBinding;
@@ -85,6 +86,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        binding.exploreAirport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Intent i = new Intent(getActivity(), ExploreAirport.class);
+              startActivity(i);
+            }
+        });
         return binding.getRoot();
     }
 

@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.Hackathon.bialgenieapp.ExploreAirport_About;
+import com.Hackathon.bialgenieapp.ExploreAirport_Photos;
 import com.Hackathon.bialgenieapp.Fragments.Flights.AllFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.DirectFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsArrival;
@@ -54,7 +56,15 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 case 1: return new Transit_Cab_Ola();
                 default: return new Transit_Cab_Ola();
             }
-        } else{
+        }
+        else if(uniqueL == 5){
+            switch (position){
+                case 0: return new ExploreAirport_About();
+                case 1: return new ExploreAirport_Photos();
+                default: return new ExploreAirport_About();
+            }
+        }
+        else{
             switch (position){
                 case 0: return new AllFlights();
                 case 1: return new DirectFlights();
@@ -96,7 +106,16 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             else if(position==1){
                 title = "Ola";
             }
-        } else{
+        }   else if(uniqueL == 5){
+            if(position==0){
+                title = "About";
+            }
+            else if(position==1){
+                title = "Photos";
+            }
+        }
+
+        else{
             if(position==0){
                 title = "All Flights";
             }
