@@ -6,16 +6,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.Hackathon.bialgenieapp.FlightSearchActivity;
-import com.Hackathon.bialgenieapp.FlightSearchDetails;
-import com.Hackathon.bialgenieapp.FlightsDetailsActivity;
-import com.Hackathon.bialgenieapp.Models.ArDepModel;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchDetails;
 import com.Hackathon.bialgenieapp.Models.FSModel;
 import com.Hackathon.bialgenieapp.R;
 

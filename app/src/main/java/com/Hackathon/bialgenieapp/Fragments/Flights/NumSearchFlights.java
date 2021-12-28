@@ -18,9 +18,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
-import com.Hackathon.bialgenieapp.FlightDetailsActivity2;
-import com.Hackathon.bialgenieapp.FromToFlightResults;
-import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightDetailsActivity2;
 import com.Hackathon.bialgenieapp.databinding.FragmentNumSearchFlightsBinding;
 
 import java.util.Calendar;

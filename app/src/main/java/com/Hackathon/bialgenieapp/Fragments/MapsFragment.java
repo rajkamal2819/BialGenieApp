@@ -4,46 +4,31 @@ import static com.azure.android.maps.control.options.LineLayerOptions.strokeColo
 import static com.azure.android.maps.control.options.LineLayerOptions.strokeWidth;
 import static com.azure.android.maps.control.options.SymbolLayerOptions.iconImage;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.Hackathon.bialgenieapp.MainActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentMapsBinding;
 import com.azure.android.maps.control.AzureMaps;
 import com.azure.android.maps.control.MapControl;
-import com.azure.android.maps.control.layer.LineLayer;
 import com.azure.android.maps.control.layer.SymbolLayer;
 import com.azure.android.maps.control.options.CameraOptions;
-import com.azure.android.maps.control.options.Expression;
 import com.azure.android.maps.control.options.MapStyle;
 import com.azure.android.maps.control.options.StyleOptions;
 import com.azure.android.maps.control.options.SymbolLayerOptions;
 import com.azure.android.maps.control.source.DataSource;
 import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.LineString;
 import com.mapbox.geojson.Point;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MapsFragment extends Fragment {
 
@@ -348,6 +333,20 @@ public class MapsFragment extends Fragment {
             source32.add(feature32);
             SymbolLayer layer32 = new SymbolLayer(source32,iconImage("marker-black"),SymbolLayerOptions.textField("Regenta Inn Bangalore"));
             layerList.add(layer32);
+
+            DataSource source33 = new DataSource();
+            map.sources.add(source33);
+            Feature feature33 = Feature.fromGeometry(Point.fromLngLat(77.6340573,13.1924542,4848));
+            source33.add(feature32);
+            SymbolLayer layer33 = new SymbolLayer(source33,iconImage("marker-black"),SymbolLayerOptions.textField("Regenta Inn Bangalore"));
+            layerList.add(layer33);
+
+           /* DataSource source33 = new DataSource();
+            map.sources.add(source33);
+            Feature feature33 = Feature.fromGeometry(Point.fromLngLat(77.6340573,13.1924542,4848));
+            source33.add(feature32);
+            SymbolLayer layer33 = new SymbolLayer(source33,iconImage("marker-black"),SymbolLayerOptions.textField("Regenta Inn Bangalore"));
+            layerList.add(layer33);*/
 
 
 

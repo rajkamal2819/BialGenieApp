@@ -4,33 +4,22 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
-import com.Hackathon.bialgenieapp.Adapters.FlightItemAdapter;
-import com.Hackathon.bialgenieapp.FromToFlightResults;
-import com.Hackathon.bialgenieapp.Models.ArDepModel;
-import com.Hackathon.bialgenieapp.Models.FSModel;
-import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
-import com.Hackathon.bialgenieapp.Queries.FSQueryUtils;
-import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FromToFlightResults;
 import com.Hackathon.bialgenieapp.databinding.FragmentFromToFlightsBinding;
 
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -80,11 +69,11 @@ public class FromToFlights extends Fragment {
             }
         };
 
-        binding.search.setOnClickListener(new View.OnClickListener() {
+        binding.searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!TextUtils.isEmpty(binding.search.getText())) {
+                if(!TextUtils.isEmpty(binding.dstEdittext.getText())&&!TextUtils.isEmpty(binding.fromEdittext.getText())) {
                     jsonStart = temp;
                     jsonStart += binding.fromEdittext.getText().toString().trim() + "/";
                     jsonStart += binding.dstEdittext.getText().toString().trim() + "/";

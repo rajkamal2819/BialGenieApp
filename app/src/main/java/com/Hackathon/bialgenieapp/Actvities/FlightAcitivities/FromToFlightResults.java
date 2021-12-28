@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities.FlightAcitivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +20,7 @@ public class FromToFlightResults extends AppCompatActivity {
         binding = ActivityFromToFlightResultsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.viewpagerFlights.setAdapter(new FragmentAdapter(getSupportFragmentManager(),5));
+        binding.viewpagerFlights.setAdapter(new FragmentAdapter(getSupportFragmentManager(),6));
         binding.tabLayout2.setupWithViewPager(binding.viewpagerFlights);
         binding.tabLayout2.setTabGravity(TabLayout.GRAVITY_FILL);
 

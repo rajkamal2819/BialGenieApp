@@ -11,9 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.Hackathon.bialgenieapp.FlightDetailsActivity2;
-import com.Hackathon.bialgenieapp.FlightSearchDetails;
-import com.Hackathon.bialgenieapp.FlightsDetailsActivity;
+import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightDetailsActivity2;
 import com.Hackathon.bialgenieapp.Models.FSModel;
 import com.Hackathon.bialgenieapp.R;
 

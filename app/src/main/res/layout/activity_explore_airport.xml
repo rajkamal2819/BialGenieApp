@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Actvities.FlightAcitivities.ExploreAirport">
+    <TextView
+        android:id="@+id/title_explore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hello"
+        android:layout_alignParentRight="true"
+        android:textSize="20dp"
+        android:alpha="1"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#FFFFFF"
+
+        />
+
+
+
+
+              <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bial_12"
+                android:tintMode="src_over"
+                android:contentDescription="TODO" />
+
+    <ImageView
+        android:id="@+id/imgColor"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:alpha="0.6"
+        android:scaleType="centerCrop"
+        android:src="@color/black"
+        android:tintMode="src_over" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabexplore"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="190dp"
+        android:background="#FFFFFF"
+        app:tabMode="fixed">
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpagerexplore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabexplore"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.iammert.library.readablebottombar.ReadableBottomBar
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpagerCab"
+            app:rbb_activeItemType="text"
+            app:rbb_indicatorColor="@color/skyBlue"
+            app:rbb_tabs="@xml/tabs" />
+    </androidx.viewpager.widget.ViewPager>
+
+
+        </RelativeLayout>
+
+

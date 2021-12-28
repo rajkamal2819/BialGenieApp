@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -22,10 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
-            android:name=".FeedbackForm"
+            android:name=".Actvities.FlightAcitivities.ExploreAirport"
+            android:theme="@style/mainPage"
             android:exported="false" />
         <activity
-            android:name=".ChatBotActivity"
+            android:name=".Actvities.FeedbackForm"
+            android:theme="@style/mainPage"
+            android:exported="false" />
+        <activity
+            android:name=".Actvities.ChatBotActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
@@ -44,37 +49,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FlightDetailsActivity2"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainPage2" />
-        <activity android:name=".TrainInfo"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainPage"
-            />
-        <activity
-            android:name=".FlightSearchDetails"
+            android:name=".Actvities.FlightAcitivities.FlightDetailsActivity2"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
         <activity
-            android:name=".FromToFlightResults"
+            android:name=".Actvities.TrainInfo"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
         <activity
-            android:name=".FlightsDetailsActivity"
+            android:name=".Actvities.FlightAcitivities.FlightSearchDetails"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
         <activity
-            android:name=".FlightSearchActivity"
+            android:name=".Actvities.FlightAcitivities.FromToFlightResults"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
         <activity
-            android:name=".Authentication"
+            android:name=".Actvities.FlightAcitivities.FlightsDetailsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage2" />
+        <activity
+            android:name=".Actvities.FlightAcitivities.FlightSearchActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Actvities.Authentication"
             android:exported="true"
             android:theme="@style/logInPage">
             <intent-filter>
@@ -84,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Actvities.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />

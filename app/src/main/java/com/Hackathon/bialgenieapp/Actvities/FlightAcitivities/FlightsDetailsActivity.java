@@ -1,4 +1,4 @@
-package com.Hackathon.bialgenieapp;
+package com.Hackathon.bialgenieapp.Actvities.FlightAcitivities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import com.Hackathon.bialgenieapp.Models.ArDepModel;
 import com.Hackathon.bialgenieapp.Models.FSModel;
 import com.Hackathon.bialgenieapp.Queries.ArrDepQueryUtils;
 import com.Hackathon.bialgenieapp.Queries.FSQueryUtils;
+import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.ActivityFlightsDetailsBinding;
 
 import java.net.URL;

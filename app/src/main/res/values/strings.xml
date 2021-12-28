@@ -12,6 +12,7 @@
     <string name="hyperlink"><a href="https://www.uber.com/ae/en/ride/">https://www.uber.com/ae/en/ride/</a></string>
     <string name="olapara">Ola India\'s most popular cab service provides wide variety of cars ranging from Sedans,Suv\'s to luxary cars.With features like free Wifi , AC, Ola Play you can be assured of the best ride experience</string>
     <string name="hyperlink1"><a href="https://book.olacabs.com/">https://book.olacabs.com/</a></string>
+<<<<<<< HEAD
 
     <string name="lTitle">Duration</string>
     <string name="rTitle">Fare</string>
@@ -22,4 +23,9 @@
     <string name="t5">Loss of Ticket</string>
     <string name="electricCarTitle">P4(built-in charging points, passengers can charge vehicle free of cost)</string>
     <string name="fareElectricTitle">20% Discount on original fare</string>
+=======
+    <string name="abt1">Kempegowda International Airport, Bengaluru (BLR Airport), named after founder of the City – Hiriya Kempegowda – has the unique distinction of being the first Greenfield Airport in India, established on a Public-Private Partnership (PPP) model. This heralded a revolution in Indian aviation, as more airports in the Country were privatised, thereafter.</string>
+    <string name="abt2"><![CDATA[In January 2001, Bangalore International Airport Limited (BIAL), formed under the Companies Act, 1956, was incorporated to build, own and operate BLR Airport for a 60-year concession period. Private promoters hold a 74% stake (Anchorage Infrastructure Investments Holdings Limited: 43.64%; FIH Mauritius Investments Limited: 10.36% and Siemens Projects Ventures: 20%), while the Government (Karnataka State Industrial & Infrastructure Development Corporation Limited: 13%; Airports Authority of India: 13%) hold the remaining 26%.]]></string>
+    <string name="abt3">BLR Airport commenced operations on May 24, 2008 – 33 months from the start of construction. The expansion of the Terminal was completed in 2014 to cater to the steady, unprecedented growth in passenger volumes. Having served 10 million passengers in 2008, KIAB witnessed phenomenal growth during the subsequent years, becoming the fastest growing airport in the world in 2018. KIAB concluded Calendar Year 2019 with 33.65 million passengers. Powered with cutting-edge technology, including Contactless Passenger Processing, Self Bag-Drops, Biometric-based self-boarding solution, BLR Airport connects Bengaluru to 61 domestic and 14 international destinations.</string>
+>>>>>>> 30c7a106a6e1e8bc7e6fbaf7da71d13aaf4f2e04
 </resources>
