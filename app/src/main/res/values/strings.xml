@@ -12,4 +12,14 @@
     <string name="hyperlink"><a href="https://www.uber.com/ae/en/ride/">https://www.uber.com/ae/en/ride/</a></string>
     <string name="olapara">Ola India\'s most popular cab service provides wide variety of cars ranging from Sedans,Suv\'s to luxary cars.With features like free Wifi , AC, Ola Play you can be assured of the best ride experience</string>
     <string name="hyperlink1"><a href="https://book.olacabs.com/">https://book.olacabs.com/</a></string>
+
+    <string name="lTitle">Duration</string>
+    <string name="rTitle">Fare</string>
+    <string name="t1">0 to 1 hour</string>
+    <string name="t2">Every additional 1 hour</string>
+    <string name="t3">One day</string>
+    <string name="t4">Every additional Day</string>
+    <string name="t5">Loss of Ticket</string>
+    <string name="electricCarTitle">P4(built-in charging points, passengers can charge vehicle free of cost)</string>
+    <string name="fareElectricTitle">20% Discount on original fare</string>
 </resources>

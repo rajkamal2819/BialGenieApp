@@ -44,12 +44,12 @@ public class ChargesFragment extends Fragment {
 
         View view=inflater.inflate(R.layout.fragment_charges, container, false);
 
-//        headingsList.add(new ParkingChargesData("P4: Two Wheeler Parking",getString(R.string.lTitle),getString(R.string.rTitle),getString(R.string.t1),getString(R.string.t2),getString(R.string.t3),getString(R.string.t4),getString(R.string.t5),"40","20","250","150","250"));
-//        headingsList.add(new ParkingChargesData("P4: Car Parking",getString(R.string.lTitle),getString(R.string.rTitle),"0 to 30 mins",getString(R.string.t2),getString(R.string.t3),getString(R.string.t4),getString(R.string.t5),"100","50","600","350","600"));
-//        headingsList.add(new ParkingChargesData("P4: Parking for reduced mobility",getString(R.string.lTitle),getString(R.string.rTitle),"0 to 30 mins",getString(R.string.t2),getString(R.string.t3),getString(R.string.t4),getString(R.string.t5),"100","50","600","350","600"));
-//        headingsList.add(new ParkingChargesData("P4: Electric Car Parking","Location",getString(R.string.rTitle),getString(R.string.electricCartitle),getString(R.string.fareElectricTitle),"","","","","","","",""));
-//        headingsList.add(new ParkingChargesData("P4: Bus Parking-Below 16 Sector",getString(R.string.lTitle),getString(R.string.rTitle),getString(R.string.t1),"Additional Hours",getString(R.string.t5),"","","200","200","1000","",""));
-//        headingsList.add(new ParkingChargesData("P4: Bus Parking-Above 16 Sector",getString(R.string.lTitle),getString(R.string.rTitle),getString(R.string.t1),"Additional Hours",getString(R.string.t5),"","","500","500","1000","",""));
+        headingsList.add(new ParkingChargesData("P4: Two Wheeler Parking",getString(R.string.lTitle),getString(R.string.rTitle),getString(R.string.t1),getString(R.string.t2),getString(R.string.t3),getString(R.string.t4),getString(R.string.t5),"40","20","250","150","250"));
+        headingsList.add(new ParkingChargesData("P4: Car Parking",getString(R.string.lTitle),getString(R.string.rTitle),"0 to 30 mins",getString(R.string.t2),getString(R.string.t3),getString(R.string.t4),getString(R.string.t5),"100","50","600","350","600"));
+        headingsList.add(new ParkingChargesData("P4: Parking for reduced mobility",getString(R.string.lTitle),getString(R.string.rTitle),"0 to 30 mins",getString(R.string.t2),getString(R.string.t3),getString(R.string.t4),getString(R.string.t5),"100","50","600","350","600"));
+        headingsList.add(new ParkingChargesData("P4: Electric Car Parking","Location",getString(R.string.rTitle),getString(R.string.electricCarTitle),getString(R.string.fareElectricTitle),"","","","","","","",""));
+        headingsList.add(new ParkingChargesData("P4: Bus Parking-Below 16 Sector",getString(R.string.lTitle),getString(R.string.rTitle),getString(R.string.t1),"Additional Hours",getString(R.string.t5),"","","200","200","1000","",""));
+        headingsList.add(new ParkingChargesData("P4: Bus Parking-Above 16 Sector",getString(R.string.lTitle),getString(R.string.rTitle),getString(R.string.t1),"Additional Hours",getString(R.string.t5),"","","500","500","1000","",""));
 
         rv=view.findViewById(R.id.charges_recycler_view);
         ParkingListChargesAdapter adapter=new ParkingListChargesAdapter(headingsList,getContext());

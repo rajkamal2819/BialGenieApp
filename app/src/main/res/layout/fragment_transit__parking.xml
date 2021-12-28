@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.Transit.Transit_Parking">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_parking"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/light_navyBlue"
+        app:tabSelectedTextColor="@color/white"
+
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager_parkng"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/tab_layout_parking"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</FrameLayout>
+</RelativeLayout>
