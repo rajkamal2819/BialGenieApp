@@ -3,12 +3,14 @@ package com.Hackathon.bialgenieapp.Actvities;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
 import com.Hackathon.bialgenieapp.Models.FSModel;
 import com.Hackathon.bialgenieapp.Models.RestaurantsModel;
 import com.Hackathon.bialgenieapp.Queries.FSQueryUtils;
 import com.Hackathon.bialgenieapp.Queries.RestaurantQuery;
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.ActivityRestaurantsBinding;
+import com.google.android.material.tabs.TabLayout;
 
 import android.os.AsyncTask;
 import android.os.Build;
@@ -22,7 +24,6 @@ import java.util.ArrayList;
 public class RestaurantsActivity extends AppCompatActivity {
 
     ActivityRestaurantsBinding binding;
-    private String JsonResponseLink = "https://spring-rest-api.azurewebsites.net/restaurants";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,34 +31,17 @@ public class RestaurantsActivity extends AppCompatActivity {
         binding = ActivityRestaurantsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        RestaurantAsyncTask task = new RestaurantAsyncTask();
-        task.execute();
+        binding.viewpagerFlights.setAdapter(new FragmentAdapter(getSupportFragmentManager(),7));
+        binding.tabLayout2.setupWithViewPager(binding.viewpagerFlights);
+        binding.tabLayout2.setTabGravity(TabLayout.GRAVITY_FILL);
 
-    }
-
-    private class RestaurantAsyncTask extends AsyncTask<URL, Void, ArrayList<RestaurantsModel>> {
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        @Override
-        protected ArrayList<RestaurantsModel> doInBackground(URL... urls) {
-            ArrayList<RestaurantsModel> event = RestaurantQuery.fetchRestaurantData(JsonResponseLink);            //also we can use  urls[0]
-            return event;
-        }
-
-        @Override
-        protected void onPostExecute(ArrayList<RestaurantsModel> event) {
-
-           // binding.progressBar1.setVisibility(View.GONE);
-
-
-            if (event == null) {
-                Log.i("AllFlights", "NULL EVENT");
-               // binding.emptyTextView.setVisibility(View.VISIBLE);
-                return;
+        binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
+        });
 
-           // updateUi(event);
-
-        }
 
     }
 

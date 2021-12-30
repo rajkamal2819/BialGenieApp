@@ -28,7 +28,7 @@ public class RestaurantQuery {
     private static String LOG_TAG = RestaurantQuery.class.getSimpleName();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static ArrayList<RestaurantsModel> fetchRestaurantData(String requestUrl) {
+    public static ArrayList<RestaurantsModel> fetchRestaurantData(String requestUrl,int uniqueL) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -41,7 +41,7 @@ public class RestaurantQuery {
         }
 
         // Extract relevant fields from the JSON response and create an {@link Event} object
-        ArrayList<RestaurantsModel> info = extractFeatureFromJson(jsonResponse);
+        ArrayList<RestaurantsModel> info = extractFeatureFromJson(jsonResponse,uniqueL);
 
         // Return the {@link Event}
         return info;
@@ -122,7 +122,7 @@ public class RestaurantQuery {
         return output.toString();
     }
 
-    private static ArrayList<RestaurantsModel> extractFeatureFromJson(String jsonResponse) {
+    private static ArrayList<RestaurantsModel> extractFeatureFromJson(String jsonResponse,int uniqueL) {
         // If the JSON string is empty or null, then return early.
         ArrayList<RestaurantsModel> list = new ArrayList<>();
         if (TextUtils.isEmpty(jsonResponse)) {
@@ -136,17 +136,30 @@ public class RestaurantQuery {
             for (int i = 0;i<arr.length();i++){
 
                 JSONObject curObj = arr.getJSONObject(i);
+                if(uniqueL == 1 && curObj.getString("security").equals("Pre-Security")) {
 
-                RestaurantsModel model = new RestaurantsModel();
-                model.setName(curObj.getString("name"));
-                model.setDescription(curObj.getString("description"));
-                model.setTimings(curObj.getString("timmings"));
-                model.setLocation(curObj.getString("location"));
-                model.setEmail(curObj.getString("email"));
-                model.setContact(curObj.getString("contact"));
-                model.setSecurity(curObj.getString("security"));
+                    RestaurantsModel model = new RestaurantsModel();
+                    model.setName(curObj.getString("name"));
+                    model.setDescription(curObj.getString("description"));
+                    model.setTimings(curObj.getString("timmings"));
+                    model.setLocation(curObj.getString("location"));
+                    model.setEmail(curObj.getString("email"));
+                    model.setContact(curObj.getString("contact"));
+                    model.setSecurity(curObj.getString("security"));
 
-                list.add(model);
+                    list.add(model);
+                } else if(uniqueL == 2 && curObj.getString("security").equals("Post-Security")){
+                    RestaurantsModel model = new RestaurantsModel();
+                    model.setName(curObj.getString("name"));
+                    model.setDescription(curObj.getString("description"));
+                    model.setTimings(curObj.getString("timmings"));
+                    model.setLocation(curObj.getString("location"));
+                    model.setEmail(curObj.getString("email"));
+                    model.setContact(curObj.getString("contact"));
+                    model.setSecurity(curObj.getString("security"));
+
+                    list.add(model);
+                }
 
             }
 

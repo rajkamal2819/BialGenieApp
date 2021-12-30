@@ -87,7 +87,7 @@ public class FSQueryUtils {
             urlConnection.setRequestProperty("Authorization",stringBuilder.toString());*/
 
             urlConnection.setRequestProperty("Accept", "application/json");
-            urlConnection.setRequestProperty("Authorization", "Bearer mxe7ejrd3kuzzueqxv5y69k5");
+            urlConnection.setRequestProperty("Authorization", "Bearer tem6r2u25mc4kn7v8z4vdrfg");
 
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
