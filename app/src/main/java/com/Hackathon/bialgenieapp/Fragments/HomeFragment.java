@@ -22,8 +22,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchActivity;
+import com.Hackathon.bialgenieapp.Actvities.RestaurantsActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentHomeBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -73,6 +75,14 @@ public class HomeFragment extends Fragment {
             }
 
         });
+
+        binding.chatBot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ChatBotActivity.class));
+            }
+        });
+
         binding.flightSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +97,14 @@ public class HomeFragment extends Fragment {
               startActivity(i);
             }
         });
+
+        binding.restuarants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), RestaurantsActivity.class));
+            }
+        });
+
         return binding.getRoot();
     }
 
