@@ -22,12 +22,12 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-public class RestaurantQuery {
+public class ShoppingQuery {
 
-    private static String LOG_TAG = RestaurantQuery.class.getSimpleName();
+    private static String LOG_TAG = ShoppingQuery.class.getSimpleName();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static ArrayList<RestaurantShoppingModel> fetchRestaurantData(String requestUrl, int uniqueL) {
+    public static ArrayList<RestaurantShoppingModel> fetchShoppingResults(String requestUrl, int uniqueL) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -135,7 +135,7 @@ public class RestaurantQuery {
             for (int i = 0;i<arr.length();i++){
 
                 JSONObject curObj = arr.getJSONObject(i);
-                if(uniqueL == 1 && curObj.getString("security").equals("Pre-Security")) {
+                if(uniqueL == 1 && curObj.getString("type").equals("Domestic")) {
 
                     RestaurantShoppingModel model = new RestaurantShoppingModel();
                     model.setName(curObj.getString("name"));
@@ -144,10 +144,10 @@ public class RestaurantQuery {
                     model.setLocation(curObj.getString("location"));
                     model.setEmail(curObj.getString("email"));
                     model.setContact(curObj.getString("contact"));
-                    model.setSecurity(curObj.getString("security"));
+                    model.setSecurity(curObj.getString("type"));
 
                     list.add(model);
-                } else if(uniqueL == 2 && curObj.getString("security").equals("Post-Security")){
+                } else if(uniqueL == 2 && curObj.getString("type").equals("International")){
                     RestaurantShoppingModel model = new RestaurantShoppingModel();
                     model.setName(curObj.getString("name"));
                     model.setDescription(curObj.getString("description"));
@@ -155,7 +155,7 @@ public class RestaurantQuery {
                     model.setLocation(curObj.getString("location"));
                     model.setEmail(curObj.getString("email"));
                     model.setContact(curObj.getString("contact"));
-                    model.setSecurity(curObj.getString("security"));
+                    model.setSecurity(curObj.getString("type"));
 
                     list.add(model);
                 }

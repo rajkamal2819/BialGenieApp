@@ -1,66 +1,83 @@
 package com.Hackathon.bialgenieapp.Fragments.shopping;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.Hackathon.bialgenieapp.Adapters.RestaurantShoppingAdapter;
+import com.Hackathon.bialgenieapp.Models.RestaurantShoppingModel;
+import com.Hackathon.bialgenieapp.Queries.RestaurantQuery;
+import com.Hackathon.bialgenieapp.Queries.ShoppingQuery;
 import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.databinding.FragmentDomesticShopsBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DomesticShops#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.net.URL;
+import java.util.ArrayList;
+
 public class DomesticShops extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public DomesticShops() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DomesticShops.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DomesticShops newInstance(String param1, String param2) {
-        DomesticShops fragment = new DomesticShops();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FragmentDomesticShopsBinding binding;
+    private String JsonResponseLink = "https://springboot-crud-rest-api.azurewebsites.net/retails";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_domestic_shops, container, false);
+        binding = FragmentDomesticShopsBinding.inflate(getLayoutInflater());
+
+        ShoppingAsyncTask task = new ShoppingAsyncTask();
+        task.execute();
+
+        return binding.getRoot();
     }
+
+    protected void updateUi(ArrayList<RestaurantShoppingModel> restaurantList){
+
+        if (restaurantList.size() == 0){
+            binding.emptyTextView.setVisibility(View.VISIBLE);
+        }
+        RestaurantShoppingAdapter flightAdapter = new RestaurantShoppingAdapter(restaurantList, binding.recyclerView, getContext());
+        binding.recyclerView.setAdapter(flightAdapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        flightAdapter.notifyDataSetChanged();
+
+    }
+
+    private class ShoppingAsyncTask extends AsyncTask<URL, Void, ArrayList<RestaurantShoppingModel>> {
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected ArrayList<RestaurantShoppingModel> doInBackground(URL... urls) {
+            ArrayList<RestaurantShoppingModel> event = ShoppingQuery.fetchShoppingResults(JsonResponseLink,1);            //also we can use  urls[0]
+            return event;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<RestaurantShoppingModel> event) {
+
+            binding.progressBar1.setVisibility(View.GONE);
+
+
+            if (event == null) {
+                // binding.emptyTextView.setVisibility(View.VISIBLE);
+                return;
+            }
+
+            updateUi(event);
+
+        }
+
+    }
+
 }

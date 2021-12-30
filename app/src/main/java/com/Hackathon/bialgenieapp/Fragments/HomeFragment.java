@@ -26,6 +26,7 @@ import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchActivity;
 import com.Hackathon.bialgenieapp.Actvities.RestaurantsActivity;
+import com.Hackathon.bialgenieapp.Actvities.ShoppingActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentHomeBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -102,6 +103,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), RestaurantsActivity.class));
+            }
+        });
+
+        binding.shopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ShoppingActivity.class));
             }
         });
 

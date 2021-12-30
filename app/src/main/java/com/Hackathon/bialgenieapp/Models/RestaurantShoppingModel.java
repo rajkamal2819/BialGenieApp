@@ -1,6 +1,6 @@
 package com.Hackathon.bialgenieapp.Models;
 
-public class RestaurantsModel {
+public class RestaurantShoppingModel {
 
     private String name;
     private String timings;

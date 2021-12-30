@@ -13,10 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.Hackathon.bialgenieapp.Adapters.RestaurantAdapter;
-import com.Hackathon.bialgenieapp.Models.RestaurantsModel;
+import com.Hackathon.bialgenieapp.Adapters.RestaurantShoppingAdapter;
+import com.Hackathon.bialgenieapp.Models.RestaurantShoppingModel;
 import com.Hackathon.bialgenieapp.Queries.RestaurantQuery;
-import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.FragmentPostSecurityResBinding;
 
 import java.net.URL;
@@ -42,34 +41,33 @@ public class PostSecurityRes extends Fragment {
         return binding.getRoot();
     }
 
-    protected void updateUi(ArrayList<RestaurantsModel> restaurantList){
+    protected void updateUi(ArrayList<RestaurantShoppingModel> restaurantList){
 
         if (restaurantList.size() == 0){
             binding.emptyTextView.setVisibility(View.VISIBLE);
         }
-        RestaurantAdapter flightAdapter = new RestaurantAdapter(restaurantList, binding.recyclerView, getContext());
+        RestaurantShoppingAdapter flightAdapter = new RestaurantShoppingAdapter(restaurantList, binding.recyclerView, getContext());
         binding.recyclerView.setAdapter(flightAdapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         flightAdapter.notifyDataSetChanged();
 
     }
 
-    private class RestaurantAsyncTask extends AsyncTask<URL, Void, ArrayList<RestaurantsModel>> {
+    private class RestaurantAsyncTask extends AsyncTask<URL, Void, ArrayList<RestaurantShoppingModel>> {
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
-        protected ArrayList<RestaurantsModel> doInBackground(URL... urls) {
-            ArrayList<RestaurantsModel> event = RestaurantQuery.fetchRestaurantData(JsonResponseLink,2);            //also we can use  urls[0]
+        protected ArrayList<RestaurantShoppingModel> doInBackground(URL... urls) {
+            ArrayList<RestaurantShoppingModel> event = RestaurantQuery.fetchRestaurantData(JsonResponseLink,2);            //also we can use  urls[0]
             return event;
         }
 
         @Override
-        protected void onPostExecute(ArrayList<RestaurantsModel> event) {
+        protected void onPostExecute(ArrayList<RestaurantShoppingModel> event) {
 
              binding.progressBar1.setVisibility(View.GONE);
 
 
             if (event == null) {
-                Log.i("AllFlights", "NULL EVENT");
                 // binding.emptyTextView.setVisibility(View.VISIBLE);
                 return;
             }

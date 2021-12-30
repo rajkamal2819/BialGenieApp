@@ -18,6 +18,8 @@ import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
 import com.Hackathon.bialgenieapp.Fragments.restaurants.PostSecurityRes;
 import com.Hackathon.bialgenieapp.Fragments.restaurants.PreSecurityRes;
+import com.Hackathon.bialgenieapp.Fragments.shopping.DomesticShops;
+import com.Hackathon.bialgenieapp.Fragments.shopping.InternationalShops;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
@@ -77,7 +79,17 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 default:
                     return new PreSecurityRes();
             }
-        } else {
+        } else if(uniqueL == 8){
+            switch (position) {
+                case 0:
+                    return new DomesticShops();
+                case 1:
+                    return new InternationalShops();
+                default:
+                    return new DomesticShops();
+            }
+        }
+        else {
             switch (position) {
                 case 0:
                     return new AllFlights();
@@ -136,6 +148,13 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             }
             else if(position==1){
                 title = "Post-Security";
+            }
+        } else if(uniqueL == 8){
+            if(position==0){
+                title = "Domestic";
+            }
+            else if(position==1){
+                title = "International";
             }
         }
         else {

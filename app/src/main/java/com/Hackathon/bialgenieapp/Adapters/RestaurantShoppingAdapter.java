@@ -1,7 +1,6 @@
 package com.Hackathon.bialgenieapp.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,20 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightsDetailsActivity;
-import com.Hackathon.bialgenieapp.Models.ArDepModel;
-import com.Hackathon.bialgenieapp.Models.RestaurantsModel;
+import com.Hackathon.bialgenieapp.Models.RestaurantShoppingModel;
 import com.Hackathon.bialgenieapp.R;
 
 import java.util.List;
 
-public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.RestaurantHolder> {
+public class RestaurantShoppingAdapter extends RecyclerView.Adapter<RestaurantShoppingAdapter.RestaurantHolder> {
 
-    private List<RestaurantsModel> list;
+    private List<RestaurantShoppingModel> list;
     private RecyclerView recyclerView;
     private Context context;
 
-    public RestaurantAdapter(List<RestaurantsModel> list, RecyclerView recyclerView, Context context) {
+    public RestaurantShoppingAdapter(List<RestaurantShoppingModel> list, RecyclerView recyclerView, Context context) {
         this.list = list;
         this.recyclerView = recyclerView;
         this.context = context;
@@ -32,12 +29,12 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
     @NonNull
     @Override
-    public RestaurantAdapter.RestaurantHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new RestaurantAdapter.RestaurantHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.restaurant_item, parent, false));
+    public RestaurantShoppingAdapter.RestaurantHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new RestaurantShoppingAdapter.RestaurantHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.restaurant_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RestaurantAdapter.RestaurantHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RestaurantShoppingAdapter.RestaurantHolder holder, int position) {
 
         holder.setRestaurantDetails(list.get(position));
 
@@ -70,7 +67,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
         }
 
-        void setRestaurantDetails(RestaurantsModel itemModel) {
+        void setRestaurantDetails(RestaurantShoppingModel itemModel) {
 
             name.setText(itemModel.getName());
             description.setText(itemModel.getDescription());
