@@ -73,6 +73,16 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
+        <activity android:name=".Actvities.RestaurantsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage2"
+            />
+        <activity android:name=".Actvities.ShoppingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage2"
+            />
         <activity
             android:name=".Actvities.FlightAcitivities.FlightSearchActivity"
             android:exported="true"

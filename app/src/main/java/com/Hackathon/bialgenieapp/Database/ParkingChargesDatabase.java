@@ -43,7 +43,7 @@ public class ParkingChargesDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                Class.forName();
+                Class.forName("");
                 Connection connection = DriverManager.getConnection(url);
 
                 Log.i("TAG","Success connecting");
