@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Transit.Transit_Bus">
+    tools:context=".Fragments.Transit.Transit_Cab">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView_bus"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/light_navyBlue"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="Bus Service"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout_bus"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/textView_bus"
+        android:background="@color/light_navyBlue"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpagerBus"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/tabLayout_bus"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-</FrameLayout>
+        <com.iammert.library.readablebottombar.ReadableBottomBar
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpagerBus"
+            app:rbb_activeItemType="text"
+            app:rbb_indicatorColor="@color/skyBlue"
+            app:rbb_tabs="@xml/tabs" />
+    </androidx.viewpager.widget.ViewPager>
+
+
+
+</RelativeLayout>

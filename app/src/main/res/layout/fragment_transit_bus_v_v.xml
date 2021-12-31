@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.TransitBusVV">
+
+  <TextView
+      android:id="@+id/txtsearch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentStart="true"
+      android:layout_marginStart="36dp"
+      android:layout_marginLeft="70dp"
+      android:layout_marginTop="50dp"
+      android:layout_marginEnd="48dp"
+      android:layout_marginRight="10dp"
+      android:layout_toStartOf="@+id/expanded_menu"
+      android:text="Search By Route"
+      android:textSize="20dp" />
+
+  <Button
+    android:id="@+id/btn"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="150dp"
+    android:layout_below="@id/txtsearch"
+      android:text="Search"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/expanded_menu"
+      android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+      android:layout_width="130dp"
+      android:layout_height="60dp"
+      android:layout_marginTop="35dp"
+      android:layout_marginLeft="15dp"
+      android:layout_toRightOf="@id/btn">
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:inputType="none"
+         />
+  </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

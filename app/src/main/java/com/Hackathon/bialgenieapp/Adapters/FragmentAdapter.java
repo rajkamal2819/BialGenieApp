@@ -16,10 +16,8 @@ import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
-import com.Hackathon.bialgenieapp.Fragments.restaurants.PostSecurityRes;
-import com.Hackathon.bialgenieapp.Fragments.restaurants.PreSecurityRes;
-import com.Hackathon.bialgenieapp.Fragments.shopping.DomesticShops;
-import com.Hackathon.bialgenieapp.Fragments.shopping.InternationalShops;
+import com.Hackathon.bialgenieapp.Fragments.TransitBusFly;
+import com.Hackathon.bialgenieapp.Fragments.TransitBusVV;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
@@ -34,7 +32,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        if (uniqueL == 1) {
+        if(uniqueL == 1) {
             switch (position) {
                 case 0:
                     return new FlightsArrival();
@@ -43,7 +41,8 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 default:
                     return new FlightDeparture();
             }
-        } else if (uniqueL == 2) {                       // uniqueL == 2
+        }
+        else if(uniqueL == 2) {                       // uniqueL == 2
             switch (position) {
                 case 0:
                     return new FromToFlights();
@@ -52,56 +51,37 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 default:
                     return new FromToFlights();
             }
-        } else if (uniqueL == 4) {
-            switch (position) {
-                case 0:
-                    return new Transit_Cab_Uber();
-                case 1:
-                    return new Transit_Cab_Ola();
-                default:
-                    return new Transit_Cab_Ola();
-            }
-        } else if (uniqueL == 5) {
-            switch (position) {
-                case 0:
-                    return new ExploreAirport_About();
-                case 1:
-                    return new ExploreAirport_Photos();
-                default:
-                    return new ExploreAirport_About();
-            }
-        } else if (uniqueL == 7) {
-            switch (position) {
-                case 0:
-                    return new PreSecurityRes();
-                case 1:
-                    return new PostSecurityRes();
-                default:
-                    return new PreSecurityRes();
-            }
-        } else if(uniqueL == 8){
-            switch (position) {
-                case 0:
-                    return new DomesticShops();
-                case 1:
-                    return new InternationalShops();
-                default:
-                    return new DomesticShops();
+        }
+        else if(uniqueL == 4){
+            switch (position){
+                case 0: return new Transit_Cab_Uber();
+                case 1: return new Transit_Cab_Ola();
+                default: return new Transit_Cab_Ola();
             }
         }
-        else {
-            switch (position) {
-                case 0:
-                    return new AllFlights();
-                case 1:
-                    return new DirectFlights();
-                default:
-                    return new AllFlights();
+        else if(uniqueL == 5){
+            switch (position){
+                case 0: return new ExploreAirport_About();
+                case 1: return new ExploreAirport_Photos();
+                default: return new ExploreAirport_About();
+            }
+        }
+        else if(uniqueL == 6){
+            switch (position){
+                case 0: return new TransitBusVV();
+                case 1: return new TransitBusFly();
+                default: return new TransitBusVV();
+            }
+        }
+        else{
+            switch (position){
+                case 0: return new AllFlights();
+                case 1: return new DirectFlights();
+                default: return new AllFlights();
             }
         }
 
     }
-
 
     @Override
     public int getCount() {
@@ -142,22 +122,17 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             else if(position==1){
                 title = "Photos";
             }
-        } else if(uniqueL == 7){
+        }
+        else if(uniqueL == 6){
             if(position==0){
-                title = "Pre-Security";
+                title = "Vayu Vajra";
             }
             else if(position==1){
-                title = "Post-Security";
-            }
-        } else if(uniqueL == 8){
-            if(position==0){
-                title = "Domestic";
-            }
-            else if(position==1){
-                title = "International";
+                title = "Fly Bus";
             }
         }
-        else {
+
+        else{
             if(position==0){
                 title = "All Flights";
             }
