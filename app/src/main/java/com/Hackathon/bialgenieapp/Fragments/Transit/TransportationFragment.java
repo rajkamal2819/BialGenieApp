@@ -1,18 +1,15 @@
 package com.Hackathon.bialgenieapp.Fragments.Transit;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.Actvities.Transit_Parking;
 import com.Hackathon.bialgenieapp.databinding.FragmentTransportationBinding;
 
 
@@ -53,7 +50,7 @@ public class TransportationFragment extends Fragment {
 
         binding.travelParking.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
-                Intent i = new Intent(getActivity(),Transit_Parking.class);
+                Intent i = new Intent(getActivity(), Transit_Parking.class);
                 startActivity(i);
             }
         });

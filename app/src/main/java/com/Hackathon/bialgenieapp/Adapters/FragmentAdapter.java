@@ -14,10 +14,16 @@ import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsArrival;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightDeparture;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
+import com.Hackathon.bialgenieapp.Fragments.Transit.ChargesFragment;
+import com.Hackathon.bialgenieapp.Fragments.Transit.TrackCharges;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
 import com.Hackathon.bialgenieapp.Fragments.TransitBusFly;
 import com.Hackathon.bialgenieapp.Fragments.TransitBusVV;
+import com.Hackathon.bialgenieapp.Fragments.restaurants.PostSecurityRes;
+import com.Hackathon.bialgenieapp.Fragments.restaurants.PreSecurityRes;
+import com.Hackathon.bialgenieapp.Fragments.shopping.DomesticShops;
+import com.Hackathon.bialgenieapp.Fragments.shopping.InternationalShops;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
@@ -71,6 +77,24 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 case 0: return new TransitBusVV();
                 case 1: return new TransitBusFly();
                 default: return new TransitBusVV();
+            }
+        } else if(uniqueL == 7){
+            switch (position){
+                case 0: return new PreSecurityRes();
+                case 1: return new PostSecurityRes();
+                default: return new PreSecurityRes();
+            }
+        } else if(uniqueL == 8){
+            switch (position){
+                case 0: return new DomesticShops();
+                case 1: return new InternationalShops();
+                default: return new DomesticShops();
+            }
+        } else if(uniqueL == 10){
+            switch (position){
+                case 0: return new ChargesFragment();
+                case 1: return new TrackCharges();
+                default: return new ChargesFragment();
             }
         }
         else{
@@ -130,8 +154,28 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             else if(position==1){
                 title = "Fly Bus";
             }
+        } else if(uniqueL == 7){
+            if(position==0){
+                title = "Pre-Security";
+            }
+            else if(position==1){
+                title = "Post-Security";
+            }
+        } else if(uniqueL == 8){
+            if(position==0){
+                title = "Domestic";
+            }
+            else if(position==1){
+                title = "International";
+            }
+        } else if(uniqueL == 10){
+            if(position==0){
+                title = "Parking charges";
+            }
+            else if(position==1){
+                title = "Track Charges";
+            }
         }
-
         else{
             if(position==0){
                 title = "All Flights";

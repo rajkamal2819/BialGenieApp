@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/transit_Parking"
-        android:name="com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Parking"
+        android:name="com.Hackathon.bialgenieapp.Actvities.Transit_Parking"
         android:label="fragment_transit__parking"
         tools:layout="@layout/fragment_transit__parking" >
         <action

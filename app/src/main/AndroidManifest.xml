@@ -119,7 +119,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
         <activity
-            android:name=".Fragments.Transit.Transit_Parking"
+            android:name=".Actvities.Transit_Parking"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
