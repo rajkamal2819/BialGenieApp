@@ -3,7 +3,9 @@ package com.Hackathon.bialgenieapp.Fragments;
 import static android.content.ContentValues.TAG;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -20,10 +22,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchActivity;
+import com.Hackathon.bialgenieapp.Actvities.RestaurantsActivity;
+import com.Hackathon.bialgenieapp.Actvities.ShoppingActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentHomeBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -40,11 +47,13 @@ public class HomeFragment extends Fragment {
     StringBuffer smsBody = new StringBuffer();
     public static final String SMS_SENT_ACTION = "com.andriodgifts.gift.SMS_SENT_ACTION";
     public static final String SMS_DELIVERED_ACTION = "com.andriodgifts.gift.SMS_DELIVERED_ACTION";
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0;
 
     public HomeFragment() {
         // Required empty public constructor
     }
     String uri;
+    String phoneNum = "9920645355";
 
     FusedLocationProviderClient fusedLocationProviderClient;
     FragmentHomeBinding binding;
@@ -54,13 +63,28 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
-        binding.alertButton.setOnClickListener(new View.OnClickListener() {
+        if (ContextCompat.checkSelfPermission(getContext(),
+                Manifest.permission.SEND_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    Manifest.permission.SEND_SMS)) {
+
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.SEND_SMS},
+                        MY_PERMISSIONS_REQUEST_SEND_SMS);
+
+            }
+        }
+
+            binding.alertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                String phoneNum = "9920645355";
-                 smsBody.append(" Here is my location!");
+
+       popUpEditText();
+
+             /*
 
                 //Check if the phoneNumber is empty
                 if (phoneNum.isEmpty()) {
@@ -68,11 +92,19 @@ public class HomeFragment extends Fragment {
                 } else {
                     sendSMS(phoneNum, smsBody.toString());
                     Toast.makeText(getContext(), "Location shared with the authorities", Toast.LENGTH_LONG).show();
-                }
+                }*/
 
             }
 
         });
+
+        binding.chatBot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ChatBotActivity.class));
+            }
+        });
+
         binding.flightSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,8 +119,25 @@ public class HomeFragment extends Fragment {
               startActivity(i);
             }
         });
+
+        binding.restuarants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), RestaurantsActivity.class));
+            }
+        });
+
+        binding.shopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ShoppingActivity.class));
+            }
+        });
+
         return binding.getRoot();
     }
+
+
 
     @Override
     public void onStart() {
@@ -98,6 +147,58 @@ public class HomeFragment extends Fragment {
         } else {
             askLocationPermission();
         }
+
+    }
+
+
+    private void popUpEditText() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Comments");
+
+        final EditText input = new EditText(getContext());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        builder.setView(input);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+          smsBody.append(" "+input.getText().toString());
+
+                if (ContextCompat.checkSelfPermission(getContext(),
+                        Manifest.permission.SEND_SMS)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                            Manifest.permission.SEND_SMS)) {
+
+                        ActivityCompat.requestPermissions(getActivity(),
+                                new String[]{Manifest.permission.SEND_SMS},
+                                MY_PERMISSIONS_REQUEST_SEND_SMS);
+                        sendSMS(phoneNum, smsBody.toString());
+                        Toast.makeText(getContext(), "Location shared with the Authorities", Toast.LENGTH_LONG).show();
+
+
+
+                    }
+                }
+                else {
+                    sendSMS(phoneNum, smsBody.toString());
+                    Toast.makeText(getContext(), "Location shared with the Authorities", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+
     }
 
     private void getLastLocation() {
@@ -135,7 +236,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void askLocationPermission() {
+    private void askLocationPermission(){
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
                 Log.d(TAG, "askLocationPermission: you should show an alert dialog...");
@@ -156,6 +257,26 @@ public class HomeFragment extends Fragment {
                 //Permission not granted
             }
         }
+       else if(requestCode == MY_PERMISSIONS_REQUEST_SEND_SMS)
+       {    Toast.makeText(getContext(), "onrequestpermission", Toast.LENGTH_LONG).show();
+           if (grantResults.length > 0
+               && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+               sendSMS(phoneNum, smsBody.toString());
+              
+
+       } else {
+           Toast.makeText(getContext(),
+                   "SMS faild, please try again.", Toast.LENGTH_LONG).show();
+
+           return;
+       }}
+
+
+
+
+
+
     }
 
 

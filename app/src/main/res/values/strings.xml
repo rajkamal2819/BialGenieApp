@@ -28,4 +28,46 @@
     <string name="abt2"><![CDATA[In January 2001, Bangalore International Airport Limited (BIAL), formed under the Companies Act, 1956, was incorporated to build, own and operate BLR Airport for a 60-year concession period. Private promoters hold a 74% stake (Anchorage Infrastructure Investments Holdings Limited: 43.64%; FIH Mauritius Investments Limited: 10.36% and Siemens Projects Ventures: 20%), while the Government (Karnataka State Industrial & Infrastructure Development Corporation Limited: 13%; Airports Authority of India: 13%) hold the remaining 26%.]]></string>
     <string name="abt3">BLR Airport commenced operations on May 24, 2008 – 33 months from the start of construction. The expansion of the Terminal was completed in 2014 to cater to the steady, unprecedented growth in passenger volumes. Having served 10 million passengers in 2008, KIAB witnessed phenomenal growth during the subsequent years, becoming the fastest growing airport in the world in 2018. KIAB concluded Calendar Year 2019 with 33.65 million passengers. Powered with cutting-edge technology, including Contactless Passenger Processing, Self Bag-Drops, Biometric-based self-boarding solution, BLR Airport connects Bengaluru to 61 domestic and 14 international destinations.</string>
 
+<<<<<<< HEAD
+=======
+    <string-array name="routes">
+
+        <item>KIAB-10</item>
+        <item>KIAB-14</item>
+        <item>KIAB-4</item>
+        <item>KIAB-4A</item>
+        <item>KIAB-5</item>
+        <item>KIAB-6</item>
+        <item>KIAB-7A</item>
+        <item>KIAB-8</item>
+        <item>KIAB-8C</item>
+        <item>KIAB-9</item>
+
+    </string-array>
+
+    <string-array name="type">
+
+        <item>Suggestion</item>
+        <item>Question</item>
+        <item>Complaint</item>
+        <item>Thank</item>
+    </string-array>
+
+
+    <string-array name="Category">
+
+        <item>Transport</item>
+        <item>Lost</item>
+        <item>Security</item>
+
+    </string-array>
+
+    <string-array name="Gender">
+
+        <item>Male</item>
+        <item>Female</item>
+        <item>Skip this</item>
+
+    </string-array>
+>>>>>>> 362e4c21dcd1429352b9f39dfc21fdbf9eecb2f0
 </resources>

@@ -16,6 +16,8 @@ import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
+import com.Hackathon.bialgenieapp.Fragments.TransitBusFly;
+import com.Hackathon.bialgenieapp.Fragments.TransitBusVV;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
@@ -62,6 +64,13 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 case 0: return new ExploreAirport_About();
                 case 1: return new ExploreAirport_Photos();
                 default: return new ExploreAirport_About();
+            }
+        }
+        else if(uniqueL == 6){
+            switch (position){
+                case 0: return new TransitBusVV();
+                case 1: return new TransitBusFly();
+                default: return new TransitBusVV();
             }
         }
         else{
@@ -112,6 +121,14 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             }
             else if(position==1){
                 title = "Photos";
+            }
+        }
+        else if(uniqueL == 6){
+            if(position==0){
+                title = "Vayu Vajra";
+            }
+            else if(position==1){
+                title = "Fly Bus";
             }
         }
 

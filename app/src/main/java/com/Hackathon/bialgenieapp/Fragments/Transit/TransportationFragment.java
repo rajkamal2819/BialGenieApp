@@ -13,12 +13,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.databinding.FragmentTransportationBinding;
 
 
 public class TransportationFragment extends Fragment {
-    View v;
-    CardView cab,train,parking,bus;
-    Button b;
 
 
     public TransportationFragment() {
@@ -26,59 +24,50 @@ public class TransportationFragment extends Fragment {
 
     }
 
-
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+    FragmentTransportationBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        v =  inflater.inflate(R.layout.fragment_transportation, container, false);
-        bus = v.findViewById(R.id.travel_bus);
-        cab = v.findViewById(R.id.travel_cabs);
-        train = v.findViewById(R.id.travel_train);
-        parking = v.findViewById(R.id.travel_parking);
-        b = v.findViewById(R.id.navigate);
+        binding = FragmentTransportationBinding.inflate(getLayoutInflater());
         // Inflate the layout for this fragment
-        bus.setOnClickListener(new View.OnClickListener() {
+        binding.travelBus.setOnClickListener(new View.OnClickListener() {
                                            public final void onClick(View it) {
                                              Intent i = new Intent(getActivity(),Transit_Bus.class);
                                              startActivity(i);
 
                                            }
                                        });
-        cab.setOnClickListener(new View.OnClickListener() {
+        binding.travelCabs.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(),Transit_Cab.class);
                 startActivity(i);
             }
         });
-        train.setOnClickListener(new View.OnClickListener() {
+        binding.travelTrain.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(),Transit_Train.class);
                 startActivity(i);
             }
         });
 
-        parking.setOnClickListener(new View.OnClickListener() {
+        binding.travelParking.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(),Transit_Parking.class);
                 startActivity(i);
             }
         });
 
-        b.setOnClickListener(new View.OnClickListener() {
+        /*b.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Uri gmmIntentUri = Uri.parse("google.navigation:q=13.1986, 77.7066");
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
             }
-        });
-return v;
+        });*/
+
+        return binding.getRoot();
     }
+
 }
