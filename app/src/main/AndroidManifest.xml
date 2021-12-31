@@ -43,7 +43,7 @@
 
                 <data
                     android:host="com.Hackathon.bialgenieapp"
-                    android:path="/JYYA67+bpB0eQykxzROsdXNz3eU="
+                    android:path="/0KSITcEtDY/E9LCroVuVetYhf20="
                     android:scheme="msauth"
                     tools:ignore="AppLinkUrlError" />
             </intent-filter>
