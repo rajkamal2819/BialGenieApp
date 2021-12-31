@@ -22,8 +22,8 @@ import java.util.Scanner;
 public class ParkingChargesDatabase {
 
 
-   static String url="jdbc:sqlserver://bialserver.database.windows.net:1433;"+"database=BialHackathonDatabase;"+"user=azureuser@bialserver;"+"password=AccessDenied123;"+"encrypt=true;"+"trustServerCertificate=false;"+"hostNameInCertificate=*.database.windows.net;"+"loginTimeout=30;";
-
+   static String url="jdbc:jtdc::sqlserver://bialserver.database.windows.net:1433;database=BialHackathonDatabase;user=azureuser@bialserver;password=AccessDenied123;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+    //public static final String name = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
     public static void creteTable() throws IOException, SQLException, ClassNotFoundException {
 
@@ -42,11 +42,14 @@ public class ParkingChargesDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            try (Connection connection = DriverManager.getConnection(url)) {
+            try {
+                Class.forName();
+                Connection connection = DriverManager.getConnection(url);
+
                 Log.i("TAG","Success connecting");
             }
             // Handle any errors that may have occurred.
-            catch (SQLException e) {
+            catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
             return null;
