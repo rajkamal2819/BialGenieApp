@@ -6,6 +6,8 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.Hackathon.bialgenieapp.Fragments.hotels.HotelTextDetails;
+import com.Hackathon.bialgenieapp.Models.HotelDetailsModel;
 import com.Hackathon.bialgenieapp.Models.HotelsModel;
 import com.Hackathon.bialgenieapp.Models.RestaurantShoppingModel;
 
@@ -44,6 +46,27 @@ public class HotelsQuery {
         // Extract relevant fields from the JSON response and create an {@link Event} object
 
         ArrayList<HotelsModel> info = extractFeatureFromJson(jsonResponse);
+
+        // Return the {@link Event}
+        return info;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static HotelDetailsModel fetchHotelsDetails(String requestUrl) {
+        URL url = createUrl(requestUrl);
+        //  URL locationUrl = createUrl("https://hotels4.p.rapidapi.com/locations/v2/search?query="+location);
+
+        String jsonResponse = null;
+        try {
+            jsonResponse = makeHttpRequest(url);         //makeHttpRequest is taking url object
+            Log.i(LOG_TAG, "JsonResponse had been taken by httpReq");
+        } catch (IOException e) {
+            Log.i(LOG_TAG, "Error closing input stream", e);
+        }
+
+        // Extract relevant fields from the JSON response and create an {@link Event} object
+
+        HotelDetailsModel info = extractFeatureFromJson2(jsonResponse);
 
         // Return the {@link Event}
         return info;
@@ -222,8 +245,8 @@ public class HotelsQuery {
                         JSONObject price = ratePlan.getJSONObject("price");
                         if (price.has("info"))
                             model.setPriceInfo(price.getString("info"));
-                        if(price.has("current"))
-                        model.setCurrentPrice(price.getString("current"));
+                        if (price.has("current"))
+                            model.setCurrentPrice(price.getString("current"));
                     }
                 }
 
@@ -236,6 +259,60 @@ public class HotelsQuery {
             Log.i(LOG_TAG, "Problem parsing the JSON results", e);
         }
         return list;
+
+    }
+
+    private static HotelDetailsModel extractFeatureFromJson2(String jsonResponse) {
+        // If the JSON string is empty or null, then return early.
+        HotelDetailsModel model = new HotelDetailsModel();
+        if (TextUtils.isEmpty(jsonResponse)) {
+            Log.i(LOG_TAG,"NO JSON RESPONSE");
+            return model;
+        }
+
+        try {
+
+            JSONObject mainObj = new JSONObject(jsonResponse);
+            JSONObject data = mainObj.getJSONObject("data");
+            JSONObject body = data.getJSONObject("body");
+            JSONObject overview = body.getJSONObject("overview");
+            JSONArray overviewSections = overview.getJSONArray("overviewSections");
+
+            Log.i(LOG_TAG,"Fetching JSON RESPONSE");
+
+            if (overviewSections.getJSONObject(0).has("content")) {
+                JSONArray content = overviewSections.getJSONObject(0).getJSONArray("content");
+                ArrayList<String> mainFeatures = new ArrayList<>();
+                for (int j = 0; j < content.length(); j++) {
+                    mainFeatures.add(content.getString(j));
+                }
+                model.setHotelFeatures(mainFeatures);
+            }
+
+            if (overviewSections.getJSONObject(1).has("content")) {
+                JSONArray content = overviewSections.getJSONObject(1).getJSONArray("content");
+                ArrayList<String> familyFeatures = new ArrayList<>();
+                for (int j = 0; j < content.length(); j++) {
+                    familyFeatures.add(content.getString(j));
+                }
+                model.setFamilyFriendlyFeatures(familyFeatures);
+            }
+
+            if (overviewSections.getJSONObject(4).has("content")) {
+                JSONArray content = overviewSections.getJSONObject(4).getJSONArray("content");
+                ArrayList<String> freeBias = new ArrayList<>();
+                for (int j = 0; j < content.length(); j++) {
+                    freeBias.add(content.getString(j));
+                }
+                model.setHotelFreebies(freeBias);
+            }
+
+            return model;
+
+        } catch (JSONException e) {
+            Log.i(LOG_TAG, "Problem parsing the JSON results", e);
+        }
+        return model;
 
     }
 

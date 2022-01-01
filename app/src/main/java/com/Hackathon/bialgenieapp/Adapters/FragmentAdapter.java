@@ -20,6 +20,8 @@ import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
 import com.Hackathon.bialgenieapp.Fragments.TransitBusFly;
 import com.Hackathon.bialgenieapp.Fragments.TransitBusVV;
+import com.Hackathon.bialgenieapp.Fragments.hotels.HotelPhotosFragment;
+import com.Hackathon.bialgenieapp.Fragments.hotels.HotelTextDetails;
 import com.Hackathon.bialgenieapp.Fragments.hotels.NearBlrHotels;
 import com.Hackathon.bialgenieapp.Fragments.hotels.SearchHotels;
 import com.Hackathon.bialgenieapp.Fragments.restaurants.PostSecurityRes;
@@ -103,6 +105,12 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 case 0: return new NearBlrHotels();
                 case 1: return new SearchHotels();
                 default: return new NearBlrHotels();
+            }
+        } else if(uniqueL == 12){
+            switch (position){
+                case 0: return new HotelTextDetails();
+                case 1: return new HotelPhotosFragment();
+                default: return new HotelPhotosFragment();
             }
         }
         else{
@@ -189,6 +197,13 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             }
             else if(position==1){
                 title = "Search Hotels";
+            }
+        } else if(uniqueL == 12){
+            if(position==0){
+                title = "Details";
+            }
+            else if(position==1){
+                title = "Photos";
             }
         }
         else{

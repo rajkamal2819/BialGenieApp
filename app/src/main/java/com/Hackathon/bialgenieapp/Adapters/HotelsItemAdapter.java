@@ -1,6 +1,7 @@
 package com.Hackathon.bialgenieapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.Hackathon.bialgenieapp.Actvities.Hotels.HotelsDetailsActivity;
 import com.Hackathon.bialgenieapp.Models.HotelsModel;
 import com.Hackathon.bialgenieapp.R;
 import com.squareup.picasso.Picasso;
@@ -27,7 +29,6 @@ public class HotelsItemAdapter extends RecyclerView.Adapter<HotelsItemAdapter.Ho
         this.list = list;
         this.recyclerView = recyclerView;
         this.context = context;
-
     }
 
     @NonNull
@@ -41,6 +42,24 @@ public class HotelsItemAdapter extends RecyclerView.Adapter<HotelsItemAdapter.Ho
 
         int pos = holder.getAdapterPosition();
         holder.setHotelDetails(list.get(pos));
+        HotelsModel model = list.get(pos);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, HotelsDetailsActivity.class);
+                i.putExtra("name",model.getName());
+                i.putExtra("lat",model.getLatitude());
+                i.putExtra("lon",model.getLongitude());
+                i.putExtra("rating",model.getStarRating());
+                i.putExtra("price",model.getCurrentPrice());
+                i.putExtra("priceInfo",model.getPriceInfo());
+                i.putExtra("id",model.getId());
+                i.putExtra("address",model.getAddress());
+                i.putExtra("image",model.getThumbnail());
+                context.startActivity(i);
+            }
+        });
 
     }
 
@@ -56,7 +75,6 @@ public class HotelsItemAdapter extends RecyclerView.Adapter<HotelsItemAdapter.Ho
         private TextView address;
         private RatingBar ratingBar;
         private TextView price;
-        private TextView email;
 
         public HotelsHolder(@NonNull View itemView) {
             super(itemView);
