@@ -135,7 +135,7 @@ public class FSQueryUtils {
             }
         }
         Log.i(LOG_TAG, "Reading from Stream");
-        Log.d(LOG_TAG, output.toString());
+      //  Log.d(LOG_TAG, output.toString());
         return output.toString();
     }
 

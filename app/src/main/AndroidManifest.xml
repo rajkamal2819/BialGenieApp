@@ -22,13 +22,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
-            android:name=".Actvities.FlightAcitivities.ExploreAirport"
+            android:name=".Actvities.HotelsActivity"
             android:theme="@style/mainPage"
-            android:exported="false" />
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity
+            android:name=".Actvities.FlightAcitivities.ExploreAirport"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Actvities.FeedbackForm"
-            android:theme="@style/mainPage"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Actvities.ChatBotActivity"
             android:exported="true"
@@ -73,16 +80,16 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
-        <activity android:name=".Actvities.RestaurantsActivity"
+        <activity
+            android:name=".Actvities.RestaurantsActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage2"
-            />
-        <activity android:name=".Actvities.ShoppingActivity"
+            android:theme="@style/mainPage2" />
+        <activity
+            android:name=".Actvities.ShoppingActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage2"
-            />
+            android:theme="@style/mainPage2" />
         <activity
             android:name=".Actvities.FlightAcitivities.FlightSearchActivity"
             android:exported="true"

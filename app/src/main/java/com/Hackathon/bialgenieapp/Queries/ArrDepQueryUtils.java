@@ -128,7 +128,7 @@ public class ArrDepQueryUtils {
             }
         }
         Log.i(LOG_TAG, "Reading from Stream");
-          Log.d(LOG_TAG,output.toString());
+      //    Log.d(LOG_TAG,output.toString());
         return output.toString();
     }
 
