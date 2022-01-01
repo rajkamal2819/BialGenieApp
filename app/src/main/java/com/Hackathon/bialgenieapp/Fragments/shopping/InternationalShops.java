@@ -46,10 +46,10 @@ public class InternationalShops extends Fragment {
         if (restaurantList.size() == 0){
             binding.emptyTextView.setVisibility(View.VISIBLE);
         }
-        RestaurantShoppingAdapter flightAdapter = new RestaurantShoppingAdapter(restaurantList, binding.recyclerView, getContext());
-        binding.recyclerView.setAdapter(flightAdapter);
+        RestaurantShoppingAdapter adapter = new RestaurantShoppingAdapter(restaurantList, binding.recyclerView, getContext());
+        binding.recyclerView.setAdapter(adapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        flightAdapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
 
     }
 

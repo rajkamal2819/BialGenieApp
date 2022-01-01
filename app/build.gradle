@@ -68,6 +68,8 @@ dependencies {
     implementation 'io.grpc:grpc-okhttp:1.7.0'
     implementation 'com.squareup.okhttp3:okhttp:3.0.1'
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 
 }

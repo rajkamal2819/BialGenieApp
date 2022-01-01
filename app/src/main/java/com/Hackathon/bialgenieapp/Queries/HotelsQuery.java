@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.Hackathon.bialgenieapp.Models.HotelsModel;
 import com.Hackathon.bialgenieapp.Models.RestaurantShoppingModel;
 
 import org.json.JSONArray;
@@ -24,12 +25,13 @@ import java.util.ArrayList;
 
 public class HotelsQuery {
 
-    private static String LOG_TAG = RestaurantQuery.class.getSimpleName();
+    private static String LOG_TAG = HotelsQuery.class.getSimpleName();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static ArrayList<RestaurantShoppingModel> fetchHotelsResults(String requestUrl) {
+    public static ArrayList<HotelsModel> fetchHotelsResults(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
+        //  URL locationUrl = createUrl("https://hotels4.p.rapidapi.com/locations/v2/search?query="+location);
 
         String jsonResponse = null;
         try {
@@ -40,10 +42,29 @@ public class HotelsQuery {
         }
 
         // Extract relevant fields from the JSON response and create an {@link Event} object
-        ArrayList<RestaurantShoppingModel> info = extractFeatureFromJson(jsonResponse);
+
+        ArrayList<HotelsModel> info = extractFeatureFromJson(jsonResponse);
 
         // Return the {@link Event}
         return info;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String getLocationId(String requestUrl) {
+        URL url = createUrl(requestUrl);
+
+        String jsonResponse = null;
+        try {
+            jsonResponse = makeHttpRequest(url);         //makeHttpRequest is taking url object
+            Log.i(LOG_TAG, "JsonResponse had been taken by httpReq");
+        } catch (IOException e) {
+            Log.i(LOG_TAG, "Error closing input stream", e);
+        }
+
+        String locationId = getDestinationId(jsonResponse);
+
+        // Return the {@link Event}
+        return locationId;
     }
 
     private static URL createUrl(String stringUrl) {
@@ -71,8 +92,8 @@ public class HotelsQuery {
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
 
-            urlConnection.setReadTimeout(10000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
+            urlConnection.setReadTimeout(15000 /* milliseconds */);
+            urlConnection.setConnectTimeout(20000 /* milliseconds */);
 
             urlConnection.setRequestProperty("x-rapidapi-host", "hotels4.p.rapidapi.com");
             urlConnection.setRequestProperty("x-rapidapi-key", "4f2ed34c31mshd5f952f41b7c244p1d2d8cjsn1313966a21eb");
@@ -123,16 +144,92 @@ public class HotelsQuery {
         return output.toString();
     }
 
-    private static ArrayList<RestaurantShoppingModel> extractFeatureFromJson(String jsonResponse) {
+    private static ArrayList<HotelsModel> extractFeatureFromJson(String jsonResponse) {
         // If the JSON string is empty or null, then return early.
-        ArrayList<RestaurantShoppingModel> list = new ArrayList<>();
+        ArrayList<HotelsModel> list = new ArrayList<>();
         if (TextUtils.isEmpty(jsonResponse)) {
             return list;
         }
 
         try {
 
-            JSONArray arr = new JSONArray(jsonResponse);
+            JSONObject mainObj = new JSONObject(jsonResponse);
+            JSONObject data = mainObj.getJSONObject("data");
+            JSONObject body = data.getJSONObject("body");
+            JSONObject searchResults = body.getJSONObject("searchResults");
+            JSONArray results = searchResults.getJSONArray("results");
+
+            for (int i = 0; i < results.length(); i++) {
+
+                HotelsModel model = new HotelsModel();
+                JSONObject curObj = results.getJSONObject(i);
+
+                if (curObj.has("id")) {
+                    model.setId(curObj.getLong("id"));
+                }
+
+                if (curObj.has("name")) {
+                    model.setName(curObj.getString("name"));
+                }
+
+                if (curObj.has("starRating")) {
+                    model.setStarRating(curObj.getDouble("starRating"));
+                }
+
+                if (curObj.has("address")) {
+
+                    JSONObject address = curObj.getJSONObject("address");
+                    String addressStr = "";
+
+                    if (address.has("streetAddress")) {
+                        addressStr += address.getString("streetAddress");
+                    }
+
+                    if (address.has("extendedAddress")) {
+                        addressStr += ", " + address.getString("extendedAddress");
+                    }
+
+                    if (address.has("locality")) {
+                        addressStr += ", " + address.getString("locality");
+                    }
+
+                    if (address.has("postalCode")) {
+                        addressStr += ", " + address.getString("postalCode");
+                    }
+
+                    if (address.has("region")) {
+                        addressStr += ", " + address.getString("region");
+                    }
+
+                    model.setAddress(addressStr);
+
+                }
+
+                if (curObj.has("coordinate")) {
+                    JSONObject coordinate = curObj.getJSONObject("coordinate");
+                    model.setLatitude(coordinate.getDouble("lat"));
+                    model.setLongitude(coordinate.getDouble("lon"));
+                }
+
+                if (curObj.has("optimizedThumbUrls")) {
+                    JSONObject optimizedThumbUrls = curObj.getJSONObject("optimizedThumbUrls");
+                    model.setThumbnail(optimizedThumbUrls.getString("srpDesktop"));
+                }
+
+                if (curObj.has("ratePlan")) {
+                    JSONObject ratePlan = curObj.getJSONObject("ratePlan");
+                    if (ratePlan.has("price")) {
+                        JSONObject price = ratePlan.getJSONObject("price");
+                        if (price.has("info"))
+                            model.setPriceInfo(price.getString("info"));
+                        if(price.has("current"))
+                        model.setCurrentPrice(price.getString("current"));
+                    }
+                }
+
+                list.add(model);
+
+            }
 
             return list;
         } catch (JSONException e) {
@@ -141,4 +238,28 @@ public class HotelsQuery {
         return list;
 
     }
+
+    private static String getDestinationId(String jsonResponse) {
+
+        if (TextUtils.isEmpty(jsonResponse)) {
+            return null;
+        }
+
+        try {
+            JSONObject mainObj = new JSONObject(jsonResponse);
+            if (mainObj.has("suggestions")) {
+                JSONArray suggestions = mainObj.getJSONArray("suggestions");
+                JSONArray entities = suggestions.getJSONObject(0).getJSONArray("entities");
+                String destinationId = entities.getJSONObject(0).getString("destinationId");
+                Log.i(LOG_TAG, "DESTINATION ID: " + destinationId);
+                return destinationId;
+            }
+
+        } catch (JSONException e) {
+            Log.i(LOG_TAG, "Problem parsing the JSON results", e);
+        }
+
+        return null;
+    }
+
 }

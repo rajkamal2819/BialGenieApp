@@ -29,7 +29,7 @@ import android.widget.Toast;
 import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchActivity;
-import com.Hackathon.bialgenieapp.Actvities.HotelsActivity;
+import com.Hackathon.bialgenieapp.Actvities.Hotels.HotelsActivity;
 import com.Hackathon.bialgenieapp.Actvities.RestaurantsActivity;
 import com.Hackathon.bialgenieapp.Actvities.ShoppingActivity;
 import com.Hackathon.bialgenieapp.databinding.FragmentHomeBinding;

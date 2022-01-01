@@ -22,10 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
-            android:name=".Actvities.HotelsActivity"
+            android:name=".Actvities.Hotels.HotelSearchResults"
             android:theme="@style/mainPage"
             android:screenOrientation="portrait"
             android:exported="true" />
+        <activity
+            android:name=".Actvities.Hotels.HotelsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Actvities.FlightAcitivities.ExploreAirport"
             android:exported="false"
