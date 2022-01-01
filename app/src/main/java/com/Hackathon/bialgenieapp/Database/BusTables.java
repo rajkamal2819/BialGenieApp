@@ -22,6 +22,7 @@ public class BusTables {
             "DefaultEndpointsProtocol=https;AccountName=bialtable;AccountKey=wRCVF2troxwyrE9pieQU0tjN84QSOwnq0ybCZBg+b76/EIUD3xFmM2p19Dn8hiIyKWGs1gPAm5cyKhHxh2y7oA==;EndpointSuffix=core.windows.net";
   public void create_Table()
    {
+
        try
        {
 
@@ -63,6 +64,7 @@ public class BusTables {
            basic.put("Stopsno", stopsno);
            basic.put("Distance", dist);
            basic.put("Fare", fare);
+
            TableEntity bus = new TableEntity(partitionKey, rowKey).setProperties(basic);
 
            // Upsert the entity into the table
@@ -75,11 +77,9 @@ public class BusTables {
        }
    }
 
-   public void setArrivalDeparture(String route, int count,String[] arrival,String[] destination)
-   {
+   public void setArrivalDeparture(String route,String timetable,String stops) {
 
-       try
-       {
+       try {
 
 
            // Create a TableClient with a connection string and a table name.
@@ -91,20 +91,16 @@ public class BusTables {
            // Create a new employee TableEntity.
 
 
-               String partitionKey = route;
+           String partitionKey = route;
 //arr-des starts from 0002 and remember 0009 and then 00010 so total frm 0001 to 000+count +2+1
-               for(int i=0;i<count;i++)
-               {  String rowKey = "000"+i+2;
-                   Map<String, Object> basic= new HashMap<>();
-                   System.out.println("Arrival for ");
-                   basic.put("Arrival", arrival[i]);
-                   basic.put("Departure", destination[i]);
-                   TableEntity bus = new TableEntity(partitionKey, rowKey).setProperties(basic);
+           String rowKey = "0001";
+           Map<String, Object> basic = new HashMap<>();
+           basic.put("timetable", timetable);
+           basic.put("stops", stops);
+           TableEntity bus = new TableEntity(partitionKey, rowKey).setProperties(basic);
 
-                   // Upsert the entity into the table
-                   tableClient.upsertEntity(bus);}
-
-
+           // Upsert the entity into the table
+           tableClient.upsertEntity(bus);
        }
        catch (Exception e)
        {
@@ -113,4 +109,42 @@ public class BusTables {
        }
    }
 
-}
+   public void set_city(String route,String title,String origin,String destination,String timetable,String distance)
+   {
+
+       try {
+
+
+           // Create a TableClient with a connection string and a table name.
+           TableClient tableClient = new TableClientBuilder()
+                   .connectionString(connectionString)
+                   .tableName(tableName)
+                   .buildClient();
+
+           // Create a new employee TableEntity.
+
+
+           String partitionKey = route;
+//arr-des starts from 0002 and remember 0009 and then 00010 so total frm 0001 to 000+count +2+1
+           String rowKey = "0001";
+           Map<String, Object> basic = new HashMap<>();
+           basic.put("title", title);
+           basic.put("origin", origin);
+           basic.put("destination", destination);
+           basic.put("distance", distance);
+           basic.put("timetable", timetable);
+           TableEntity bus = new TableEntity(partitionKey, rowKey).setProperties(basic);
+
+           // Upsert the entity into the table
+           tableClient.upsertEntity(bus);
+       }
+       catch (Exception e)
+       {
+           // Output the stack trace.
+           e.printStackTrace();
+       }
+
+   }
+       }
+
+

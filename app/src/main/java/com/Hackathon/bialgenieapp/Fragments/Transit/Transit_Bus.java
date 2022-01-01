@@ -32,8 +32,11 @@ public class Transit_Bus extends AppCompatActivity {
         setContentView(R.layout.fragment_transit__bus);
 
 
+
         viewPager = findViewById(R.id.viewpagerBus);
         tabLayout = findViewById(R.id.tabLayout_bus);
+
+
 
         viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager(),6));
         tabLayout.setupWithViewPager(viewPager);
