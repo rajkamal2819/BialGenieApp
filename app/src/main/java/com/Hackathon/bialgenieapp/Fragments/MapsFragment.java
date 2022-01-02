@@ -98,7 +98,7 @@ public class MapsFragment extends Fragment {
             map.sources.add(sourceParking);
 
             DataSource sourceShopping = new DataSource();
-            sourceShopping.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_Shopping.json?sp=r&st=2022-01-02T22:35:45Z&se=2022-01-03T22:35:45Z&spr=https&sv=2020-08-04&sig=W2wDDacKe1%2FRJcO06j75OeU1yRj7Nfj%2B2Uwx7vwv6xc%3D&sr=f");
+            sourceShopping.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_Shopping.json?sp=r&st=2022-01-02T22:42:47Z&se=2022-01-03T22:42:47Z&spr=https&sv=2020-08-04&sig=ANXoH0gcfoJMFZ9%2Bu5y%2B18C4SI%2FlXXGaPhoNdFS8Jxo%3D&sr=f");
             map.sources.add(sourceShopping);
 
             ArrayList<BubbleLayer> layersList = new ArrayList<>();
