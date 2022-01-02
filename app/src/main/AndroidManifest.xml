@@ -22,10 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
-            android:name=".Actvities.Hotels.HotelSearchResults"
-            android:theme="@style/mainPage"
+            android:name=".Actvities.Maps.MapsSearchActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
             android:exported="true" />
+        <activity
+            android:name=".Actvities.Hotels.HotelSearchResults"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Actvities.Hotels.HotelsActivity"
             android:exported="true"
@@ -155,7 +160,6 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
-
     </application>
 
 </manifest>
