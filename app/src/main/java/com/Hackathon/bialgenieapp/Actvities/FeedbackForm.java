@@ -24,6 +24,7 @@ public class FeedbackForm extends AppCompatActivity {
     String type,category,fn,ln,age,gender,phone,email,airline,flightno,description,nationality;
     EditText t_type,t_category,t_fn,t_ln,t_age,t_gender,t_phone,t_email,t_airline,t_flightno,t_description;
     Button submit;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

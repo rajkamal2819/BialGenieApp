@@ -61,6 +61,55 @@
 
     </string-array>
 
+
+    <string-array name="Cities">
+
+        <item>Madikeri</item>
+        <item>Kundapura</item>
+        <item>Mysuru</item>
+
+    </string-array>
+
+
+    <string-array name="Routes">
+
+        <item>Banashankari TTMC</item>
+        <item>Billekahalli</item>
+        <item>Central Silk Board</item>
+        <item>Chandapura</item>
+        <item>DLF Apartment</item>
+        <item>Domalur</item>
+        <item>Electronic City</item>
+        <item>HAL</item>
+        <item>Halasur Lake</item>
+        <item>Hebbal</item>
+        <item>Hope Farm</item>
+        <item>HSR Layout BDA Complex</item>
+        <item>Indiranagar KFC</item>
+        <item>Jayanagar 4th Block</item>
+        <item>JP Nagar 6th Phase</item>
+        <item>Kadugodi Bus Station</item>
+        <item>Kempegowda Bus Station</item>
+        <item>Marthahalli</item>
+        <item>Marthahalli Bridge</item>
+        <item>Mekri Cicle</item>
+        <item>MG Road</item>
+        <item>Mysuru Road Bus Station (MCTC)</item>
+        <item>Shanthinagar TTMC</item>
+        <item>Shivajinagar Bus Station</item>
+        <item>Shivananda Circle</item>
+        <item>Sony World signal</item>
+        <item>Taj Residency</item>
+        <item>Tinfactory</item>
+        <item>Vijaynagar</item>
+        <item>West of Chord Road</item>
+        <item>White Field</item>
+        <item>White Field TTMC</item>
+        <item>Yeshavanthapura</item>
+
+
+    </string-array>
+
     <string-array name="Gender">
 
         <item>Male</item>
