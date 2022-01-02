@@ -90,16 +90,29 @@ public class MapsFragment extends Fragment {
                     CameraOptions.maxZoom(20));
 
             DataSource source = new DataSource();
-            source.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_restaurants.json?sp=r&st=2022-01-02T21:59:09Z&se=2022-01-03T21:59:09Z&spr=https&sv=2020-08-04&sig=9YaTFZdx4Tfi0KNMrSH%2FHWtNT7DF480tpXQmGnsYQLE%3D&sr=f");
+            source.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_restaurants.json?sp=r&st=2022-01-02T23:37:15Z&se=2022-03-03T23:37:00Z&spr=https&sv=2020-08-04&sig=pxBth2PdiP%2FHe%2F9H%2BxufzmayNAAsaRovdSoRXS3TrLc%3D&sr=f");
             map.sources.add(source);
 
             DataSource sourceParking = new DataSource();
-            sourceParking.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_parking.json?sp=r&st=2022-01-02T21:45:04Z&se=2022-01-03T21:45:04Z&spr=https&sv=2020-08-04&sig=NZyox8xxP%2Fv4i9z7otavOAZDX6L7sCGOELSN0QuLpW0%3D&sr=f");
+            sourceParking.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_parking.json?sp=r&st=2022-01-02T23:36:36Z&se=2022-03-03T23:36:00Z&spr=https&sv=2020-08-04&sig=1z3U9y2Ag5RW5jyXJ3Pz8Cgbt0NQvoZwCje%2BV5G6t0Y%3D&sr=f");
             map.sources.add(sourceParking);
 
             DataSource sourceShopping = new DataSource();
-            sourceShopping.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_Shopping.json?sp=r&st=2022-01-02T22:42:47Z&se=2022-01-03T22:42:47Z&spr=https&sv=2020-08-04&sig=ANXoH0gcfoJMFZ9%2Bu5y%2B18C4SI%2FlXXGaPhoNdFS8Jxo%3D&sr=f");
+            sourceShopping.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_Shopping.json?sp=r&st=2022-01-02T23:37:54Z&se=2022-03-03T23:37:00Z&spr=https&sv=2020-08-04&sig=1EeSt2gGVjJRCuZsjSGrOJKhxpf7fivNetP1F%2BMosnk%3D&sr=f");
             map.sources.add(sourceShopping);
+
+            DataSource sourceAtm = new DataSource();
+            sourceAtm.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_atms.json?sp=r&st=2022-01-02T23:35:52Z&se=2022-03-03T23:35:00Z&spr=https&sv=2020-08-04&sig=XpDCPvnmUNTLye9mN5uFkFWDGOfJblkNS74t3yM0zVk%3D&sr=f");
+            map.sources.add(sourceAtm);
+
+            DataSource sourceMedical = new DataSource();
+            sourceMedical.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_medical.json?sp=r&st=2022-01-02T23:38:35Z&se=2022-03-03T23:38:00Z&spr=https&sv=2020-08-04&sig=EKnIzXOTCvoBCoRXN0xz826XwCpOEfHrHrpO8O5TpEM%3D&sr=f");
+            map.sources.add(sourceMedical);
+
+            DataSource sourceSpecials = new DataSource();
+            sourceSpecials.importDataFromUrl("https://bialtable.file.core.windows.net/maps/POI_geoJson_bial_specials.json?sp=r&st=2022-01-02T23:39:34Z&se=2022-03-03T23:39:00Z&spr=https&sv=2020-08-04&sig=%2B6r%2B1ipsW0GMJd0a6g2WzquLRoNA0R9kyEVrWzCNhCQ%3D&sr=f");
+            map.sources.add(sourceSpecials);
+
 
             ArrayList<BubbleLayer> layersList = new ArrayList<>();
             BubbleLayer layer = new BubbleLayer(source);
@@ -108,6 +121,12 @@ public class MapsFragment extends Fragment {
             layersList.add(layerParking);
             BubbleLayer layerShopping = new BubbleLayer(sourceShopping);
             layersList.add(layerShopping);
+            BubbleLayer layerAtms = new BubbleLayer(sourceAtm);
+            layersList.add(layerAtms);
+            BubbleLayer layerMedical = new BubbleLayer(sourceMedical);
+            layersList.add(layerMedical);
+            BubbleLayer layerSpecial = new BubbleLayer(sourceSpecials);
+            layersList.add(layerSpecial);
 
             binding.restaurants.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -130,6 +149,30 @@ public class MapsFragment extends Fragment {
                 public void onClick(View v) {
                     map.layers.remove(layersList.toArray(new BubbleLayer[layersList.size()]));
                     map.layers.add(layerShopping);
+                }
+            });
+
+            binding.atms.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    map.layers.remove(layersList.toArray(new BubbleLayer[layersList.size()]));
+                    map.layers.add(layerAtms);
+                }
+            });
+
+            binding.specials.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    map.layers.remove(layersList.toArray(new BubbleLayer[layersList.size()]));
+                    map.layers.add(layerSpecial);
+                }
+            });
+
+            binding.medical.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    map.layers.remove(layersList.toArray(new BubbleLayer[layersList.size()]));
+                    map.layers.add(layerMedical);
                 }
             });
 
@@ -156,7 +199,7 @@ public class MapsFragment extends Fragment {
                 );
                 popup.open();
                 return false;
-            }, layer, layerParking, layerShopping);
+            }, layer, layerParking, layerShopping,layerAtms,layerMedical,layerSpecial);
 
 
             binding.preview.setOnClickListener(new View.OnClickListener() {
