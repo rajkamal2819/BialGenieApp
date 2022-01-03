@@ -379,27 +379,13 @@
 
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/navigateArrivalAirport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="30dp"
-            android:padding="5dp"
-            android:text="Navigate to Airport" />
-
-       <!-- skffjsdk-->
+        <!-- skffjsdk-->
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/navigateArrivalAirport"
+            android:layout_below="@id/linearLayout"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="Departure Details"
@@ -526,20 +512,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/navigateDepAirport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayout1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:elevation="30dp"
-            android:padding="5dp"
-            android:text="Navigate to Airport" />
 
         <ProgressBar
             android:layout_width="wrap_content"

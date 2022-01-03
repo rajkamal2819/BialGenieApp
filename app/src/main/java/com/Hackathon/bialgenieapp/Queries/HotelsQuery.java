@@ -6,10 +6,8 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
-import com.Hackathon.bialgenieapp.Fragments.hotels.HotelTextDetails;
 import com.Hackathon.bialgenieapp.Models.HotelDetailsModel;
 import com.Hackathon.bialgenieapp.Models.HotelsModel;
-import com.Hackathon.bialgenieapp.Models.RestaurantShoppingModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
