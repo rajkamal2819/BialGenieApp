@@ -2,17 +2,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/parking_list_frame_layout"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.Transit.ParkingMainList">
 
     <!-- TODO: Update blank fragment layout -->
+
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/total_fare_text"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat"
+        android:text="Current fare(in ₹)"
+        android:textColor="#3A3A3A"
+        android:textSize="30sp" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/fare_price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/total_fare_text"
+        android:text="₹3456"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/parking_main_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/parking_main_list"
-        />
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/fare_price_text"
+        tools:listitem="@layout/parking_main_list" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab1"
@@ -22,7 +47,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"/>
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/light_navyBlue"
+        app:tint="@color/white"
+        />
 
 
 </RelativeLayout>

@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
@@ -30,10 +31,11 @@ import org.apache.log4j.lf5.viewer.TrackingAdjustmentListener;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Calendar;
 
 
-public class TrackCharges extends Fragment implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
+public class TrackCharges extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
 
     Spinner spinner;
 
@@ -41,11 +43,12 @@ public class TrackCharges extends Fragment implements AdapterView.OnItemSelected
     Button dateButton;
     Button timeButton;
     Button submitButton;
+    String carType="";
     MaterialDatePicker datePicker;
     Calendar c=Calendar.getInstance();
     String date="";
-    int timeHour=0;
-    int timeMinute=0;
+    String time="";
+
 
     public TrackCharges() {
         super(R.layout.fragment_track_charges);
@@ -57,43 +60,25 @@ public class TrackCharges extends Fragment implements AdapterView.OnItemSelected
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_track_charges, container, false);
-        spinner=view.findViewById(R.id.spinner);
-        dateButton=view.findViewById(R.id.date_button);
-        timeButton=view.findViewById(R.id.time_button);
-        submitButton=view.findViewById(R.id.submit_button);
-
-        //ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getContext(),R.array.parking_type, android.R.layout.simple_spinner_item);
-
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//
-//        spinner.setAdapter(adapter);
-
-//        datePicker=MaterialDatePicker.Builder.datePicker()
-//                        .setTitleText("Select Dates")
-//                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-//                        .setTheme(R.style.Theme_BialGenieApp)
-//                        .build();
+        spinner=findViewById(R.id.spinner);
+        dateButton=findViewById(R.id.date_button);
+        timeButton=findViewById(R.id.time_button);
+        submitButton=findViewById(R.id.submit_button);
 
 
-
-
+        ArrayAdapter<CharSequence> arrayAdapter=ArrayAdapter.createFromResource(this,R.array.car_type, android.R.layout.simple_spinner_dropdown_item);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(this);
 
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               int day=c.get(Calendar.DAY_OF_MONTH);
-               int month=c.get(Calendar.MONTH);
-               int year=c.get(Calendar.YEAR);
+                int day=c.get(Calendar.DAY_OF_MONTH);
+                int month=c.get(Calendar.MONTH);
+                int year=c.get(Calendar.YEAR);
 
-               new DatePickerDialog(getActivity(),(DatePickerDialog.OnDateSetListener) TrackCharges.this,year,month,day).show();
+                new DatePickerDialog(TrackCharges.this,(DatePickerDialog.OnDateSetListener) TrackCharges.this,year,month,day).show();
             }
         });
 
@@ -103,39 +88,37 @@ public class TrackCharges extends Fragment implements AdapterView.OnItemSelected
 
                 int hour=c.get(Calendar.HOUR_OF_DAY);
                 int min=c.get(Calendar.MINUTE);
-               new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) TrackCharges.this,hour,min, DateFormat.is24HourFormat(getContext())).show();
+                new TimePickerDialog(TrackCharges.this, (TimePickerDialog.OnTimeSetListener) TrackCharges.this,hour,min, DateFormat.is24HourFormat(TrackCharges.this)).show();
 
             }
         });
 
-
+        try {
+            CalculateTime.getTimeDiff(date,time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 try {
-                    ParkingChargesDatabase.creteTable();
+                    ParkingChargesDatabase.createTable(TrackCharges.this);
+                    ParkingChargesDatabase.insertEntity(carType,date,time);
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
                 }
+
             }
         });
 
-
-
-
-
-
-        return view;
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+        carType= adapterView.getItemAtPosition(i).toString();
     }
 
     @Override
@@ -146,12 +129,13 @@ public class TrackCharges extends Fragment implements AdapterView.OnItemSelected
 
     @Override
     public void onTimeSet(TimePicker timePicker, int timeHour, int timeMinute) {
-
-        timeButton.setText(CalculateTime.getTimeFormat(timeHour,timeMinute));
+        time=CalculateTime.getTimeFormat(timeHour,timeMinute);
+        timeButton.setText(time);
     }
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        dateButton.setText(day+"/"+month+"/"+year);
+        date=day+"/"+(month+1)+"/"+year;
+        dateButton.setText(date);
     }
 }

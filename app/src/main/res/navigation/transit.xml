@@ -45,6 +45,9 @@
             app:destination="@id/transportationFragment"
             app:popUpToInclusive="true"
             app:popUpTo="@id/transit_Parking"/>
+        <action
+            android:id="@+id/action_transit_Parking_to_trackCharges"
+            app:destination="@id/trackCharges" />
     </fragment>
     <fragment
         android:id="@+id/transit_Train"
@@ -68,4 +71,9 @@
             app:popUpToInclusive="true"
             app:popUpTo="@id/transit_Cab"/>
     </fragment>
+    <fragment
+        android:id="@+id/trackCharges"
+        android:name="com.Hackathon.bialgenieapp.Fragments.Transit.TrackCharges"
+        android:label="fragment_track_charges"
+        tools:layout="@layout/fragment_track_charges" />
 </navigation>

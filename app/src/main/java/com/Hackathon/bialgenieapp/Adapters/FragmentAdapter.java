@@ -15,6 +15,7 @@ import com.Hackathon.bialgenieapp.Fragments.Flights.FlightDeparture;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
 import com.Hackathon.bialgenieapp.Fragments.Transit.ChargesFragment;
+import com.Hackathon.bialgenieapp.Fragments.Transit.ParkingMainList;
 import com.Hackathon.bialgenieapp.Fragments.Transit.TrackCharges;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
@@ -93,7 +94,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         } else if(uniqueL == 10){
             switch (position){
                 case 0: return new ChargesFragment();
-                case 1: return new TrackCharges();
+                case 1: return new ParkingMainList();
                 default: return new ChargesFragment();
             }
         }

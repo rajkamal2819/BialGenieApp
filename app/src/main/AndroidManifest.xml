@@ -34,6 +34,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
+        <activity android:name=".Fragments.Transit.TrackCharges"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
+            />
         <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -43,7 +48,7 @@
 
                 <data
                     android:host="com.Hackathon.bialgenieapp"
-                    android:path="/0KSITcEtDY/E9LCroVuVetYhf20="
+                    android:path="/ZCGA7ST7d0JeNPvtCazJK9sJCxA="
                     android:scheme="msauth"
                     tools:ignore="AppLinkUrlError" />
             </intent-filter>
