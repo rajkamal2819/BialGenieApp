@@ -278,31 +278,37 @@ public class HotelsQuery {
 
             Log.i(LOG_TAG,"Fetching JSON RESPONSE");
 
-            if (overviewSections.getJSONObject(0).has("content")) {
-                JSONArray content = overviewSections.getJSONObject(0).getJSONArray("content");
-                ArrayList<String> mainFeatures = new ArrayList<>();
-                for (int j = 0; j < content.length(); j++) {
-                    mainFeatures.add(content.getString(j));
+            if(0<overviewSections.length()) {
+                if (overviewSections.getJSONObject(0).has("content")) {
+                    JSONArray content = overviewSections.getJSONObject(0).getJSONArray("content");
+                    ArrayList<String> mainFeatures = new ArrayList<>();
+                    for (int j = 0; j < content.length(); j++) {
+                        mainFeatures.add(content.getString(j));
+                    }
+                    model.setHotelFeatures(mainFeatures);
                 }
-                model.setHotelFeatures(mainFeatures);
             }
 
-            if (overviewSections.getJSONObject(1).has("content")) {
-                JSONArray content = overviewSections.getJSONObject(1).getJSONArray("content");
-                ArrayList<String> familyFeatures = new ArrayList<>();
-                for (int j = 0; j < content.length(); j++) {
-                    familyFeatures.add(content.getString(j));
+            if(1<overviewSections.length()) {
+                if (overviewSections.getJSONObject(1).has("content")) {
+                    JSONArray content = overviewSections.getJSONObject(1).getJSONArray("content");
+                    ArrayList<String> familyFeatures = new ArrayList<>();
+                    for (int j = 0; j < content.length(); j++) {
+                        familyFeatures.add(content.getString(j));
+                    }
+                    model.setFamilyFriendlyFeatures(familyFeatures);
                 }
-                model.setFamilyFriendlyFeatures(familyFeatures);
             }
 
-            if (overviewSections.getJSONObject(4).has("content")) {
-                JSONArray content = overviewSections.getJSONObject(4).getJSONArray("content");
-                ArrayList<String> freeBias = new ArrayList<>();
-                for (int j = 0; j < content.length(); j++) {
-                    freeBias.add(content.getString(j));
+            if(4<overviewSections.length()) {
+                if (overviewSections.getJSONObject(4).has("content")) {
+                    JSONArray content = overviewSections.getJSONObject(4).getJSONArray("content");
+                    ArrayList<String> freeBias = new ArrayList<>();
+                    for (int j = 0; j < content.length(); j++) {
+                        freeBias.add(content.getString(j));
+                    }
+                    model.setHotelFreebies(freeBias);
                 }
-                model.setHotelFreebies(freeBias);
             }
 
             return model;

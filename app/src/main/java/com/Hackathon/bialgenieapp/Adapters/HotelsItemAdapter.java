@@ -57,6 +57,7 @@ public class HotelsItemAdapter extends RecyclerView.Adapter<HotelsItemAdapter.Ho
                 i.putExtra("id",model.getId());
                 i.putExtra("address",model.getAddress());
                 i.putExtra("image",model.getThumbnail());
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
             }
         });
