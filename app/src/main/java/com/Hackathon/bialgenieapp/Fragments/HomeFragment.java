@@ -48,11 +48,12 @@ public class HomeFragment extends Fragment {
     StringBuffer smsBody = new StringBuffer();
     public static final String SMS_SENT_ACTION = "com.andriodgifts.gift.SMS_SENT_ACTION";
     public static final String SMS_DELIVERED_ACTION = "com.andriodgifts.gift.SMS_DELIVERED_ACTION";
-    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0;
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
 
     public HomeFragment() {
         // Required empty public constructor
     }
+
     String uri;
     String phoneNum = "9920645355";
 
@@ -69,7 +70,7 @@ public class HomeFragment extends Fragment {
                 != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                     Manifest.permission.SEND_SMS)) {
-
+                Log.i("HomeFragment", "Checking SMS permissions");
                 ActivityCompat.requestPermissions(getActivity(),
                         new String[]{Manifest.permission.SEND_SMS},
                         MY_PERMISSIONS_REQUEST_SEND_SMS);
@@ -77,13 +78,11 @@ public class HomeFragment extends Fragment {
             }
         }
 
-            binding.alertButton.setOnClickListener(new View.OnClickListener() {
+        binding.alertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-
-       popUpEditText();
+                popUpEditText();
 
              /*
 
@@ -116,8 +115,8 @@ public class HomeFragment extends Fragment {
         binding.exploreAirport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              Intent i = new Intent(getActivity(), ExploreAirport.class);
-              startActivity(i);
+                Intent i = new Intent(getActivity(), ExploreAirport.class);
+                startActivity(i);
             }
         });
 
@@ -144,7 +143,6 @@ public class HomeFragment extends Fragment {
 
         return binding.getRoot();
     }
-
 
 
     @Override
@@ -174,7 +172,7 @@ public class HomeFragment extends Fragment {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-          smsBody.append(" "+input.getText().toString());
+                smsBody.append(" " + input.getText().toString());
 
                 if (ContextCompat.checkSelfPermission(getContext(),
                         Manifest.permission.SEND_SMS)
@@ -186,13 +184,14 @@ public class HomeFragment extends Fragment {
                                 new String[]{Manifest.permission.SEND_SMS},
                                 MY_PERMISSIONS_REQUEST_SEND_SMS);
                         sendSMS(phoneNum, smsBody.toString());
+                        Log.d("HomeFragment","Taken Permissions");
                         Toast.makeText(getContext(), "Location shared with the Authorities", Toast.LENGTH_LONG).show();
 
-
-
                     }
-                }
-                else {
+
+                    Toast.makeText(getContext(),"Please Give Permissions to send sms From Settings",Toast.LENGTH_SHORT).show();
+
+                } else {
                     sendSMS(phoneNum, smsBody.toString());
                     Toast.makeText(getContext(), "Location shared with the Authorities", Toast.LENGTH_LONG).show();
                 }
@@ -230,7 +229,7 @@ public class HomeFragment extends Fragment {
                     uri = "http://maps.google.com/maps?q=" + location.getLatitude() + "," + location.getLongitude();
                     smsBody.append(Uri.parse(uri));
 
-                } else  {
+                } else {
                     Log.d(TAG, "onSuccess: Location was null...");
                 }
             }
@@ -239,18 +238,18 @@ public class HomeFragment extends Fragment {
         locationTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.e(TAG, "onFailure: " + e.getLocalizedMessage() );
+                Log.e(TAG, "onFailure: " + e.getLocalizedMessage());
             }
         });
     }
 
-    private void askLocationPermission(){
+    private void askLocationPermission() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
                 Log.d(TAG, "askLocationPermission: you should show an alert dialog...");
-                ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
             } else {
-                ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_REQUEST_CODE);
             }
         }
     }
@@ -258,36 +257,29 @@ public class HomeFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == LOCATION_REQUEST_CODE) {
-            if (grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted
                 getLastLocation();
             } else {
                 //Permission not granted
             }
+        } else if (requestCode == MY_PERMISSIONS_REQUEST_SEND_SMS) {
+            Toast.makeText(getContext(), "onrequestpermission", Toast.LENGTH_LONG).show();
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                sendSMS(phoneNum, smsBody.toString());
+
+
+            } else {
+                Toast.makeText(getContext(),
+                        "SMS faild, please try again.", Toast.LENGTH_LONG).show();
+                return;
+            }
         }
-       else if(requestCode == MY_PERMISSIONS_REQUEST_SEND_SMS)
-       {    Toast.makeText(getContext(), "onrequestpermission", Toast.LENGTH_LONG).show();
-           if (grantResults.length > 0
-               && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-               sendSMS(phoneNum, smsBody.toString());
-              
-
-       } else {
-           Toast.makeText(getContext(),
-                   "SMS faild, please try again.", Toast.LENGTH_LONG).show();
-
-           return;
-       }}
-
-
-
-
 
 
     }
-
-
 
 
     public void sendSMS(String phoneNumber, String smsMessage) {
