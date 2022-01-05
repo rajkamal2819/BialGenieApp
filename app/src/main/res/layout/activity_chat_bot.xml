@@ -6,11 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Actvities.ChatBotActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CHAT BOT"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+    <WebView
+        android:id="@+id/webview1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>
