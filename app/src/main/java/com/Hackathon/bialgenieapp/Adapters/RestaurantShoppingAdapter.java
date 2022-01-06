@@ -76,6 +76,7 @@ public class RestaurantShoppingAdapter extends RecyclerView.Adapter<RestaurantSh
             contact.setText(itemModel.getContact());
             email.setText(itemModel.getEmail());
 
+
         }
 
 

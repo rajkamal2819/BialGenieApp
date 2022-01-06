@@ -38,7 +38,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -50,7 +49,6 @@ public class HomeFragment extends Fragment {
     public static final String SMS_SENT_ACTION = "com.andriodgifts.gift.SMS_SENT_ACTION";
     public static final String SMS_DELIVERED_ACTION = "com.andriodgifts.gift.SMS_DELIVERED_ACTION";
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
-    FloatingActionButton chatbot ;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -66,7 +64,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
         if (ContextCompat.checkSelfPermission(getContext(),
                 Manifest.permission.SEND_SMS)
@@ -80,13 +77,6 @@ public class HomeFragment extends Fragment {
 
             }
         }
-        binding.chatBot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(),ChatBotActivity.class);
-                startActivity(i);
-            }
-        });
 
         binding.alertButton.setOnClickListener(new View.OnClickListener() {
             @Override
