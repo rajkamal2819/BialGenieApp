@@ -66,6 +66,7 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_flights_details.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_fly_city.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_from_to_flight_results.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_lost_and_found.xml" value="0.2" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_route.xml" value="0.1539855072463768" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_train_info.xml" value="0.15489130434782608" />
@@ -86,7 +87,7 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_log_in.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_maps.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_more.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_more.xml" value="0.18" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_parking_main_list.xml" value="0.1539855072463768" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_track_charges.xml" value="0.15489130434782608" />
@@ -104,6 +105,7 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/parking_main_list.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/popup_text.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/route_item.xml" value="0.1539855072463768" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/story_item.xml" value="0.1408514492753623" />
       </map>
     </option>
   </component>
