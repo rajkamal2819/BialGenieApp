@@ -21,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
-
+        <activity
+            android:name=".LostAndFound"
+            android:exported="false" />
         <activity
             android:name=".Actvities.Hotels.HotelSearchResults"
             android:exported="true"
@@ -36,8 +38,7 @@
             android:name=".Actvities.Hotels.HotelsDetailsActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage"/>
-
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Actvities.FlightAcitivities.ExploreAirport"
             android:exported="false"
@@ -112,13 +113,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Fragments.Transit.Transit_Bus"

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
 import com.Hackathon.bialgenieapp.Actvities.FeedbackForm;
+import com.Hackathon.bialgenieapp.LostAndFound;
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.FragmentMoreBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -60,10 +61,10 @@ public class MoreFragment extends Fragment {
         binding = FragmentMoreBinding.inflate(getLayoutInflater());
 
 
-        binding.chatBot.setOnClickListener(new View.OnClickListener() {
+        binding.lost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), ChatBotActivity.class));
+                startActivity(new Intent(getContext(), LostAndFound.class));
             }
         });
 

@@ -142,7 +142,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/chatBot"
+                    android:id="@+id/lost"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_marginLeft="10dp"
@@ -161,7 +161,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="10dp"
-                            android:text="Chat Bot"
+                            android:text="Claim Lost item"
                             android:textColor="@color/skyBlue"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -174,7 +174,7 @@
                             android:layout_marginRight="10dp"
                             android:alpha="0.8"
                             android:padding="4dp"
-                            android:src="@drawable/ic_baseline_chat_24"
+                            android:src="@drawable/ic_baseline_search_24"
                             app:tint="@color/skyBlue" />
 
                     </RelativeLayout>
