@@ -53,9 +53,9 @@
     </string-array>
 
     <string-array name="car_type">
-        <item> Two Wheeler Parking</item>
-        <item> Car Parking</item>
-        <item> Parking for reduced mobility</item>
+        <item>Two Wheeler Parking</item>
+        <item>Car Parking</item>
+        <item>Parking for reduced mobility</item>
         <item>Electric car parking</item>
         <item>Bus parking-Below 16</item>
         <item>Bus parking-Above 16</item>

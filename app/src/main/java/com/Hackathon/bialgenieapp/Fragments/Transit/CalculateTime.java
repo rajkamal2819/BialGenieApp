@@ -1,5 +1,7 @@
 package com.Hackathon.bialgenieapp.Fragments.Transit;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,11 +54,14 @@ public class CalculateTime {
 
     public static void getTimeDiff(String date,String time) throws ParseException {
         String form=date+" "+time;
-        Date dateNew=new SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.ENGLISH).parse(form);
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date dateNew=new SimpleDateFormat("dd/MM/yyyy hh:mm",Locale.ENGLISH).parse(form);
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm",Locale.ENGLISH);
         Date dateCurrent = new Date();
         System.out.println(formatter.format(dateCurrent));
+
+        Log.i("DateCurrent", String.valueOf(dateCurrent.getTime()));
+        Log.i("DateEntered",String.valueOf(dateNew.getTime()));
 
         long diff=dateCurrent.getTime()-dateNew.getTime();
 

@@ -22,6 +22,7 @@ import android.widget.TimePicker;
 import com.Hackathon.bialgenieapp.Database.ParkingChargesDatabase;
 import com.Hackathon.bialgenieapp.Models.ParkingChargesData;
 import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.StorageAsyncTask;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.timepicker.MaterialTimePicker;
@@ -46,9 +47,17 @@ public class TrackCharges extends AppCompatActivity implements AdapterView.OnIte
     String carType="";
     MaterialDatePicker datePicker;
     Calendar c=Calendar.getInstance();
-    String date="";
-    String time="";
+    static String date="";
+    static String time="";
+    String elapsedTime="";
 
+    public static String getDate() {
+        return date;
+    }
+
+    public static String getTime() {
+        return time;
+    }
 
     public TrackCharges() {
         super(R.layout.fragment_track_charges);
@@ -93,20 +102,21 @@ public class TrackCharges extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        try {
-            CalculateTime.getTimeDiff(date,time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 try {
-                    ParkingChargesDatabase.createTable(TrackCharges.this);
-                    ParkingChargesDatabase.insertEntity(carType,date,time);
-                } catch (IOException e) {
+                        ParkingChargesDatabase.createTable(TrackCharges.this);
+                    CalculateTime.getTimeDiff(date,time);
+                    int days= CalculateTime.getDays();
+                    int hours=CalculateTime.getHours();
+                    int min=CalculateTime.getMin();
+                    elapsedTime=days+" days "+hours+" hours "+min+" mins ";
+                    new StorageAsyncTask().execute(carType,date,time,elapsedTime);
+                    finish();
+
+                } catch (IOException | ParseException e) {
                     e.printStackTrace();
                 }
 

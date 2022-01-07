@@ -10,26 +10,25 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/total_fare_text"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="Current fare(in ₹)"
         android:textColor="#3A3A3A"
         android:textSize="30sp" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/fare_price_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/total_fare_text"
-        android:text="₹3456"
-        android:textSize="25sp"
         android:layout_centerHorizontal="true"
-        />
+        android:text="₹3456"
+        android:textSize="25sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/parking_main_list"

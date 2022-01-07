@@ -5,10 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="20dp"
+        android:elevation="30dp"
+        android:theme="@style/Theme.BialGenieApp"
+        android:layout_marginTop="10dp"
         >
 
         <RelativeLayout
@@ -17,45 +19,52 @@
             >
 
 
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/date_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="23 Dec,2021"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:textColor="#9A9595"
-            android:fontFamily="@font/montserrat"
-            />
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/car_type_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/date_text_view"
-            android:layout_marginTop="10dp"
-            android:text="SUV"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:layout_marginLeft="10dp"
-            />
             <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/time_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
+                android:id="@+id/date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat"
+                android:text="23 Dec,2021"
+                android:textColor="#9A9595" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/car_type_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/date_text_view"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="SUV"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/time_elapsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+               android:layout_centerHorizontal="true"
+                android:layout_below="@+id/car_type_text_view"
+                android:text="2 hrs 34 mins" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-            android:text="8:02 PM"
-            android:textSize="18sp"
-            android:textColor="#3A3A3A"
-            android:layout_marginLeft="10dp"
-            />
+                android:text="8:02 PM"
+                android:textColor="#3A3A3A"
+                android:textSize="18sp" />
 
 
         </RelativeLayout>
 
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

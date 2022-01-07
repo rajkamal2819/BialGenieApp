@@ -1,27 +1,42 @@
 package com.Hackathon.bialgenieapp.Fragments.Transit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.NavHostController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.TextView;
 
-import com.Hackathon.bialgenieapp.Actvities.Transit_Parking;
+import com.Hackathon.bialgenieapp.Adapters.TrackChargesListAdapter;
+import com.Hackathon.bialgenieapp.CalculateCharges;
+import com.Hackathon.bialgenieapp.Database.ParkingChargesDatabase;
+import com.Hackathon.bialgenieapp.Models.ParkingDetails;
 import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.ReadAsyncTask;
+import com.Hackathon.bialgenieapp.StorageAsyncTask;
+import com.Hackathon.bialgenieapp.UpdateAsyncTask;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.microsoft.graph.models.extensions.Shared;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 public class ParkingMainList extends Fragment {
 
+    List<ParkingDetails> parkingDetailsList=new ArrayList<>();
+    RecyclerView rv;
 
 
     public ParkingMainList() {
@@ -33,8 +48,11 @@ public class ParkingMainList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,6 +60,28 @@ public class ParkingMainList extends Fragment {
         View view= inflater.inflate(R.layout.fragment_parking_main_list, container, false);
 
         FloatingActionButton fab=view.findViewById(R.id.fab1);
+        rv=view.findViewById(R.id.parking_main_list);
+        TextView charges=view.findViewById(R.id.fare_price_text);
+
+
+
+
+
+        new ParkingChargesDatabase(getContext());
+        try {
+           new UpdateAsyncTask().execute();
+           parkingDetailsList=new ReadAsyncTask().execute().get();
+
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv.setAdapter(new TrackChargesListAdapter(getContext(),parkingDetailsList));
+        charges.setText(String.valueOf(ParkingChargesDatabase.getSum()));
 
 
 
