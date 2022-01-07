@@ -31,9 +31,11 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="100dp"
+                                    android:layout_gravity="center"
                                     android:text="Feedback Form"
-                                    android:textSize="30dp" />
+                                    android:textColor="@color/azure_maps_marker_darkblue"
+                                    android:textSize="30dp"
+                                    android:textStyle="bold" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -52,7 +54,8 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginLeft="10dp"
-                                                    android:text="This is a" />
+                                                    android:text="This is a"
+                                                    android:textSize="16sp" />
 
                                                 <com.google.android.material.textfield.TextInputLayout
                                                     android:id="@+id/expanded_menu_tpe"
@@ -69,7 +72,8 @@
                                                             android:layout_width="match_parent"
                                                             android:layout_height="match_parent"
                                                             android:layout_weight="1"
-                                                            android:inputType="none" />
+                                                            android:inputType="none"
+                                                            android:textSize="14sp" />
                                                 </com.google.android.material.textfield.TextInputLayout>
                                         </LinearLayout>
 
@@ -84,7 +88,8 @@
                                                 <TextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:text="Category" />
+                                                    android:text="Category"
+                                                    android:textSize="16sp" />
 
                                                 <com.google.android.material.textfield.TextInputLayout
                                                     android:id="@+id/expanded_menu_category"
@@ -101,7 +106,8 @@
                                                             android:layout_width="match_parent"
                                                             android:layout_height="match_parent"
                                                             android:layout_weight="1"
-                                                            android:inputType="none" />
+                                                            android:inputType="none"
+                                                            android:textSize="14sp" />
                                                 </com.google.android.material.textfield.TextInputLayout>
                                         </LinearLayout>
                                 </LinearLayout>
@@ -113,7 +119,7 @@
                                     android:orientation="horizontal">
 
                                         <LinearLayout
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="146dp"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
                                             android:orientation="vertical"
@@ -123,20 +129,22 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="10dp"
-                                                    android:text="First Name" />
+                                                    android:text="First Name"
+                                                    android:textSize="16sp" />
 
                                                 <androidx.appcompat.widget.AppCompatEditText
                                                     android:id="@+id/edt_fn"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="35dp"
-                                                    android:hint="First Name" />
+                                                    android:hint="First Name"
+                                                    android:textSize="14sp" />
                                         </LinearLayout>
 
                                         <LinearLayout
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="50dp"
+                                            android:layout_marginLeft="30dp"
                                             android:orientation="vertical"
                                             android:padding="10dp">
 
@@ -144,14 +152,16 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="10dp"
-                                                    android:text="Last Name" />
+                                                    android:text="Last Name"
+                                                    android:textSize="16sp" />
 
                                                 <androidx.appcompat.widget.AppCompatEditText
                                                     android:id="@+id/edt_ln"
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="35dp"
-                                                    android:hint="Last Name" />
+                                                    android:hint="Last Name"
+                                                    android:textSize="14sp" />
                                         </LinearLayout>
 
 
@@ -166,8 +176,8 @@
 
 
                                         <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:layout_width="151dp"
+                                            android:layout_height="137dp"
                                             android:layout_marginLeft="19dp"
 
                                             android:orientation="vertical"
@@ -176,9 +186,10 @@
                                                 <TextView
                                                     android:layout_width="70dp"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginTop="10dp"
                                                     android:layout_marginLeft="10dp"
-                                                    android:text="Age" />
+                                                    android:layout_marginTop="10dp"
+                                                    android:text="Age"
+                                                    android:textSize="16sp" />
 
                                                 <androidx.appcompat.widget.AppCompatEditText
                                                     android:id="@+id/edt_age"
@@ -186,13 +197,14 @@
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="35dp"
                                                     android:hint="Age"
-                                                    android:inputType="number" />
+                                                    android:inputType="number"
+                                                    android:textSize="14sp" />
                                         </LinearLayout>
 
                                         <LinearLayout
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="60dp"
+                                            android:layout_marginLeft="30dp"
                                             android:orientation="vertical"
                                             android:padding="10dp">
 
@@ -200,8 +212,8 @@
                                                     android:layout_width="100dp"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="10dp"
-                                                    android:layout_marginLeft="5dp"
-                                                    android:text="Gender" />
+                                                    android:text="Gender"
+                                                    android:textSize="16sp" />
 
                                                 <com.google.android.material.textfield.TextInputLayout
                                                     android:id="@+id/expanded_menu_gender"
@@ -218,7 +230,8 @@
                                                             android:layout_width="100dp"
                                                             android:layout_height="match_parent"
                                                             android:layout_weight="1"
-                                                            android:inputType="none" />
+                                                            android:inputType="none"
+                                                            android:textSize="14sp" />
                                                 </com.google.android.material.textfield.TextInputLayout>
                                         </LinearLayout>
 
@@ -234,7 +247,7 @@
                                     android:orientation="horizontal">
 
                                         <LinearLayout
-                                            android:layout_width="wrap_content"
+                                            android:layout_width="146dp"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
                                             android:orientation="vertical"
@@ -244,7 +257,8 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="10dp"
-                                                    android:text="Phone number" />
+                                                    android:text="Phone number"
+                                                    android:textSize="16sp" />
 
                                                 <androidx.appcompat.widget.AppCompatEditText
                                                     android:id="@+id/edt_phone"
@@ -252,13 +266,14 @@
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="35dp"
                                                     android:hint="Phone "
-                                                    android:inputType="phone" />
+                                                    android:inputType="phone"
+                                                    android:textSize="14sp" />
                                         </LinearLayout>
 
                                         <LinearLayout
                                             android:layout_width="150dp"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="20dp"
+                                            android:layout_marginLeft="30dp"
                                             android:orientation="vertical"
                                             android:padding="10dp">
 
@@ -266,8 +281,8 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="10dp"
-                                                    android:layout_marginLeft="25dp"
-                                                    android:text="Email" />
+                                                    android:text="Email"
+                                                    android:textSize="16sp" />
 
                                                 <androidx.appcompat.widget.AppCompatEditText
                                                     android:id="@+id/edt_email"
@@ -275,7 +290,8 @@
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="35dp"
                                                     android:hint="Email"
-                                                    android:inputType="textEmailAddress" />
+                                                    android:inputType="textEmailAddress"
+                                                    android:textSize="14sp" />
                                         </LinearLayout>
 
 
@@ -300,9 +316,10 @@
                                                 <TextView
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
-                                                    android:layout_marginTop="10dp"
                                                     android:layout_marginLeft="5dp"
-                                                    android:text="Airline" />
+                                                    android:layout_marginTop="10dp"
+                                                    android:text="Airline"
+                                                    android:textSize="16sp" />
 
                                                 <androidx.appcompat.widget.AppCompatEditText
                                                     android:id="@+id/edt_airline"
@@ -310,13 +327,14 @@
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="35dp"
                                                     android:hint="Airline"
-                                                    android:inputType="textEmailAddress" />
+                                                    android:inputType="textEmailAddress"
+                                                    android:textSize="14sp" />
                                         </LinearLayout>
 
                                         <LinearLayout
-                                            android:layout_width="150dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginLeft="5dp"
+                                            android:layout_width="156dp"
+                                            android:layout_height="127dp"
+                                            android:layout_marginLeft="31dp"
                                             android:orientation="vertical"
                                             android:padding="10dp">
 
@@ -324,14 +342,16 @@
                                                     android:layout_width="wrap_content"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="10dp"
-                                                    android:text="Flight Number" />
+                                                    android:text="Flight Number"
+                                                    android:textSize="16sp" />
 
                                                 <androidx.appcompat.widget.AppCompatEditText
                                                     android:id="@+id/edt_flightnumber"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="wrap_content"
                                                     android:layout_marginTop="25dp"
-                                                    android:hint="Flight No." />
+                                                    android:hint="Flight No."
+                                                    android:textSize="14sp" />
 
                                         </LinearLayout>
 
@@ -348,7 +368,8 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="10dp"
-                                            android:text="Describe your feedback" />
+                                            android:text="Describe your feedback"
+                                            android:textSize="16sp" />
 
                                         <androidx.appcompat.widget.AppCompatEditText
                                             android:id="@+id/edt_description"
@@ -357,7 +378,8 @@
                                             android:layout_marginTop="10dp"
                                             android:hint="Description"
                                             android:inputType="textEmailAddress"
-                                            android:maxLines="10" />
+                                            android:maxLines="10"
+                                            android:textSize="14sp" />
                                 </LinearLayout>
 
                                 <Button
