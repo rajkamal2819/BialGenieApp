@@ -22,13 +22,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
-            android:name=".Actvities.FlightAcitivities.ExploreAirport"
-            android:theme="@style/mainPage"
+            android:name=".LostAndFound"
             android:exported="false" />
         <activity
+            android:name=".Actvities.Hotels.HotelSearchResults"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Actvities.Hotels.HotelsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Actvities.Hotels.HotelsDetailsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Actvities.FlightAcitivities.ExploreAirport"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
             android:name=".Actvities.FeedbackForm"
-            android:theme="@style/mainPage"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
         <activity
             android:name=".Actvities.ChatBotActivity"
             android:exported="true"
@@ -78,36 +98,32 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage2" />
-        <activity android:name=".Actvities.RestaurantsActivity"
+        <activity
+            android:name=".Actvities.RestaurantsActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage2"
-            />
-        <activity android:name=".Actvities.ShoppingActivity"
+            android:theme="@style/mainPage2" />
+        <activity
+            android:name=".Actvities.ShoppingActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage2"
-            />
+            android:theme="@style/mainPage2" />
         <activity
             android:name=".Actvities.FlightAcitivities.FlightSearchActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />
         <activity
-            android:name=".Actvities.Authentication"
+            android:name=".Actvities.MainActivity"
             android:exported="true"
-            android:theme="@style/logInPage">
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Actvities.MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Bus"
             android:exported="true"
@@ -135,6 +151,16 @@
             android:theme="@style/mainPage" />
         <activity
             android:name=".Fragments.Transit.Transit_Train"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Route"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/mainPage" />
+        <activity
+            android:name=".Fragments.Transit.Fly_City"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/mainPage" />

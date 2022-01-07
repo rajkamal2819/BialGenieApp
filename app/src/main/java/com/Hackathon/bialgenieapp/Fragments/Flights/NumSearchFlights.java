@@ -65,7 +65,14 @@ public class NumSearchFlights extends Fragment {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month = month + 1;
-                String date = year+"/"+month+"/"+dayOfMonth;
+                String mm = month + "";
+                String dd = dayOfMonth + "";
+                String yy = year + "";
+                if(month/10==0)
+                    mm = "0"+mm;
+                if(dayOfMonth/10==0)
+                    dd = "0"+dd;
+                String date = yy+"/"+mm+"/"+dd;
                 binding.dateFormat.setText(date);
                 flightDate = date;
             }

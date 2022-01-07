@@ -73,15 +73,6 @@ public class ArrDepQueryUtils {
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
 
-           // String clientId = "3d44123a";
-           // String clientSecret = "ce3c12a840540d7528f086a02ccd3f2a";
-
-           /* byte[] loginBytes = (clientId+":"+clientSecret).getBytes();
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("Basic ")
-                    .append(Base64.encodeToString(loginBytes,Base64.NO_WRAP));
-
-            urlConnection.setRequestProperty("Authorization",stringBuilder.toString());*/
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setDoInput(true);
@@ -128,7 +119,7 @@ public class ArrDepQueryUtils {
             }
         }
         Log.i(LOG_TAG, "Reading from Stream");
-          Log.d(LOG_TAG,output.toString());
+      //    Log.d(LOG_TAG,output.toString());
         return output.toString();
     }
 

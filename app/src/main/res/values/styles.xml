@@ -15,4 +15,7 @@
         <item name="colorPrimaryDark">@color/skyBlue</item>
     </style>
 
+    <style name = "DatePicker" parent = "Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/skyBlue</item>
+    </style>
 </resources>

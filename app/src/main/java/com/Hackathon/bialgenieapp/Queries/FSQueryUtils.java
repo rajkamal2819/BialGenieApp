@@ -15,15 +15,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -35,6 +39,9 @@ public class FSQueryUtils {
     public static ArrayList<FSModel> fetchFlightsData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
+
+        URL urlAuth = createUrl("https://api.lufthansa.com/v1/oauth/token");
+
 
         String jsonResponse = null;
         try {
@@ -49,6 +56,37 @@ public class FSQueryUtils {
 
         // Return the {@link Event}
         return apDepInfo;
+    }
+
+    public static String getKey() throws IOException {
+
+        URL url = new URL("https://api.lufthansa.com/v1/oauth/token");
+        HttpURLConnection http = (HttpURLConnection)url.openConnection();
+        http.setRequestMethod("POST");
+        http.setDoOutput(true);
+        http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+        String data = "client_id=x4nnvvcyjk6bh6dbndqgy5dn&client_secret=kfcmVrrENXqZNW3j2fSx&grant_type=client_credentials";
+
+        byte[] out = data.getBytes(StandardCharsets.UTF_8);
+
+        OutputStream stream = http.getOutputStream();
+        stream.write(out);
+
+        String jsonResponse = readFromStream(http.getInputStream());
+        Log.i(LOG_TAG,"Response:          "+jsonResponse);
+
+        System.out.println(http.getResponseCode() + " " + http.getResponseMessage());
+        Log.i(LOG_TAG,http.getResponseCode() + " " + http.getResponseMessage());
+        http.disconnect();
+
+        try {
+            JSONObject obj = new JSONObject(jsonResponse);
+            return obj.getString("access_token");
+        } catch (JSONException e){
+            Log.i(LOG_TAG,e.getMessage());
+        }
+        return null;
     }
 
     private static URL createUrl(String stringUrl) {
@@ -76,18 +114,8 @@ public class FSQueryUtils {
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
 
-            // String clientId = "3d44123a";
-            // String accessToken = "55pxhuynzt8zmbj8pcuzd7j2";
-
-           /* byte[] loginBytes = (accessToken).getBytes();
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("Basic ")
-                    .append(Base64.encodeToString(loginBytes,Base64.NO_WRAP));
-
-            urlConnection.setRequestProperty("Authorization",stringBuilder.toString());*/
-
             urlConnection.setRequestProperty("Accept", "application/json");
-            urlConnection.setRequestProperty("Authorization", "Bearer tem6r2u25mc4kn7v8z4vdrfg");
+            urlConnection.setRequestProperty("Authorization", "Bearer "+getKey());
 
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
@@ -135,7 +163,7 @@ public class FSQueryUtils {
             }
         }
         Log.i(LOG_TAG, "Reading from Stream");
-        Log.d(LOG_TAG, output.toString());
+        //  Log.d(LOG_TAG, output.toString());
         return output.toString();
     }
 

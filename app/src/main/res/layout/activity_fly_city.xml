@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.Transit.Fly_City"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view1"
+                android:layout_margin="33dp"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                app:cardElevation="20dp"
+                android:layout_marginTop="20dp"
+                android:elevation="20dp"
+                android:backgroundTint="#FDF4A1"
+                app:cardCornerRadius="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="#F1DC24"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/title1f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="P4: Parking charges"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="10dp"
+                            android:padding="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Origin1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Origin :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Origin1f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Destination1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="13dp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Destination :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Destination1f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Distance1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Distance :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Distance1f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Timetable1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="13dp"
+
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Timetable :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Timetable1f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view2"
+                android:layout_margin="33dp"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                app:cardElevation="20dp"
+                android:layout_marginTop="20dp"
+                android:elevation="20dp"
+                android:backgroundTint="#FDF4A1"
+                app:cardCornerRadius="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="#F1DC24"
+                        >
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/title2f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="P4: Parking charges"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="10dp"
+                            android:padding="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Origin2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Origin :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Origin2f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Destination2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="13dp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Destination :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Destination2f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Distance2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Distance :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Distance2f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txt_Timetable2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="13dp"
+
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Timetable :"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/edt_Timetable2f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Kempegowda International Airport"
+                            android:textColor="#5C5A5A"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

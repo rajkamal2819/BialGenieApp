@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".Fragments.hotels.SearchHotels">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_rounded"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/skyBlue"
+            android:hint="Location, Places, City \n( eg: Bangalore)"
+            android:padding="4dp" />
+
+        <EditText
+            android:id="@+id/numOfAdults"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/location"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext_rounded"
+            android:drawableLeft="@drawable/ic_baseline_people_24"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/skyBlue"
+            android:hint="Enter Adults count * (eg: 2)"
+            android:padding="4dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/numOfAdults"
+            android:layout_margin="20dp"
+            android:elevation="100dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/checkInDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/checkInFormat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+                android:gravity="center"
+                android:hint="CheckIn Date *"
+                android:inputType="date"
+                android:padding="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/cardView1"
+            android:layout_margin="20dp"
+            android:elevation="100dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/checkOutDate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/checkOutFormat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_baseline_calendar_month_24"
+                android:gravity="center"
+                android:hint="CheckOut Date *"
+                android:inputType="date"
+                android:padding="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/light_navyBlue"
+            android:padding="4dp"
+            android:text="Search Hotels"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+
+</ScrollView>
