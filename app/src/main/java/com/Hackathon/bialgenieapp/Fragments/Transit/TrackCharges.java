@@ -9,6 +9,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,6 +140,7 @@ public class TrackCharges extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onTimeSet(TimePicker timePicker, int timeHour, int timeMinute) {
+        Log.i("TIME CHECK",timeHour+" "+timeMinute);
         time=CalculateTime.getTimeFormat(timeHour,timeMinute);
         timeButton.setText(time);
     }

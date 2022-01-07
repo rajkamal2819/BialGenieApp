@@ -54,9 +54,9 @@ public class CalculateTime {
 
     public static void getTimeDiff(String date,String time) throws ParseException {
         String form=date+" "+time;
-        Date dateNew=new SimpleDateFormat("dd/MM/yyyy hh:mm",Locale.ENGLISH).parse(form);
+        Date dateNew=new SimpleDateFormat("dd/MM/yyyy hh:mm a").parse(form);
         
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm",Locale.ENGLISH);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
         Date dateCurrent = new Date();
         System.out.println(formatter.format(dateCurrent));
 

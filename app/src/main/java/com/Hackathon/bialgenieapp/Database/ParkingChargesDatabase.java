@@ -146,7 +146,7 @@ public class ParkingChargesDatabase {
             }
 
             specificEntity.getProperties().put("ElapsedTime",CalculateTime.getDays()+" days "+(CalculateTime.getHours())+" hours "+CalculateTime.getMin()+" mins ");
-             sum+=CalculateCharges.totalCharge(CalculateTime.getDays(),CalculateTime.getHours(),CalculateTime.getMin(),tableEntity.getProperty("CarType").toString(),context);
+             sum=CalculateCharges.totalCharge(CalculateTime.getDays(),CalculateTime.getHours(),CalculateTime.getMin(),tableEntity.getProperty("CarType").toString(),context);
 
 
 

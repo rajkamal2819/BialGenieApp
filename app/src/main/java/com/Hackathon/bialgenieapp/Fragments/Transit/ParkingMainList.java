@@ -6,8 +6,11 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -69,13 +72,12 @@ public class ParkingMainList extends Fragment {
 
         new ParkingChargesDatabase(getContext());
         try {
-           new UpdateAsyncTask().execute();
-           parkingDetailsList=new ReadAsyncTask().execute().get();
+              new UpdateAsyncTask().execute();
+            //ParkingChargesDatabase.updateElapsedTime();
+           parkingDetailsList=ParkingChargesDatabase.getDetails();
 
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -93,4 +95,21 @@ public class ParkingMainList extends Fragment {
         });
         return view;
     }
+
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback() {
+//            @Override
+//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+//
+//            }
+//        })
+//    }
 }
