@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="App Based"
+        android:icon="@drawable/taxi"
+        android:color="@color/white"
+        android:id="@+id/appTaxi"/>
+
+    <item android:title="Airport Taxi"
+        android:color="@color/white"
+        android:icon="@drawable/airport_taxi"
+        android:id="@+id/airportTaxi"/>
+
+    <item
+        android:title="Car Rentals"
+        android:color="@color/white"
+        android:icon="@drawable/car_rental"
+        android:id="@+id/carRentals"/>
+
+</menu>

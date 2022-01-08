@@ -9,10 +9,10 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout_airport"
         android:layout_width="match_parent"
-        app:tabMode="scrollable"
         android:layout_height="40dp"
+        android:background="@color/skyBlue"
         app:tabIndicatorColor="#AEE6EC"
-        android:background="#62AFFF"
+        app:tabMode="scrollable"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/white" />
 

@@ -24,23 +24,11 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView_bus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/l1"
-        android:background="@color/light_navyBlue"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="Bus Service"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout_bus"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_below="@id/textView_bus"
+        android:layout_below="@id/l1"
         android:background="@color/light_navyBlue"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/white" />

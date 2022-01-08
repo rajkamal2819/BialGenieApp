@@ -37,13 +37,13 @@ public class TransportationFragment extends Fragment {
 
                                            }
                                        });
-        binding.travelCabs.setOnClickListener(new View.OnClickListener() {
+        binding.travelCab.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(),Transit_Cab.class);
                 startActivity(i);
             }
         });
-        binding.travelTrain.setOnClickListener(new View.OnClickListener() {
+        binding.traveTrains.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(),Transit_Train.class);
                 startActivity(i);
