@@ -89,7 +89,7 @@ public class NumSearchFlights extends Fragment {
 
                     String dt = binding.dateFormat.getText().toString();
 
-                    linkStart += dt + "?appId=3d44123a&appKey=ce3c12a840540d7528f086a02ccd3f2a&utc=false";
+                    linkStart += dt + "?appId=d5828495&appKey=694ea86653f38f22a40aca0d6f941543&utc=false";
                     i.putExtra("linkFlight", linkStart);
                     Log.i("FlightStopAdapter",linkStart);
                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
