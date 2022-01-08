@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.Actvities.TrainInfo;
@@ -20,6 +21,7 @@ public class Transit_Train extends AppCompatActivity implements View.OnClickList
 
     TextInputEditText trainName,trainNumber;
     Button submitButton;
+    ImageView backButton;
 
 
     @Override
@@ -30,6 +32,14 @@ public class Transit_Train extends AppCompatActivity implements View.OnClickList
         trainName=findViewById(R.id.train_name_text_enter);
         trainNumber=findViewById(R.id.train_number_text_enter);
         submitButton=findViewById(R.id.submit_button);
+        backButton=findViewById(R.id.backTrain);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         submitButton.setOnClickListener(this);
 

@@ -7,18 +7,28 @@
     tools:context=".Fragments.Transit.Transit_Train">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/backTrain"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
+
     <TextView
+        android:layout_below="@id/backTrain"
         android:id="@+id/train_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Train Details"
-        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/ic_aba933836772944e120f2cb04641f500"
         android:fontFamily="@font/montserrat"
+        android:text="Train Details"
         android:textColor="@color/black"
         android:textSize="30sp"
-        android:drawableStart="@drawable/ic_aba933836772944e120f2cb04641f500"
 
         />
 
@@ -107,16 +117,16 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/submit_button"
         android:layout_width="150dp"
-        app:cornerRadius="80dp"
-        android:theme="@style/Theme.BialGenieApp"
-        android:backgroundTint="@color/light_navyBlue"
-        android:textColor="@color/white"
         android:layout_height="70dp"
-        android:text="submit"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/train_number_text"
-        android:layout_marginTop="60dp"
         android:layout_marginLeft="130dp"
-        />
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/light_navyBlue"
+        android:text="submit"
+        android:textColor="@color/white"
+        android:theme="@style/Theme.BialGenieApp"
+        app:cornerRadius="80dp" />
 
 
 

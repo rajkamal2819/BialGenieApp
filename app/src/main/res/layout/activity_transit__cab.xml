@@ -6,10 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Transit.Transit_Cab">
 
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_navyBlue"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backCab"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
     <TextView
+        android:layout_below="@id/l1"
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:background="@color/light_navyBlue"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
@@ -20,7 +39,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout_cab"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_below="@id/textView"
         android:background="@color/light_navyBlue"
         app:tabSelectedTextColor="@color/white"
