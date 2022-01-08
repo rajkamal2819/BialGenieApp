@@ -65,17 +65,10 @@ public class ParkingMainList extends Fragment {
 
 
 
-
-
         new ParkingChargesDatabase(getContext());
         try {
-           new UpdateAsyncTask().execute();
-           parkingDetailsList=new ReadAsyncTask().execute().get();
-
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+            parkingDetailsList = ParkingChargesDatabase.getDetails();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

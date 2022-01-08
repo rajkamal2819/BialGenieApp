@@ -30,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
+import com.Hackathon.bialgenieapp.Actvities.FAQ_main;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.ExploreAirport;
 import com.Hackathon.bialgenieapp.Actvities.FlightAcitivities.FlightSearchActivity;
 import com.Hackathon.bialgenieapp.Actvities.Hotels.HotelsActivity;
@@ -119,6 +120,13 @@ public class HomeFragment extends Fragment {
 
             }
 
+        });
+
+        binding.faqs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), FAQ_main.class));
+            }
         });
 
         binding.chatBot.setOnClickListener(new View.OnClickListener() {

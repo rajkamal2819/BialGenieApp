@@ -24,6 +24,7 @@ public class TransportationFragment extends Fragment {
     }
 
     FragmentTransportationBinding binding;
+    CustomProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,17 +58,22 @@ public class TransportationFragment extends Fragment {
             }
         });*/
 
-        CustomProgressBar progressBar=new CustomProgressBar(getActivity());
+        progressBar=new CustomProgressBar(getActivity());
 
         binding.travelParking.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
+                CustomProgressBar.startLoading();
                 Intent i = new Intent(getActivity(), Transit_Parking.class);
                 startActivity(i);
-                CustomProgressBar.startLoading();
             }
         });
 
         return binding.getRoot();
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        CustomProgressBar.dismissLoading();
+    }
 }

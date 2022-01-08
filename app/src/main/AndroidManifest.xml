@@ -24,6 +24,7 @@
         android:theme="@style/Theme.BialGenieApp">
         <activity
             android:name=".LostAndFound"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Actvities.Hotels.HotelSearchResults"
@@ -49,12 +50,12 @@
             android:name=".Actvities.FeedbackForm"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:theme="@style/mainPage"
              />
         <activity
             android:name=".Actvities.ChatBotActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainPage" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Actvities.FAQ_main"
             android:exported="true"

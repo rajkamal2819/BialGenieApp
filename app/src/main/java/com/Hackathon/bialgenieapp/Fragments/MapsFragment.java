@@ -81,7 +81,7 @@ public class MapsFragment extends Fragment {
         mapControl.onReady(map -> {
 
             //   map.setCamera(CameraOptions.center(Point.fromLngLat(77.710228, 13.200771)), CameraOptions.zoom(15));
-            //  map.setStyle(StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS));
+              map.setStyle(StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS));
 
             map.setCamera(CameraOptions.center(Point.fromLngLat(77.710228, 13.200771)),
                     CameraOptions.zoom(15),
@@ -207,16 +207,15 @@ public class MapsFragment extends Fragment {
                 public void onClick(View v) {
 
                     if (count % 2 == 0) {
-                        map.setStyle(StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS));
-                        Toast.makeText(getContext(), "Loading Satellite View", Toast.LENGTH_SHORT).show();
-                    } else {
                         map.setStyle(StyleOptions.style(MapStyle.ROAD));
                         Toast.makeText(getContext(), "Loading Normal View", Toast.LENGTH_SHORT).show();
+                    } else {
+                        map.setStyle(StyleOptions.style(MapStyle.SATELLITE_ROAD_LABELS));
+                        Toast.makeText(getContext(), "Loading Satellite View", Toast.LENGTH_SHORT).show();
                     }
                     count++;
 
                     Log.i("MapsFragment", "Count: " + count);
-
                 }
             });
 
