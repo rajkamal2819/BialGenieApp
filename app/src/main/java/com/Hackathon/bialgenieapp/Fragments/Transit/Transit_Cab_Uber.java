@@ -40,7 +40,7 @@ import java.util.Arrays;
 
 public class Transit_Cab_Uber extends Fragment {
     View v;
-Button b ;
+    Button b ;
 
 
 
@@ -98,7 +98,7 @@ Button b ;
         linkTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         // method to change color of link
-        linkTextView.setLinkTextColor(Color.YELLOW);
+        linkTextView.setLinkTextColor(Color.BLUE);
 
 
 

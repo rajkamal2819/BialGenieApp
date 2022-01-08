@@ -17,12 +17,14 @@ import android.widget.TextView;
 
 import com.Hackathon.bialgenieapp.Fragments.Transit.BusRoute;
 import com.Hackathon.bialgenieapp.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Collections;
 
 public class FeedbackForm extends AppCompatActivity {
     String type,category,fn,ln,age,gender,phone,email,airline,flightno,description,nationality;
-    EditText t_type,t_category,t_fn,t_ln,t_age,t_gender,t_phone,t_email,t_airline,t_flightno,t_description;
+    TextInputLayout t_fn,t_ln,t_age,t_phone,t_email,t_airline,t_flightno,t_description;
+    AutoCompleteTextView t_type,t_category,t_gender;
     Button submit;
     
     @Override
@@ -40,7 +42,7 @@ public class FeedbackForm extends AppCompatActivity {
         t_ln = findViewById(R.id.edt_ln);
         t_phone = findViewById(R.id.edt_phone);
         t_email = findViewById(R.id.edt_email);
-        t_description = findViewById(R.id.edt_description);
+        t_description = findViewById(R.id.itemdescription);
 
 
 
@@ -82,15 +84,15 @@ public class FeedbackForm extends AppCompatActivity {
             public void onClick(View view) {
                 type = t_type.getText().toString();
                 category = t_category.getText().toString();
-                fn = t_fn.getText().toString();
-                ln = t_ln.getText().toString();
-                age = t_age.getText().toString();
-
-                phone= t_phone.getText().toString();
-                email = t_email.getText().toString();
-                airline = t_airline.getText().toString();
-                flightno = t_flightno.getText().toString();
-                description = t_description.getText().toString();
+                fn = t_fn.getEditText().toString();
+                ln = t_ln.getEditText().getText().toString();
+                age = t_age.getEditText().getText().toString();
+                gender = t_gender.getText().toString();
+                phone= t_phone.getEditText().getText().toString();
+                email = t_email.getEditText().getText().toString();
+                airline = t_airline.getEditText().getText().toString();
+                flightno = t_flightno.getEditText().getText().toString();
+                description = t_description.getEditText().getText().toString();
                 String d = "Name:"+fn+" "+ln+"\n"+"Gender:"+gender+"\n"+"Age:"+age+"\n"+"Type:"+type+"\n"+"Category:"+category+"\n"+"Phone:"+phone+"\n"+"Email:"+email+"\n"+"Airline:"+airline+"\n"+"Flight Number:"+flightno+"\n"+"Issue:"+description;
                 Intent mailIntent = new Intent(Intent.ACTION_VIEW);
                 Uri data = Uri.parse("mailto:?subject=" + "Feedback"+ "&body=" + d + "&to=" + "deniedaccess88@gmail.com");

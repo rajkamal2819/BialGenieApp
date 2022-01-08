@@ -37,18 +37,25 @@ public class TransportationFragment extends Fragment {
 
                                            }
                                        });
-        binding.travelCab.setOnClickListener(new View.OnClickListener() {
+        binding.travelCabs.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(),Transit_Cab.class);
                 startActivity(i);
             }
         });
-        binding.traveTrains.setOnClickListener(new View.OnClickListener() {
+        binding.travelTrain.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(),Transit_Train.class);
                 startActivity(i);
             }
         });
+       /* binding.navigate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),SmartTravel.class);
+                startActivity(i);
+            }
+        });*/
 
         CustomProgressBar progressBar=new CustomProgressBar(getActivity());
 

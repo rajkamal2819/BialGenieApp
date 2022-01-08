@@ -14,11 +14,17 @@ import com.Hackathon.bialgenieapp.Fragments.Flights.FlightsArrival;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FlightDeparture;
 import com.Hackathon.bialgenieapp.Fragments.Flights.FromToFlights;
 import com.Hackathon.bialgenieapp.Fragments.Flights.NumSearchFlights;
+import com.Hackathon.bialgenieapp.Fragments.Transit.Ac;
+import com.Hackathon.bialgenieapp.Fragments.Transit.AirportTaxi;
+import com.Hackathon.bialgenieapp.Fragments.Transit.AppBasedTaxi;
+import com.Hackathon.bialgenieapp.Fragments.Transit.CarRentals;
 import com.Hackathon.bialgenieapp.Fragments.Transit.ChargesFragment;
+import com.Hackathon.bialgenieapp.Fragments.Transit.NonAc;
 import com.Hackathon.bialgenieapp.Fragments.Transit.ParkingMainList;
 import com.Hackathon.bialgenieapp.Fragments.Transit.TrackCharges;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Ola;
 import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Cab_Uber;
+import com.Hackathon.bialgenieapp.Fragments.Transit.WomenTaxi;
 import com.Hackathon.bialgenieapp.Fragments.TransitBusFly;
 import com.Hackathon.bialgenieapp.Fragments.TransitBusVV;
 import com.Hackathon.bialgenieapp.Fragments.hotels.NearBlrHotels;
@@ -63,9 +69,11 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         }
         else if(uniqueL == 4){
             switch (position){
-                case 0: return new Transit_Cab_Uber();
-                case 1: return new Transit_Cab_Ola();
-                default: return new Transit_Cab_Ola();
+                case 0: return new AppBasedTaxi();
+
+                case 2: return new CarRentals();
+                case 1: return new AirportTaxi();
+                default: return new AppBasedTaxi();
             }
         }
         else if(uniqueL == 5){
@@ -106,6 +114,23 @@ public class FragmentAdapter extends FragmentPagerAdapter {
                 default: return new NearBlrHotels();
             }
         }
+        else if(uniqueL == 15){
+            switch (position){
+                case 1: return new Transit_Cab_Ola();
+
+                case 0: return new Transit_Cab_Uber();
+                default: return new Transit_Cab_Uber();
+            }
+        }
+        else if(uniqueL == 16){
+            switch (position){
+                case 0: return new NonAc();
+
+                case 1: return new Ac();
+                case 2: return new WomenTaxi();
+                default: return new Ac();
+            }
+        }
         else{
             switch (position){
                 case 0: return new AllFlights();
@@ -118,7 +143,15 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;        // for now both the Activity's and Fragment's have 2 child
+        if(uniqueL == 4||uniqueL == 16)
+        {
+            return 3;
+        }
+        else
+        {
+            return 2;
+        }
+              // for now both the Activity's and Fragment's have 2 child
     }
 
     @Nullable
@@ -143,11 +176,15 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         }
         else if(uniqueL == 4){
             if(position==0){
-                title = "Uber";
+                title = "App Based";
+            }
+            else if(position==2){
+                title = "Car Rentals";
             }
             else if(position==1){
-                title = "Ola";
+                title = "Airport Taxi";
             }
+
         }   else if(uniqueL == 5){
             if(position==0){
                 title = "About";
@@ -190,6 +227,25 @@ public class FragmentAdapter extends FragmentPagerAdapter {
             }
             else if(position==1){
                 title = "Search Hotels";
+            }
+        }
+        else if(uniqueL == 15){
+            if(position==0){
+                title = "Uber";
+            }
+            else if(position==1){
+                title = "Ola";
+            }
+        }
+        else if(uniqueL == 16){
+            if(position==0){
+                title = "Non-Ac (KSTDC only)";
+            }
+            else if(position==1){
+                title = "Ac";
+            }
+            else if(position==2){
+                title = "Women Taxi(KSTDC only,AC sedan)";
             }
         }
         else{

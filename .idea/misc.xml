@@ -55,7 +55,8 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/drawable/edittxtshape.xml" value="0.2203125" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/drawable/photos_shape.xml" value="0.2203125" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_authentication.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_bus_route.xml" value="0.25" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_bus_route.xml" value="0.22" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_car_rentals.xml" value="0.13496376811594202" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_chat_bot.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_explore_airport.xml" value="0.16" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_explore_airport_about.xml" value="0.15489130434782608" />
@@ -66,15 +67,20 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_flights_details.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_fly_city.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_from_to_flight_results.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_lost_and_found.xml" value="0.2" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_route.xml" value="0.1539855072463768" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_smart_travel.xml" value="0.14" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_train_info.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/activity_transit_cab_ola.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/bus_selector_item.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/flight_item.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/flight_item_2.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/flight_stops_item.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_ac.xml" value="0.1791958041958042" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_airport_taxi.xml" value="0.20153985507246377" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_all_flights.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_app_based_taxi.xml" value="0.13496376811594202" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_charges.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_direct_flights.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_explore_airport__about.xml" value="0.15489130434782608" />
@@ -86,7 +92,8 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_log_in.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_maps.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_more.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_more.xml" value="0.18" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_non_ac.xml" value="0.1791958041958042" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_parking_main_list.xml" value="0.1539855072463768" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_track_charges.xml" value="0.15489130434782608" />
@@ -95,20 +102,18 @@
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit__cab.xml" value="0.14945652173913043" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit__cab__ola.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit__cab__uber.xml" value="0.14673913043478262" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit__home.xml" value="0.1" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit__parking.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit__train.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit_bus_fly.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transit_bus_v_v.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_transportation.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/fragment_women_taxi.xml" value="0.1791958041958042" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/parking_charges_items.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/parking_main_list.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/popup_text.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/route_item.xml" value="0.1539855072463768" />
-        <entry key="..\:/Users/Umang Singh/OneDrive/Desktop/BIAL-Copy/BialGenieApp/app/src/main/res/layout/activity_faq_main.xml" value="0.20052083333333334" />
-        <entry key="..\:/Users/Umang Singh/OneDrive/Desktop/BIAL-Copy/BialGenieApp/app/src/main/res/layout/activity_feedback_form.xml" value="0.4" />
-        <entry key="..\:/Users/Umang Singh/OneDrive/Desktop/BIAL-Copy/BialGenieApp/app/src/main/res/layout/faq_singlerow.xml" value="0.30348727615457116" />
-        <entry key="..\:/Users/Umang Singh/OneDrive/Desktop/BIAL-Copy/BialGenieApp/app/src/main/res/layout/fragment_faq_menu.xml" value="0.20052083333333334" />
-        <entry key="..\:/Users/Umang Singh/OneDrive/Desktop/BIAL-Copy/BialGenieApp/app/src/main/res/menu/menu.xml" value="0.19895833333333332" />
+        <entry key="..\:/Users/Anirudh/StudioProjects/BialGenieApp/app/src/main/res/layout/story_item.xml" value="0.1408514492753623" />
       </map>
     </option>
   </component>

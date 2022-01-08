@@ -17,7 +17,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view1"
-        android:layout_margin="33dp"
+        android:layout_marginLeft="15dp"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         app:cardElevation="20dp"
@@ -269,7 +269,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view2"
-            android:layout_margin="33dp"
+            android:layout_marginLeft="15dp"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             app:cardElevation="20dp"

@@ -64,6 +64,7 @@ public class BusTables {
            basic.put("Stopsno", stopsno);
            basic.put("Distance", dist);
            basic.put("Fare", fare);
+           basic.put("Origin", origin);
 
            TableEntity bus = new TableEntity(partitionKey, rowKey).setProperties(basic);
 

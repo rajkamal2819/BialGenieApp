@@ -90,7 +90,6 @@ public class BusRoute extends AppCompatActivity {
                     t_tt2.setText(specificEntity.getProperty("timetable").toString());
                     t_stops2.setText(specificEntity.getProperty("stops").toString());
 
-
                 }
 
             }

@@ -13,6 +13,11 @@
     <string name="olapara">Ola India\'s most popular cab service provides wide variety of cars ranging from Sedans,Suv\'s to luxary cars.With features like free Wifi , AC, Ola Play you can be assured of the best ride experience</string>
     <string name="hyperlink1"><a href="https://book.olacabs.com/">https://book.olacabs.com/</a></string>
 
+    <string name="wtiw"><a href="https://www.carzonrent.com/">https://www.carzonrent.com/</a></string>
+    <string name="carw"><a href="https://book.olacabs.com/">https://book.olacabs.com/</a></string>
+    <string name="meruw"><a href="https://www.meru.in/">https://www.meru.in/</a></string>
+    <string name="megaw"><a href="https://www.megacabs.com/">https://www.megacabs.com/</a></string>
+    <string name="kstdcw"><a href="https://www.kstdc.co/airport-taxi-bangalore/">https://www.kstdc.co/airport-taxi-bangalore/</a></string>
 
     <string name="lTitle">Duration</string>
     <string name="rTitle">Fare</string>
@@ -28,7 +33,17 @@
     <string name="abt2"><![CDATA[In January 2001, Bangalore International Airport Limited (BIAL), formed under the Companies Act, 1956, was incorporated to build, own and operate BLR Airport for a 60-year concession period. Private promoters hold a 74% stake (Anchorage Infrastructure Investments Holdings Limited: 43.64%; FIH Mauritius Investments Limited: 10.36% and Siemens Projects Ventures: 20%), while the Government (Karnataka State Industrial & Infrastructure Development Corporation Limited: 13%; Airports Authority of India: 13%) hold the remaining 26%.]]></string>
     <string name="abt3">BLR Airport commenced operations on May 24, 2008 – 33 months from the start of construction. The expansion of the Terminal was completed in 2014 to cater to the steady, unprecedented growth in passenger volumes. Having served 10 million passengers in 2008, KIAB witnessed phenomenal growth during the subsequent years, becoming the fastest growing airport in the world in 2018. KIAB concluded Calendar Year 2019 with 33.65 million passengers. Powered with cutting-edge technology, including Contactless Passenger Processing, Self Bag-Drops, Biometric-based self-boarding solution, BLR Airport connects Bengaluru to 61 domestic and 14 international destinations.</string>
 
+    <string name="wt1">Launched in 2009, WTi cabs is one of the largest integrated ground transportation solutions company in India with diversified portfolios in personal ground transportation, offering services to all Domestic &amp; international Travelers with a wide range of vehicles. Wti aims to have a presence across the value chain through services in corporate car rental and airports. It is currently present across 85 cities with fleet size of 5200 cars &amp; provides chauffeur driven, self-drive, limo service and employee transportation services to corporate clients</string>
+    <string name="wt2">WTI has in its lineage some of India’s most pioneering and workable business models introduced in the “Personal Ground Transportations Space”. Today the company can boost of making some large entrepreneur’s in the field of Car rental in the country. The company is shaped by value-based guiding principles that underpin every business decision.</string>
+    <string name="wt3">With the objective of providing best in class quality of service with unmatched network spanning all the key cities of India. The operations are carried out with large fleet on road and robust technology platform. We are one of the promising car rental companies in India, well poised to garner further market share in the corporate car rental space.</string>
 
+    <string name="car1">Carzonrent (India) Pvt. Ltd. was launched in the year 2000 with a short-term objective of offering a safe &amp; reliable medium of travel to customers and a long-term vision of giving form and structure to the unorganized Indian personal ground transportation industry and helping the industry get its due recognition. “COR” the branding of Carzonrent signifies the fact that Personal Ground Transportation is the “Core” business of Carzonrent.</string>
+    <string name="car2">Carzonrent today is the largest personal ground transportation service provider in the country. With its fleet of 7500 cars, Carzonrent does 20000 trips daily clocking 100000 km every day to satisfy 6000000 customers annually</string>
+    <string name="car3">At Kempegowda International Airport Bengaluru, Carzonrent ensures quality service to customers with a dedicated fleet of cars ranging from Mahindra e2o to Mercedes-Benz for Local, Outstation &amp; Self-drive services. With technology-ready reservation desks, Carzonrent offers benefits like online reservation and inventory management system, ensuring seamless and efficient service. Apart from the 650+ corporate clients, it has tie-ups with all leading airlines, banks, credit and debit cards like American Express, Indigo airlines, etc.</string>
+
+    <string name="mega">Mega Cabs is India’s first GPS/GRPS Radio Taxi Service provider. The company owns and operates a fleet of over 2,500 cabs with Toyota Etios and Tata Indigo cars, across the country.</string>
+    <string name="meru">Merucabs uses high-end technology to geographically track its vehicles and give customers real time response on cab availability. </string>
+    <string name="kstdc">Karnataka State Tourism Development Corporation (KSTDC) is the largest Tour Operator in Karnataka. All the taxis are fitted with state of the art technology like GPS, GPRS &amp; Printing machines with easy tracking, quick &amp; transparent billing.</string>
     <string-array name="routes">
 
         <item>KIAB-10</item>

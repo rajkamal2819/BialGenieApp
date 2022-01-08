@@ -76,7 +76,7 @@ public class TransitBusVV extends Fragment implements AdapterView.OnItemClickLis
         domalur.add(new Route_Model("KIAB-6"));
         domalur.add(new Route_Model("KIAB-7A"));
 
-        electronic = new ArrayList<>();
+         electronic = new ArrayList<>();
         electronic.add(new Route_Model("KIAB-8C"));
         electronic.add(new Route_Model("KIAB-8"));
 
