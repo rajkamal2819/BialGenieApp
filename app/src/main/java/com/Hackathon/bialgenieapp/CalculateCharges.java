@@ -15,6 +15,7 @@ public class CalculateCharges {
 
 
         if (carType.equals("Two Wheeler Parking")) {
+            if (hours>=1)
             sum+=hours*20+20;
 
             if (days>=1)
@@ -22,6 +23,7 @@ public class CalculateCharges {
         }
 
         if(carType.equals("Car Parking") || carType.equals("Parking for reduced mobility")){
+            if (hours>=1)
             sum+=hours*50+50;
 
             if (days>=1)

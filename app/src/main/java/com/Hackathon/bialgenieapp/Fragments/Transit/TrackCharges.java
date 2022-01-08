@@ -115,7 +115,6 @@ public class TrackCharges extends AppCompatActivity implements AdapterView.OnIte
                     int min=CalculateTime.getMin();
                     elapsedTime=days+" days "+hours+" hours "+min+" mins ";
                     new StorageAsyncTask().execute(carType,date,time,elapsedTime);
-                    finish();
 
                 } catch (IOException | ParseException e) {
                     e.printStackTrace();

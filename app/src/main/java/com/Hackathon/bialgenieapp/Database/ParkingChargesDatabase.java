@@ -107,10 +107,14 @@ public class ParkingChargesDatabase {
                 .buildClient();
 
         ListEntitiesOptions options=new ListEntitiesOptions().setFilter(PARTITION_KEY+" eq 'ParkingDetails'");
+        sum=0;
 
         tableClient.listEntities(options,null,null).forEach(tableEntity -> {
                 list.add(new ParkingDetails(tableEntity.getProperty("Time").toString(),tableEntity.getProperty("Date").toString(),tableEntity.getProperty("ElapsedTime").toString(),tableEntity.getProperty("CarType").toString()));
+            sum+=CalculateCharges.totalCharge(CalculateTime.getDays(),CalculateTime.getHours(),CalculateTime.getMin(),tableEntity.getProperty("CarType").toString(),context);
         });
+
+
 
         return list;
     }
@@ -146,10 +150,7 @@ public class ParkingChargesDatabase {
             }
 
             specificEntity.getProperties().put("ElapsedTime",CalculateTime.getDays()+" days "+(CalculateTime.getHours())+" hours "+CalculateTime.getMin()+" mins ");
-             sum=CalculateCharges.totalCharge(CalculateTime.getDays(),CalculateTime.getHours(),CalculateTime.getMin(),tableEntity.getProperty("CarType").toString(),context);
-
-
-
+             sum+=CalculateCharges.totalCharge(CalculateTime.getDays(),CalculateTime.getHours(),CalculateTime.getMin(),tableEntity.getProperty("CarType").toString(),context);
 
 
             // Update the specific entity
