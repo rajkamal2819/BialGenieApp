@@ -38,7 +38,7 @@ public class AppBasedTaxi extends Fragment {
         viewPager = v.findViewById(R.id.viewpagerapp);
         tabLayout = v.findViewById(R.id.tabLayout_app);
 
-        viewPager.setAdapter(new FragmentAdapter(getActivity().getSupportFragmentManager(), 15));
+        viewPager.setAdapter(new FragmentAdapter(getChildFragmentManager(), 15));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         return v;

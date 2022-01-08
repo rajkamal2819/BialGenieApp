@@ -40,7 +40,7 @@ public class AirportTaxi extends Fragment {
         viewPager = v.findViewById(R.id.viewpagerairport);
         tabLayout = v.findViewById(R.id.tabLayout_airport);
 
-        viewPager.setAdapter(new FragmentAdapter(getActivity().getSupportFragmentManager(), 16));
+        viewPager.setAdapter(new FragmentAdapter(getChildFragmentManager(), 16));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         return v;
