@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
 import com.Hackathon.bialgenieapp.R;
+import com.Hackathon.bialgenieapp.customdialogs.CustomProgressBar;
 import com.google.android.material.tabs.TabLayout;
 
 
@@ -21,6 +22,8 @@ public class Transit_Parking extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_transit__parking);
+
+
 
         viewPager=findViewById(R.id.view_pager_parkng);
         tabLayout=findViewById(R.id.tab_layout_parking);

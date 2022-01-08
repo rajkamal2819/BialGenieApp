@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.Hackathon.bialgenieapp.Actvities.Transit_Parking;
+import com.Hackathon.bialgenieapp.customdialogs.CustomProgressBar;
 import com.Hackathon.bialgenieapp.databinding.FragmentTransportationBinding;
 
 
@@ -48,10 +49,13 @@ public class TransportationFragment extends Fragment {
             }
         });
 
+        CustomProgressBar progressBar=new CustomProgressBar(getActivity());
+
         binding.travelParking.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
                 Intent i = new Intent(getActivity(), Transit_Parking.class);
                 startActivity(i);
+                CustomProgressBar.startLoading();
             }
         });
 

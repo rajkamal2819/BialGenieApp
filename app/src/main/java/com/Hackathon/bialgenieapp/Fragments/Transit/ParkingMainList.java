@@ -27,6 +27,7 @@ import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.ReadAsyncTask;
 import com.Hackathon.bialgenieapp.StorageAsyncTask;
 import com.Hackathon.bialgenieapp.UpdateAsyncTask;
+import com.Hackathon.bialgenieapp.customdialogs.CustomProgressBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.microsoft.graph.models.extensions.Shared;
 
@@ -38,8 +39,9 @@ import java.util.concurrent.ExecutionException;
 
 public class ParkingMainList extends Fragment {
 
-    List<ParkingDetails> parkingDetailsList=new ArrayList<>();
+    List<ParkingDetails> parkingDetailsList = new ArrayList<>();
     RecyclerView rv;
+    TextView charges;
 
 
     public ParkingMainList() {
@@ -47,10 +49,10 @@ public class ParkingMainList extends Fragment {
         super(R.layout.fragment_parking_main_list);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
 
     }
@@ -60,46 +62,43 @@ public class ParkingMainList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_parking_main_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_parking_main_list, container, false);
 
-        FloatingActionButton fab=view.findViewById(R.id.fab1);
-        rv=view.findViewById(R.id.parking_main_list);
-        TextView charges=view.findViewById(R.id.fare_price_text);
-
-
-
-
+        FloatingActionButton fab = view.findViewById(R.id.fab1);
+        rv = view.findViewById(R.id.parking_main_list);
+        charges = view.findViewById(R.id.fare_price_text);
 
         new ParkingChargesDatabase(getContext());
         try {
-              new UpdateAsyncTask().execute();
+            parkingDetailsList = new ReadAsyncTask().execute().get();
+            new UpdateAsyncTask().execute();
+            CustomProgressBar.dismissLoading();
             //ParkingChargesDatabase.updateElapsedTime();
-           parkingDetailsList=ParkingChargesDatabase.getDetails();
 
 
-        } catch (IOException e) {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        rv.setAdapter(new TrackChargesListAdapter(getContext(),parkingDetailsList));
-        charges.setText(String.valueOf(ParkingChargesDatabase.getSum()));
-
 
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              startActivity(new Intent(getActivity(),TrackCharges.class));
+                startActivity(new Intent(getActivity(), TrackCharges.class));
             }
         });
         return view;
     }
 
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv.setAdapter(new TrackChargesListAdapter(getContext(), parkingDetailsList));
+        charges.setText(String.valueOf(ParkingChargesDatabase.getSum()));
 //        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback() {
 //            @Override
 //            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -111,5 +110,5 @@ public class ParkingMainList extends Fragment {
 //
 //            }
 //        })
-//    }
+    }
 }
