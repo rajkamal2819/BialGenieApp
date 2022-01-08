@@ -67,13 +67,11 @@
         <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="com.Hackathon.bialgenieapp"
-                    android:path="/ZCGA7ST7d0JeNPvtCazJK9sJCxA="
+                    android:path="/0KSITcEtDY/E9LCroVuVetYhf20="
                     android:scheme="msauth"
                     tools:ignore="AppLinkUrlError" />
             </intent-filter>

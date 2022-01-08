@@ -3,20 +3,11 @@ package com.Hackathon.bialgenieapp.Fragments.Transit;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
-import com.Hackathon.bialgenieapp.Database.BusTables;
 import com.Hackathon.bialgenieapp.R;
 import com.google.android.material.tabs.TabLayout;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 
 public class Transit_Bus extends AppCompatActivity {
@@ -29,7 +20,7 @@ public class Transit_Bus extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_transit__bus);
+        setContentView(R.layout.activity_transit__bus);
 
 
 

@@ -28,7 +28,7 @@ public class PostSecurityRes extends Fragment {
     }
 
     FragmentPostSecurityResBinding binding;
-    private String JsonResponseLink = "https://springboot-restapi.azurewebsites.net/restaurants";
+    private String JsonResponseLink = "https://springboot-restapi.azurewebsites.net-/restaurants";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

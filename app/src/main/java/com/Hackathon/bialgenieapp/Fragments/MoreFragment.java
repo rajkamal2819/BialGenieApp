@@ -140,8 +140,10 @@ public class MoreFragment extends Fragment {
         binding.signIn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 if (mSingleAccountApp == null) {
+                    Log.i(LOG_TAG,"NULL User");
                     return;
                 }
+                Log.i(LOG_TAG,"Checking user");
                 mSingleAccountApp.signIn(getActivity(), null, SCOPES, getAuthInteractiveCallback());
             }
         });
@@ -267,7 +269,6 @@ public class MoreFragment extends Fragment {
 
     private void updateUI(@Nullable final IAccount account) {
         if (account != null) {
-            binding.signIn.setEnabled(false);
             /*signInButton.setEnabled(false);
             signOutButton.setEnabled(true);
             callGraphApiInteractiveButton.setEnabled(true);

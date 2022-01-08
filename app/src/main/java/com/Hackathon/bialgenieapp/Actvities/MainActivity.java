@@ -11,7 +11,7 @@ import com.Hackathon.bialgenieapp.Fragments.HomeFragment;
 /*import com.Hackathon.bialgenieapp.Fragments.MapsFragment;*/
 import com.Hackathon.bialgenieapp.Fragments.MapsFragment;
 import com.Hackathon.bialgenieapp.Fragments.MoreFragment;
-import com.Hackathon.bialgenieapp.Fragments.Transit.Transit_Home;
+import com.Hackathon.bialgenieapp.Fragments.Transit.TransportationFragment;
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.ActivityMainBinding;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.main_content, new MapsFragment());
                         break;
                     case 3:
-                        transaction.replace(R.id.main_content, new Transit_Home());
+                        transaction.replace(R.id.main_content, new TransportationFragment());
                         break;
 
                     case 4:

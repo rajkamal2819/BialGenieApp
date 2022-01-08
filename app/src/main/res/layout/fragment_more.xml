@@ -74,23 +74,22 @@
                     android:text="NULL"
                     android:textSize="16sp" />
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_below="@id/userId"
-                        android:id="@+id/signIn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:text="Sign IN" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/signIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/userId"
+                    android:layout_centerInParent="true"
+                    android:text="Sign IN" />
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/singOut"
-                        android:visibility="invisible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/userId"
-                        android:layout_centerInParent="true"
-                        android:text="Sign Out" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/singOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/userId"
+                    android:layout_centerInParent="true"
+                    android:text="Sign Out"
+                    android:visibility="invisible" />
 
             </RelativeLayout>
 

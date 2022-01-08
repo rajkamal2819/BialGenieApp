@@ -25,7 +25,7 @@ public class Transit_Train extends AppCompatActivity implements View.OnClickList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_transit__train);
+        setContentView(R.layout.acitivity_transit__train);
 
         trainName=findViewById(R.id.train_name_text_enter);
         trainNumber=findViewById(R.id.train_number_text_enter);

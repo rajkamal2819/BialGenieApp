@@ -9,14 +9,12 @@ import android.view.View;
 
 import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
 import com.Hackathon.bialgenieapp.R;
-import com.Hackathon.bialgenieapp.databinding.FragmentTransitCabBinding;
 import com.google.android.material.tabs.TabLayout;
 
 
 public class Transit_Cab extends AppCompatActivity {
 
-   View v;
-    FragmentTransitCabBinding binding;
+    View v;
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
@@ -24,7 +22,7 @@ public class Transit_Cab extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
-      setContentView(R.layout.fragment_transit__cab);
+      setContentView(R.layout.activity_transit__cab);
         viewPager = findViewById(R.id.viewpagerCab);
         tabLayout = findViewById(R.id.tabLayout_cab);
 
