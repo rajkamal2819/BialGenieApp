@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
+import com.Hackathon.bialgenieapp.Actvities.FAQ_main;
 import com.Hackathon.bialgenieapp.Actvities.FeedbackForm;
 import com.Hackathon.bialgenieapp.LostAndFound;
 import com.Hackathon.bialgenieapp.R;
@@ -72,6 +73,15 @@ public class MoreFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), FeedbackForm.class));
+            }
+        });
+
+        binding.faqs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(getContext(), FAQ_main.class));
+
             }
         });
 
