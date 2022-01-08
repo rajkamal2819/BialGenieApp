@@ -47,6 +47,8 @@ public class FAQ_main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq_main);
 
+        Toast.makeText(this, "Loading...", Toast.LENGTH_LONG).show();
+
         floatingActionButton = findViewById(R.id.floatingActionButton);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

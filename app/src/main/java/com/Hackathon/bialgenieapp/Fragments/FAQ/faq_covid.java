@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.Hackathon.bialgenieapp.Adapters.FAQ_Adapter;
 import com.Hackathon.bialgenieapp.Models.FAQ_Model;
@@ -85,6 +86,7 @@ public class faq_covid extends Fragment {
 
         faqholder = new ArrayList<>();
 
+
         try
         {
             // Define constants for filters.
@@ -103,7 +105,7 @@ public class faq_covid extends Fragment {
             // Loop through the results, displaying information about the entities.
             tableClient.listEntities(options, null, null).forEach(tableEntity -> {
 
-                        faqholder.add(new FAQ_Model(tableEntity.getProperty("Question").toString(),tableEntity.getProperty("Answer").toString()));
+                faqholder.add(new FAQ_Model(tableEntity.getProperty("Question").toString(),tableEntity.getProperty("Answer").toString()));
             });
         }
         catch (Exception e)

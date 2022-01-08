@@ -109,7 +109,7 @@ public class faq_general extends Fragment {
             // Loop through the results, displaying information about the entities.
             tableClient.listEntities(options, null, null).forEach(tableEntity -> {
 
-                      faqholder.add(new FAQ_Model(tableEntity.getProperty("Question").toString(),tableEntity.getProperty("Answer").toString()));
+                faqholder.add(new FAQ_Model(tableEntity.getProperty("Question").toString(),tableEntity.getProperty("Answer").toString()));
             });
         }
         catch (Exception e)
