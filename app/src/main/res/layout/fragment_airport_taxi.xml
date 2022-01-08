@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.Transit.AirportTaxi">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout_airport"
+        android:layout_width="match_parent"
+        app:tabMode="scrollable"
+        android:layout_height="40dp"
+        app:tabIndicatorColor="#AEE6EC"
+        android:background="#62AFFF"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpagerairport"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout_airport"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.iammert.library.readablebottombar.ReadableBottomBar
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpagerairport"
+            app:rbb_activeItemType="text"
+            app:rbb_indicatorColor="@color/skyBlue"
+            app:rbb_tabs="@xml/tabs" />
+    </androidx.viewpager.widget.ViewPager>
+
+
+</RelativeLayout>
