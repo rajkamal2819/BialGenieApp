@@ -18,17 +18,29 @@ import com.Hackathon.bialgenieapp.Fragments.FAQ.faq_covid;
 import com.Hackathon.bialgenieapp.Fragments.FAQ.faq_general;
 import com.Hackathon.bialgenieapp.Fragments.FAQ.faq_others;
 import com.Hackathon.bialgenieapp.Models.FAQ_Model;
+import com.Hackathon.bialgenieapp.Models.FAQ_db;
 import com.Hackathon.bialgenieapp.R;
+import com.azure.data.tables.TableClient;
+import com.azure.data.tables.TableClientBuilder;
+import com.azure.data.tables.TableServiceClient;
+import com.azure.data.tables.TableServiceClientBuilder;
+import com.azure.data.tables.models.TableEntity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class FAQ_main extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<FAQ_Model> FAQ_Holder;
     FloatingActionButton floatingActionButton;
+
+    public final String connectionString =
+            "DefaultEndpointsProtocol=https;AccountName=bialtable;AccountKey=wRCVF2troxwyrE9pieQU0tjN84QSOwnq0ybCZBg+b76/EIUD3xFmM2p19Dn8hiIyKWGs1gPAm5cyKhHxh2y7oA==;EndpointSuffix=core.windows.net";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +74,11 @@ public class FAQ_main extends AppCompatActivity {
 //        initdata();
 //        setrecyclerView();
 
-        
+
+
+
+
+
     }
 
 

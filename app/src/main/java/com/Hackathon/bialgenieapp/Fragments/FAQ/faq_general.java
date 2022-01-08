@@ -1,7 +1,9 @@
 package com.Hackathon.bialgenieapp.Fragments.FAQ;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,9 @@ import android.view.ViewGroup;
 import com.Hackathon.bialgenieapp.Adapters.FAQ_Adapter;
 import com.Hackathon.bialgenieapp.Models.FAQ_Model;
 import com.Hackathon.bialgenieapp.R;
+import com.azure.data.tables.TableClient;
+import com.azure.data.tables.TableClientBuilder;
+import com.azure.data.tables.models.ListEntitiesOptions;
 
 import java.util.ArrayList;
 
@@ -75,6 +80,7 @@ public class faq_general extends Fragment {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,32 +91,32 @@ public class faq_general extends Fragment {
 
         faqholder = new ArrayList<>();
 
-//        try
-//        {
-//            // Define constants for filters.
-//            final String PARTITION_KEY = "PartitionKey";
-//            final String tableName = "FAQ";
-//
-//            // Create a TableClient with a connection string and a table name.
-//            TableClient tableClient = new TableClientBuilder()
-//                    .connectionString(connectionString)
-//                    .tableName(tableName)
-//                    .buildClient();
-//
-//            // Create a filter condition where the partition key is "General".
-//            ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'General'");
-//
-//            // Loop through the results, displaying information about the entities.
-//            tableClient.listEntities(options, null, null).forEach(tableEntity -> {
-//
-//                      faqholder.add(new FAQ_Model(tableEntity.getProperty("Question"),tableEntity.getProperty("Answer")));
-//            });
-//        }
-//        catch (Exception e)
-//        {
-//            // Output the stack trace.
-//            e.printStackTrace();
-//        }
+        try
+        {
+            // Define constants for filters.
+            final String PARTITION_KEY = "PartitionKey";
+            final String tableName = "FAQ";
+
+            // Create a TableClient with a connection string and a table name.
+            TableClient tableClient = new TableClientBuilder()
+                    .connectionString(connectionString)
+                    .tableName(tableName)
+                    .buildClient();
+
+            // Create a filter condition where the partition key is "General".
+            ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'General'");
+
+            // Loop through the results, displaying information about the entities.
+            tableClient.listEntities(options, null, null).forEach(tableEntity -> {
+
+                      faqholder.add(new FAQ_Model(tableEntity.getProperty("Question").toString(),tableEntity.getProperty("Answer").toString()));
+            });
+        }
+        catch (Exception e)
+        {
+            // Output the stack trace.
+            e.printStackTrace();
+        }
 
 
 

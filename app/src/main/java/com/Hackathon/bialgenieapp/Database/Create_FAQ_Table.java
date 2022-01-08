@@ -1,16 +1,51 @@
 package com.Hackathon.bialgenieapp.Database;
 
 import com.Hackathon.bialgenieapp.Models.FAQ_db;
+import com.azure.data.tables.TableClient;
+import com.azure.data.tables.TableClientBuilder;
+import com.azure.data.tables.TableServiceClient;
+import com.azure.data.tables.TableServiceClientBuilder;
+import com.azure.data.tables.models.TableEntity;
 
 import java.util.AbstractCollection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Create_FAQ_Table {
 
 
 
     public static void main(String[] args) {
+        final String connectionString =
+                "DefaultEndpointsProtocol=https;AccountName=bialtable;AccountKey=wRCVF2troxwyrE9pieQU0tjN84QSOwnq0ybCZBg+b76/EIUD3xFmM2p19Dn8hiIyKWGs1gPAm5cyKhHxh2y7oA==;EndpointSuffix=core.windows.net";
+
+
+        try
+        {
+            final String tableName = "Employees";
+
+            // Create a TableServiceClient with a connection string.
+            TableServiceClient tableServiceClient = new TableServiceClientBuilder()
+                    .connectionString(connectionString)
+                    .buildClient();
+
+            // Create the table if it not exists.
+            TableClient tableClient = tableServiceClient.createTableIfNotExists(tableName);
+
+        }
+        catch (Exception e)
+        {
+            // Output the stack trace.
+            e.printStackTrace();
+        }
+
+
+
+
+
+
 
         List<FAQ_db> dataholder = new ArrayList<>();
 
@@ -459,7 +494,35 @@ public class Create_FAQ_Table {
 
 
 
+        for(int i=0;i<dataholder.size();i++){
+            try
+            {
+                final String tableName = "FAQ";
 
+                // Create a TableClient with a connection string and a table name.
+                TableClient tableClient = new TableClientBuilder()
+                        .connectionString(connectionString)
+                        .tableName(tableName)
+                        .buildClient();
+
+                // Create a new employee TableEntity.
+                String partitionKey = dataholder.get(i).getPartisionkey();
+                String rowKey = dataholder.get(i).getRowkey();
+                Map<String, Object> personalInfo= new HashMap<>();
+                personalInfo.put("Question", dataholder.get(i).getQ());
+                personalInfo.put("Answer", dataholder.get(i).getAns());
+
+                TableEntity faq = new TableEntity(partitionKey, rowKey).setProperties(personalInfo);
+
+                // Upsert the entity into the table
+                tableClient.upsertEntity(faq);
+            }
+            catch (Exception e)
+            {
+                // Output the stack trace.
+                e.printStackTrace();
+            }
+        }
 
     }
 }
