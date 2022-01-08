@@ -13,11 +13,7 @@ import com.Hackathon.bialgenieapp.Adapters.FragmentAdapter;
 import com.Hackathon.bialgenieapp.R;
 import com.google.android.material.tabs.TabLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AppBasedTaxi#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AppBasedTaxi extends Fragment {
 
     private ViewPager viewPager;
