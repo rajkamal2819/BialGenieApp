@@ -28,7 +28,7 @@ public class PreSecurityRes extends Fragment {
     }
 
     FragmentPreSecurityResBinding binding;
-    private String JsonResponseLink = "https://springboot-crud-rest-api.azurewebsites.net/restaurants";
+    private String JsonResponseLink = "https://springboot-restapi.azurewebsites.net/restaurants";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -28,7 +28,7 @@ public class InternationalShops extends Fragment {
     }
 
     FragmentInternationalShopsBinding binding;
-    private String JsonResponseLink = "https://springboot-crud-rest-api.azurewebsites.net/retails";
+    private String JsonResponseLink = "https://springboot-restapi.azurewebsites.net/retails";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
