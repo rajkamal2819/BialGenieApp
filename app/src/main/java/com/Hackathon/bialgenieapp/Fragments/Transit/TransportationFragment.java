@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.Hackathon.bialgenieapp.Actvities.Transit_Parking;
-import com.Hackathon.bialgenieapp.customdialogs.CustomProgressBar;
 import com.Hackathon.bialgenieapp.databinding.FragmentTransportationBinding;
 
 
@@ -24,7 +23,6 @@ public class TransportationFragment extends Fragment {
     }
 
     FragmentTransportationBinding binding;
-    CustomProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,22 +56,20 @@ public class TransportationFragment extends Fragment {
             }
         });*/
 
-        progressBar=new CustomProgressBar(getActivity());
 
         binding.travelParking.setOnClickListener(new View.OnClickListener() {
             public final void onClick(View it) {
-                CustomProgressBar.startLoading();
+                binding.progressBar.setVisibility(View.VISIBLE);
                 Intent i = new Intent(getActivity(), Transit_Parking.class);
                 startActivity(i);
             }
         });
-
         return binding.getRoot();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        CustomProgressBar.dismissLoading();
+        binding.progressBar.setVisibility(View.INVISIBLE);
     }
 }

@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import com.Hackathon.bialgenieapp.Adapters.ParkingListChargesAdapter;
 import com.Hackathon.bialgenieapp.Models.ParkingChargesData;
 import com.Hackathon.bialgenieapp.R;
-import com.Hackathon.bialgenieapp.customdialogs.CustomProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.Hackathon.bialgenieapp.Actvities.ChatBotActivity;
 import com.Hackathon.bialgenieapp.Actvities.FAQ_main;
 import com.Hackathon.bialgenieapp.Actvities.FeedbackForm;
+import com.Hackathon.bialgenieapp.ContactUs;
 import com.Hackathon.bialgenieapp.LostAndFound;
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.databinding.FragmentMoreBinding;
@@ -85,6 +86,14 @@ public class MoreFragment extends Fragment {
             }
         });
 
+        binding.contactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(getContext(), ContactUs.class));
+
+            }
+        });
 
         initializeUI();
 

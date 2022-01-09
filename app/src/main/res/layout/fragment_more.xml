@@ -102,45 +102,6 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/emergencyBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="?selectableItemBackground"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="10dp">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"
-                            android:text="Emergency"
-                            android:textColor="@color/skyBlue"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="10dp"
-                            android:alpha="0.8"
-                            android:padding="4dp"
-                            android:src="@drawable/ic_baseline_add_alert_24" />
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
                     android:id="@+id/lost"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
