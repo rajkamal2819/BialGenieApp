@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BialGenieApp">
         <activity
+            android:name=".ContactUs"
+            android:exported="false" />
+        <activity
             android:name=".Actvities.FlashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -135,8 +138,7 @@
             android:name=".Actvities.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/mainPage">
-        </activity>
+            android:theme="@style/mainPage"></activity>
         <activity
             android:name=".Fragments.Transit.Transit_Bus"
             android:exported="true"
