@@ -63,8 +63,7 @@
         <activity
             android:name=".Actvities.FeedbackForm"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/mainPage" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Actvities.ChatBotActivity"
             android:exported="true"
