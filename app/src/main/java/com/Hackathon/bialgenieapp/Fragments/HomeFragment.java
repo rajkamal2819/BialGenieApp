@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment {
     public static final String SMS_DELIVERED_ACTION = "com.andriodgifts.gift.SMS_DELIVERED_ACTION";
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 0;
     private String LOG_TAG = HomeFragment.class.getSimpleName();
+    StoriesTask task;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -172,10 +173,23 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        StoriesTask task = new StoriesTask();
+        task = new StoriesTask();
         task.execute();
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        task.cancel(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        task = new StoriesTask();
+        task.execute();
     }
 
     public String getJsonResponse(String fileUrl) {
@@ -234,9 +248,12 @@ public class HomeFragment extends Fragment {
         return output.toString();
     }
 
+
+
     public void initializeStories(String response) {
 
         try {
+
             JSONObject obj = new JSONObject(response);
 
             JSONObject covidObj = obj.getJSONObject("covid19");
@@ -569,6 +586,9 @@ public class HomeFragment extends Fragment {
         } else {
             askLocationPermission();
         }
+
+        task = new StoriesTask();
+        task.execute();
 
     }
 
