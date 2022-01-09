@@ -1,7 +1,9 @@
 package com.Hackathon.bialgenieapp.Fragments.Transit;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import com.Hackathon.bialgenieapp.Actvities.Transit_Parking;
 import com.Hackathon.bialgenieapp.Database.ParkingChargesDatabase;
 import com.Hackathon.bialgenieapp.Models.ParkingChargesData;
 import com.Hackathon.bialgenieapp.R;
@@ -115,7 +118,8 @@ public class TrackCharges extends AppCompatActivity implements AdapterView.OnIte
                     int min=CalculateTime.getMin();
                     elapsedTime=days+" days "+hours+" hours "+min+" mins ";
                     new StorageAsyncTask().execute(carType,date,time,elapsedTime);
-
+                    startActivity(new Intent(TrackCharges.this,Transit_Parking.class));
+                    finish();
                 } catch (IOException | ParseException e) {
                     e.printStackTrace();
                 }

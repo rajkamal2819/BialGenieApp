@@ -23,7 +23,6 @@ import com.Hackathon.bialgenieapp.Models.ParkingDetails;
 import com.Hackathon.bialgenieapp.R;
 import com.Hackathon.bialgenieapp.ReadAsyncTask;
 import com.Hackathon.bialgenieapp.StorageAsyncTask;
-import com.Hackathon.bialgenieapp.UpdateAsyncTask;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.microsoft.graph.models.extensions.Shared;
 
@@ -68,13 +67,14 @@ public class ParkingMainList extends Fragment {
         new ParkingChargesDatabase(getContext());
         try {
             parkingDetailsList = ParkingChargesDatabase.getDetails();
+            charges.setText(String.valueOf(ParkingChargesDatabase.getSum()));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.setAdapter(new TrackChargesListAdapter(getContext(),parkingDetailsList));
-        charges.setText(String.valueOf(ParkingChargesDatabase.getSum()));
+
 
 
 

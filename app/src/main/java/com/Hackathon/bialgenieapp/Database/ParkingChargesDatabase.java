@@ -107,6 +107,7 @@ public class ParkingChargesDatabase {
                 .buildClient();
 
         ListEntitiesOptions options=new ListEntitiesOptions().setFilter(PARTITION_KEY+" eq 'ParkingDetails'");
+
         sum=0;
 
         tableClient.listEntities(options,null,null).forEach(tableEntity -> {
