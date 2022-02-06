@@ -179,11 +179,7 @@ public class HomeFragment extends Fragment {
         return binding.getRoot();
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        task.cancel(true);
-    }
+
 
     @Override
     public void onResume() {
@@ -206,7 +202,7 @@ public class HomeFragment extends Fragment {
 
             return response;
         } catch (Exception e) {
-            Log.e("MY_LOG_TAG", "I got an error", e);
+            Log.e("MY_LOG_TAG", e.getMessage(), e);
         }
         return null;
     }

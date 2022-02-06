@@ -44,10 +44,6 @@ public class FeedbackForm extends AppCompatActivity {
         t_email = findViewById(R.id.edt_email);
         t_description = findViewById(R.id.itemdescription);
 
-
-
-
-
         ArrayAdapter<String> genderadapter = new ArrayAdapter<String>(this,R.layout.bus_selector_item,getResources().getStringArray(R.array.Gender));
         AutoCompleteTextView actv_gender = findViewById(R.id.actv_gender);
         actv_gender.setAdapter(genderadapter);

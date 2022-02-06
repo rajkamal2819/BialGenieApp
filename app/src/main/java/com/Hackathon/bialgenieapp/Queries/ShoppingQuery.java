@@ -71,8 +71,8 @@ public class ShoppingQuery {
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
 
-            urlConnection.setReadTimeout(10000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
+            urlConnection.setReadTimeout(25000 /* milliseconds */);
+            urlConnection.setConnectTimeout(30000 /* milliseconds */);
             urlConnection.setDoInput(true);
 
             urlConnection.connect();
