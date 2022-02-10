@@ -55,7 +55,7 @@ public class FlightStopsAdapter extends RecyclerView.Adapter<FlightStopsAdapter.
                 String day = date.substring(8, 10);
                 String dt = year + "/" + month + "/" + day;
 
-                linkStart += dt + "?appId=d5828495&appKey=694ea86653f38f22a40aca0d6f941543&utc=false";
+                linkStart += dt + "?appId=bb42e12a&appKey=c4c20e505e572662f461bc4f2bdada53&utc=false";
                 i.putExtra("linkFlight", linkStart);
                 Log.i("FlightStopAdapter",linkStart);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
