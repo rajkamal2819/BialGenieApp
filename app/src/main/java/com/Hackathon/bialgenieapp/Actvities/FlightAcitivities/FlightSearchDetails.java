@@ -24,7 +24,7 @@ public class FlightSearchDetails extends AppCompatActivity {
     ActivityFlightSearchDetailsBinding binding;
     private String JsonResponseLink = "";
     private String jsonStart = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/";
-    private String jsonEnd = "?appId=d5828495&appKey=694ea86653f38f22a40aca0d6f941543&utc=false";
+    private String jsonEnd = "?appId=bb42e12a&appKey=c4c20e505e572662f461bc4f2bdada53&utc=false";
     //         JL/754/dep/2021/12/18
 
     @Override
