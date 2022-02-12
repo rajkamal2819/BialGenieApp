@@ -38,12 +38,12 @@ public class ExploreAirport_Photos extends Fragment {
 
         String linkStart = "https://bialtable.blob.core.windows.net/exploreairportimages/";
         for (int i = 0;i<5;i++){
-            cafeList.add(linkStart+"cafe"+(i+1)+".png");
-            csrList.add(linkStart+"csr"+(i+1)+".png");
-            terminalList.add(linkStart+"terminal"+(i+1)+".png");
-            loungeList.add(linkStart+"lounge"+(i+1)+".png");
+            cafeList.add(linkStart+"cafe"+(i+1)+".jpg");
+            csrList.add(linkStart+"csr"+(i+1)+".jpg");
+            terminalList.add(linkStart+"terminal"+(i+1)+".jpg");
+            loungeList.add(linkStart+"lounge"+(i+1)+".jpg");
         }
-        loungeList.add(linkStart+"lounge"+6+".png");
+        loungeList.add(linkStart+"lounge"+6+".jpg");
 
         updateUi();
 
